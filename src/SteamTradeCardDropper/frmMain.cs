@@ -858,6 +858,13 @@ namespace SteamTradeCardDropper
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            try
+            {
+                var ver = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                lblSidebarVersion.Text = string.Format("v{0}.{1}.{2}", ver.Major, ver.Minor, ver.Build);
+            }
+            catch { }
+
             // Update the settings, if needed.  When the application updates, settings will persist.
             if (Settings.Default.updateNeeded)
             {
