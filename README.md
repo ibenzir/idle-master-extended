@@ -156,7 +156,6 @@ The compiled binaries and all dependencies will be output to:
 
 - **Current Maintainer**: **Benzir Ahammed Shawon**
 - **Personal Website / Portfolio**: [https://ibenzir.me](https://ibenzir.me)
-- **Email**: `benzir1116@gmail.com`
 
 ---
 
