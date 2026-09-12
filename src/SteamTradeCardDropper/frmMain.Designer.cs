@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     partial class frmMain
     {
@@ -150,7 +150,7 @@ namespace IdleMasterExtended
             this.lblSidebarBrand.Name = "lblSidebarBrand";
             this.lblSidebarBrand.Size = new System.Drawing.Size(81, 17);
             this.lblSidebarBrand.TabIndex = 1;
-            this.lblSidebarBrand.Text = "Idle Master";
+            this.lblSidebarBrand.Text = "Card Dropper";
             // 
             // lblSidebarVersion
             // 
@@ -161,7 +161,7 @@ namespace IdleMasterExtended
             this.lblSidebarVersion.Name = "lblSidebarVersion";
             this.lblSidebarVersion.Size = new System.Drawing.Size(77, 12);
             this.lblSidebarVersion.TabIndex = 2;
-            this.lblSidebarVersion.Text = "Extended v1.11.0";
+            this.lblSidebarVersion.Text = "v1.11.0";
             // 
             // pnlNavDivider
             // 
@@ -314,7 +314,7 @@ namespace IdleMasterExtended
             this.lblCookieStatus.Name = "lblCookieStatus";
             this.lblCookieStatus.Size = new System.Drawing.Size(186, 13);
             this.lblCookieStatus.TabIndex = 0;
-            this.lblCookieStatus.Text = "Idle Master is not connected to Steam";
+            this.lblCookieStatus.Text = "Steam Trade Card Dropper is not connected to Steam";
             // 
             // tmrCheckCookieData
             // 
@@ -445,7 +445,7 @@ namespace IdleMasterExtended
             // 
             // settingsToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.Image = global::IdleMasterExtended.Properties.Resources.imgSettings;
+            this.settingsToolStripMenuItem.Image = global::SteamTradeCardDropper.Properties.Resources.imgSettings;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.settingsToolStripMenuItem.Text = "&Settings";
@@ -453,7 +453,7 @@ namespace IdleMasterExtended
             // 
             // blacklistToolStripMenuItem
             // 
-            this.blacklistToolStripMenuItem.Image = global::IdleMasterExtended.Properties.Resources.imgBlacklist;
+            this.blacklistToolStripMenuItem.Image = global::SteamTradeCardDropper.Properties.Resources.imgBlacklist;
             this.blacklistToolStripMenuItem.Name = "blacklistToolStripMenuItem";
             this.blacklistToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.blacklistToolStripMenuItem.Text = "&Blacklist";
@@ -461,7 +461,7 @@ namespace IdleMasterExtended
             // 
             // whitelistToolStripMenuItem
             // 
-            this.whitelistToolStripMenuItem.Image = global::IdleMasterExtended.Properties.Resources.imgTrue;
+            this.whitelistToolStripMenuItem.Image = global::SteamTradeCardDropper.Properties.Resources.imgTrue;
             this.whitelistToolStripMenuItem.Name = "whitelistToolStripMenuItem";
             this.whitelistToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.whitelistToolStripMenuItem.Text = "Whitelist";
@@ -474,7 +474,7 @@ namespace IdleMasterExtended
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Image = global::IdleMasterExtended.Properties.Resources.imgExit;
+            this.exitToolStripMenuItem.Image = global::SteamTradeCardDropper.Properties.Resources.imgExit;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
@@ -524,7 +524,7 @@ namespace IdleMasterExtended
             // 
             // blacklistCurrentGameToolStripMenuItem
             // 
-            this.blacklistCurrentGameToolStripMenuItem.Image = global::IdleMasterExtended.Properties.Resources.imgBlacklist;
+            this.blacklistCurrentGameToolStripMenuItem.Image = global::SteamTradeCardDropper.Properties.Resources.imgBlacklist;
             this.blacklistCurrentGameToolStripMenuItem.Name = "blacklistCurrentGameToolStripMenuItem";
             this.blacklistCurrentGameToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.blacklistCurrentGameToolStripMenuItem.Text = "&Blacklist Current Game";
@@ -544,7 +544,7 @@ namespace IdleMasterExtended
             // 
             // wikiToolStripMenuItem
             // 
-            this.wikiToolStripMenuItem.Image = global::IdleMasterExtended.Properties.Resources.imgInfo;
+            this.wikiToolStripMenuItem.Image = global::SteamTradeCardDropper.Properties.Resources.imgInfo;
             this.wikiToolStripMenuItem.Name = "wikiToolStripMenuItem";
             this.wikiToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.wikiToolStripMenuItem.Text = "&Wiki Page";
@@ -552,7 +552,7 @@ namespace IdleMasterExtended
             // 
             // changelogToolStripMenuItem
             // 
-            this.changelogToolStripMenuItem.Image = global::IdleMasterExtended.Properties.Resources.imgDocument;
+            this.changelogToolStripMenuItem.Image = global::SteamTradeCardDropper.Properties.Resources.imgDocument;
             this.changelogToolStripMenuItem.Name = "changelogToolStripMenuItem";
             this.changelogToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.changelogToolStripMenuItem.Text = "&Release Notes";
@@ -560,7 +560,7 @@ namespace IdleMasterExtended
             // 
             // statisticsToolStripMenuItem
             // 
-            this.statisticsToolStripMenuItem.Image = global::IdleMasterExtended.Properties.Resources.imgStatistics;
+            this.statisticsToolStripMenuItem.Image = global::SteamTradeCardDropper.Properties.Resources.imgStatistics;
             this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
             this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.statisticsToolStripMenuItem.Text = "&Statistics";
@@ -628,12 +628,12 @@ namespace IdleMasterExtended
             // notifyIcon1
             // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Idle Master Extended";
+            this.notifyIcon1.Text = "Steam Trade Card Dropper";
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // picReadingPage
             // 
-            this.picReadingPage.Image = global::IdleMasterExtended.Properties.Resources.imgSpin;
+            this.picReadingPage.Image = global::SteamTradeCardDropper.Properties.Resources.imgSpin;
             this.picReadingPage.Location = new System.Drawing.Point(160, 70);
             this.picReadingPage.Name = "picReadingPage";
             this.picReadingPage.Size = new System.Drawing.Size(15, 16);
@@ -643,7 +643,7 @@ namespace IdleMasterExtended
             // 
             // btnSkip
             // 
-            this.btnSkip.Image = global::IdleMasterExtended.Properties.Resources.imgSkipSmall;
+            this.btnSkip.Image = global::SteamTradeCardDropper.Properties.Resources.imgSkipSmall;
             this.btnSkip.Location = new System.Drawing.Point(419, 115);
             this.btnSkip.Name = "btnSkip";
             this.btnSkip.Size = new System.Drawing.Size(15, 16);
@@ -690,7 +690,7 @@ namespace IdleMasterExtended
             // 
             // btnPause
             // 
-            this.btnPause.Image = global::IdleMasterExtended.Properties.Resources.imgPauseSmall;
+            this.btnPause.Image = global::SteamTradeCardDropper.Properties.Resources.imgPauseSmall;
             this.btnPause.Location = new System.Drawing.Point(404, 115);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(15, 16);
@@ -700,7 +700,7 @@ namespace IdleMasterExtended
             // 
             // btnResume
             // 
-            this.btnResume.Image = global::IdleMasterExtended.Properties.Resources.imgPlaySmall;
+            this.btnResume.Image = global::SteamTradeCardDropper.Properties.Resources.imgPlaySmall;
             this.btnResume.Location = new System.Drawing.Point(404, 115);
             this.btnResume.Name = "btnResume";
             this.btnResume.Size = new System.Drawing.Size(15, 16);
@@ -817,7 +817,7 @@ namespace IdleMasterExtended
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Idle Master Extended";
+            this.Text = "Steam Trade Card Dropper";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClose);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Resize += new System.EventHandler(this.frmMain_Resize);

@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IdleMasterExtended.Properties;
+using SteamTradeCardDropper.Properties;
 using Steamworks;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 using System.Globalization;
@@ -19,7 +19,7 @@ using System.Security.Principal;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     public partial class frmMain : Form
     {
@@ -704,7 +704,7 @@ namespace IdleMasterExtended
 
         private static void StartShutdownProcess()
         {
-            CreateShutdownProcess("/s /c \"Idle Master Extended is about to shutdown Windows.\" /t 300");
+            CreateShutdownProcess("/s /c \"Steam Trade Card Dropper is about to shutdown Windows.\" /t 300");
         }
 
         private void CopyResource(string resourceName, string file)
@@ -726,10 +726,10 @@ namespace IdleMasterExtended
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             WebClient webClient = new WebClient();
-            webClient.Headers.Add("user-agent", "Idle Master Extended application");
+            webClient.Headers.Add("user-agent", "Steam Trade Card Dropper application");
             webClient.Encoding = Encoding.UTF8;
 
-            string jsonResponse = webClient.DownloadString("https://api.github.com/repos/ibenzir/idle-master-extended/releases/latest");
+            string jsonResponse = webClient.DownloadString("https://api.github.com/repos/ibenzir/steam-trade-card-dropper/releases/latest");
             string githubReleaseTagKey = "tag_name";
 
             if (jsonResponse.Contains(githubReleaseTagKey))
@@ -1146,7 +1146,7 @@ namespace IdleMasterExtended
         }
         private void changelogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/ibenzir/idle-master-extended/releases");
+            Process.Start("https://github.com/ibenzir/steam-trade-card-dropper/releases");
         }
 
         private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1157,7 +1157,7 @@ namespace IdleMasterExtended
 
         private void wikiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/ibenzir/idle-master-extended#readme");
+            Process.Start("https://github.com/ibenzir/steam-trade-card-dropper#readme");
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1230,7 +1230,7 @@ namespace IdleMasterExtended
 
         private void lblCurrentStatus_LinkClicked(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/ibenzir/idle-master-extended#readme");
+            Process.Start("https://github.com/ibenzir/steam-trade-card-dropper#readme");
         }
 
         private void lblCurrentRemaining_Click(object sender, EventArgs e)
@@ -1254,7 +1254,7 @@ namespace IdleMasterExtended
 
         private void lnkLatestRelease_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/ibenzir/idle-master-extended/releases");
+            Process.Start("https://github.com/ibenzir/steam-trade-card-dropper/releases");
         }
         #endregion
 
