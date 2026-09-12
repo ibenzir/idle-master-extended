@@ -9,7 +9,8 @@
     <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Website-ibenzir.me-informational.svg?style=flat-square" alt="Website"></a>
     <a href="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml"><img src="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
     <img src="https://img.shields.io/badge/.NET_Framework-v4.8-512BD4.svg?style=flat-square" alt=".NET Framework 4.8">
-    <img src="https://img.shields.io/badge/Platform-Windows-0078D6.svg?style=flat-square" alt="Platform: Windows">
+    <a href="https://github.com/ibenzir/idle-master-extended/releases/latest"><img src="https://img.shields.io/github/v/release/ibenzir/idle-master-extended?style=flat-square&color=blue" alt="Latest Release"></a>
+    <a href="https://github.com/ibenzir/idle-master-extended/releases/latest"><img src="https://img.shields.io/badge/Download-.EXE_Package-success?style=flat-square&logo=windows" alt="Download .EXE Package"></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--2.0-green.svg?style=flat-square" alt="License: GPL-2.0"></a>
   </p>
 </p>
