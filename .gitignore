@@ -50,6 +50,7 @@ ipch/
 
 # Click-Once directory
 publish
+dist/
 
 # Others
 [Bb]in
