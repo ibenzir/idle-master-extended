@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Idle Master Extended")]
-[assembly: AssemblyDescription("Steam Trading Card Idler - BENZIR (https://ibenzir.me)")]
+[assembly: AssemblyDescription("Steam Trading Card Idler - benzir (https://ibenzir.me)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("BENZIR")]
+[assembly: AssemblyCompany("benzir")]
 [assembly: AssemblyProduct("Idle Master Extended")]
-[assembly: AssemblyCopyright("Copyright © BENZIR")]
+[assembly: AssemblyCopyright("Copyright © benzir")]
 [assembly: AssemblyTrademark("GNU General Public License v2.0")]
 [assembly: AssemblyCulture("")]
 
