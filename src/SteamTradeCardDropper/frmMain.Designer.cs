@@ -684,9 +684,9 @@ namespace SteamTradeCardDropper
             // 
             // picEmptyIcon
             // 
-            this.picEmptyIcon.Location = new System.Drawing.Point(171, 26);
+            this.picEmptyIcon.Location = new System.Drawing.Point(170, 20);
             this.picEmptyIcon.Name = "picEmptyIcon";
-            this.picEmptyIcon.Size = new System.Drawing.Size(44, 44);
+            this.picEmptyIcon.Size = new System.Drawing.Size(46, 46);
             this.picEmptyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picEmptyIcon.TabIndex = 0;
             this.picEmptyIcon.TabStop = false;
@@ -694,10 +694,10 @@ namespace SteamTradeCardDropper
             // 
             // lblEmptyTitle
             // 
-            this.lblEmptyTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmptyTitle.Location = new System.Drawing.Point(14, 78);
+            this.lblEmptyTitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmptyTitle.Location = new System.Drawing.Point(14, 74);
             this.lblEmptyTitle.Name = "lblEmptyTitle";
-            this.lblEmptyTitle.Size = new System.Drawing.Size(358, 24);
+            this.lblEmptyTitle.Size = new System.Drawing.Size(358, 44);
             this.lblEmptyTitle.TabIndex = 1;
             this.lblEmptyTitle.Text = "Steam Trade Card Dropper";
             this.lblEmptyTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -706,9 +706,9 @@ namespace SteamTradeCardDropper
             // 
             this.lblEmptySubtitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmptySubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblEmptySubtitle.Location = new System.Drawing.Point(20, 104);
+            this.lblEmptySubtitle.Location = new System.Drawing.Point(14, 120);
             this.lblEmptySubtitle.Name = "lblEmptySubtitle";
-            this.lblEmptySubtitle.Size = new System.Drawing.Size(346, 42);
+            this.lblEmptySubtitle.Size = new System.Drawing.Size(358, 36);
             this.lblEmptySubtitle.TabIndex = 2;
             this.lblEmptySubtitle.Text = "Please launch Steam or sign in to start gathering card drops.";
             this.lblEmptySubtitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
