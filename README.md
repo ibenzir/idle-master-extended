@@ -5,7 +5,7 @@
     <strong>Fast, automated Steam Trading Card drops — without downloading or launching games.</strong>
   </p>
   <p align="center">
-    <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Maintainer-benzir-blue.svg?style=flat-square" alt="Maintainer"></a>
+    <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Author-benzir-blue.svg?style=flat-square" alt="Author"></a>
     <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Website-ibenzir.me-informational.svg?style=flat-square" alt="Website"></a>
     <a href="https://github.com/ibenzir/steam-trade-card-dropper/actions/workflows/build.yml"><img src="https://github.com/ibenzir/steam-trade-card-dropper/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
     <img src="https://img.shields.io/badge/.NET_Framework-v4.8-512BD4.svg?style=flat-square" alt=".NET Framework 4.8">
@@ -19,26 +19,27 @@
 
 ## 📌 About This Project
 
-**Steam Trade Card Dropper** is a lightweight Windows utility that automates the collection of [Steam Trading Cards](https://steamcommunity.com/tradingcards/).
+**Steam Trade Card Dropper** is a high-performance Windows desktop application engineered to streamline and automate the collection of [Steam Trading Cards](https://steamcommunity.com/tradingcards/).
 
-Instead of downloading gigabytes of game assets and running resource-heavy game executables, Steam Trade Card Dropper communicates directly with the running Steam client via the `Steamworks API` to simulate playing games with remaining card drops.
+Instead of downloading gigabytes of game assets or consuming computer hardware resources by launching games, Steam Trade Card Dropper communicates directly and securely with your running local Steam desktop client via the official `Steamworks API`. By simulating active playtime in a lightweight, sandboxed background worker, the software effortlessly unlocks eligible card drops in the background while keeping resource usage close to zero.
 
-This repository is an actively maintained project curated by **[benzir](https://ibenzir.me)**, featuring modernized build toolchains, compiler compatibility enhancements, and improved documentation.
+Developed and actively maintained by **[benzir](https://ibenzir.me)**, the project features a modern responsive UI, system-adaptive theming, robust cookie authentication, comprehensive badge scraping, and streamlined build pipelines.
 
 ---
 
-## ✨ Features
+## ✨ Features & Capabilities
 
-- ⚡ **Zero Installation Idling**: Simulates game execution seamlessly through an integrated background worker without needing game files installed.
-- 🎯 **Smart Badge Detection**: Automatically parses your Steam badge page to identify which games have card drops remaining.
-- 🔄 **Multiple Idling Strategies**:
+- ⚡ **Zero Installation Idling**: Simulates game presence through an isolated background worker without requiring game files, downloads, or disk space.
+- 🎯 **Smart Badge Detection**: Automatically parses your Steam Community badge progress to accurately identify games with remaining card drops.
+- 🔄 **Adaptive Idling Modes**:
   - **Sequential (One-by-One)**: Idles one game until all drops are exhausted before moving to the next.
   - **Simultaneous (Fast Mode)**: Idles games simultaneously up to the 2-hour threshold to unlock initial card drops rapidly.
-  - **Prioritized**: Sort by highest number of remaining drops, card value, or badge status.
+  - **Prioritized Queuing**: Sort by remaining drops, card market value, or game library order.
+- 🎨 **System-Adaptive Dynamic Theming**: Automatically detects and inherits the Windows operating system color mode (Dark or Light theme) across the main dashboard, Settings, Whitelist, Blacklist, Statistics, About, and Authentication popups.
 - 🛡️ **Whitelist & Blacklist Controls**: Protect games you prefer not to idle (e.g., VAC-secured titles or games where you track strict playtime).
-- 🌙 **Modern Custom Theming**: Support for dark mode, custom color schemes, and high-contrast icons.
+- 🔐 **Privacy-Preserving Local Operation**: Operates 100% locally with direct HTTPS requests to official Steam servers; zero telemetry and zero external server dependencies.
 - 💤 **Power Management**: Prevents system sleep during active idling and can optionally shut down Windows when all card drops finish.
-- 🌐 **Multilingual Support**: Fully localized with support for over 24 languages.
+- 🌐 **Multilingual Support**: Fully localized with support for over 24 global languages.
 
 ---
 
@@ -172,7 +173,7 @@ The compiled binary and all dependencies will be output to:
 
 ---
 
-## 👤 Maintainer & Credentials
+## 👤 Author & Developer
 
 - **Developer**: **Benzir Ahammed Shawon**
 - **Personal Website / Portfolio**: [https://ibenzir.me](https://ibenzir.me)

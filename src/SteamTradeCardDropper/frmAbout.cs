@@ -39,23 +39,16 @@ namespace SteamTradeCardDropper
 
             SetVersion();
 
-            var settings = Settings.Default;
-            if (settings.customTheme)
-            {
-                this.BackColor = settings.colorBgd;
-                this.ForeColor = settings.colorTxt;
+            this.BackColor = ThemeManager.WindowBg;
+            this.ForeColor = ThemeManager.TextPrimary;
 
-                lblSubtitle.ForeColor = Color.DarkGray;
-                lblLicense.ForeColor = Color.Gray;
+            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
+            linkLabelVersion.LinkColor = ThemeManager.LinkColor;
+            lblMaintainer.ForeColor = ThemeManager.TextPrimary;
+            lnkWebsite.LinkColor = ThemeManager.LinkColor;
+            lblLicense.ForeColor = ThemeManager.TextMuted;
 
-                btnOK.FlatStyle = FlatStyle.Flat;
-                btnOK.BackColor = settings.colorBgd;
-                btnOK.ForeColor = settings.colorTxt;
-
-                linkLabelVersion.LinkColor = settings.colorTxt;
-                lnkWebsite.LinkColor = settings.colorTxt;
-                pnlDivider.BackColor = Color.FromArgb(60, 60, 60);
-            }
+            ThemeManager.StylePrimaryButton(btnOK);
         }
 
         private void SetVersion()

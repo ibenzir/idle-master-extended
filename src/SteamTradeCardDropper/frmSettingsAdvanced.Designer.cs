@@ -1,6 +1,3 @@
-using System.ComponentModel;
-using System.Windows.Forms;
-
 namespace SteamTradeCardDropper
 {
     partial class frmSettingsAdvanced
@@ -8,7 +5,7 @@ namespace SteamTradeCardDropper
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private IContainer components = null;
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -32,99 +29,175 @@ namespace SteamTradeCardDropper
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSettingsAdvanced));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.picIcon = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblSubtitle = new System.Windows.Forms.Label();
+            this.pnlDivider = new System.Windows.Forms.Panel();
+            this.lblSessionID = new System.Windows.Forms.Label();
             this.txtSessionID = new System.Windows.Forms.TextBox();
+            this.lblSteamLoginSecure = new System.Windows.Forms.Label();
             this.txtSteamLoginSecure = new System.Windows.Forms.TextBox();
+            this.lblSteamParental = new System.Windows.Forms.Label();
             this.txtSteamParental = new System.Windows.Forms.TextBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
-            this.ttHelp = new System.Windows.Forms.ToolTip(this.components);
             this.linkLabelWhatIsThis = new System.Windows.Forms.LinkLabel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.ttHelp = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // picIcon
             // 
-            this.label1.Location = new System.Drawing.Point(19, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "sessionid:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.picIcon.Location = new System.Drawing.Point(20, 16);
+            this.picIcon.Name = "picIcon";
+            this.picIcon.Size = new System.Drawing.Size(42, 42);
+            this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picIcon.TabIndex = 0;
+            this.picIcon.TabStop = false;
             // 
-            // label2
+            // lblTitle
             // 
-            this.label2.Location = new System.Drawing.Point(13, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "steamLoginSecure:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(72, 14);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(215, 21);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Steam Authentication Data";
             // 
-            // label3
+            // lblSubtitle
             // 
-            this.label3.Location = new System.Drawing.Point(16, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 32);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "steamparental / steamMachineAuth:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.ttHelp.SetToolTip(this.label3, "Check your browser to see if you have one of these cookies available. They are ty" +
-        "pically not required.");
+            this.lblSubtitle.AutoSize = true;
+            this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtitle.Location = new System.Drawing.Point(74, 38);
+            this.lblSubtitle.Name = "lblSubtitle";
+            this.lblSubtitle.Size = new System.Drawing.Size(342, 15);
+            this.lblSubtitle.TabIndex = 2;
+            this.lblSubtitle.Text = "Provide your personal Steam session cookies to synchronize badges.";
+            // 
+            // pnlDivider
+            // 
+            this.pnlDivider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlDivider.Location = new System.Drawing.Point(20, 68);
+            this.pnlDivider.Name = "pnlDivider";
+            this.pnlDivider.Size = new System.Drawing.Size(490, 1);
+            this.pnlDivider.TabIndex = 3;
+            // 
+            // lblSessionID
+            // 
+            this.lblSessionID.AutoSize = true;
+            this.lblSessionID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSessionID.Location = new System.Drawing.Point(20, 82);
+            this.lblSessionID.Name = "lblSessionID";
+            this.lblSessionID.Size = new System.Drawing.Size(126, 15);
+            this.lblSessionID.TabIndex = 4;
+            this.lblSessionID.Text = "Session ID (sessionid):";
             // 
             // txtSessionID
             // 
-            this.txtSessionID.Location = new System.Drawing.Point(123, 34);
+            this.txtSessionID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSessionID.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSessionID.Location = new System.Drawing.Point(20, 102);
             this.txtSessionID.Name = "txtSessionID";
             this.txtSessionID.PasswordChar = '*';
-            this.txtSessionID.Size = new System.Drawing.Size(280, 20);
-            this.txtSessionID.TabIndex = 3;
+            this.txtSessionID.Size = new System.Drawing.Size(490, 24);
+            this.txtSessionID.TabIndex = 5;
             this.txtSessionID.TextChanged += new System.EventHandler(this.txtSessionID_TextChanged);
+            // 
+            // lblSteamLoginSecure
+            // 
+            this.lblSteamLoginSecure.AutoSize = true;
+            this.lblSteamLoginSecure.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSteamLoginSecure.Location = new System.Drawing.Point(20, 138);
+            this.lblSteamLoginSecure.Name = "lblSteamLoginSecure";
+            this.lblSteamLoginSecure.Size = new System.Drawing.Size(201, 15);
+            this.lblSteamLoginSecure.TabIndex = 6;
+            this.lblSteamLoginSecure.Text = "Steam Login Secure (steamLoginSecure):";
             // 
             // txtSteamLoginSecure
             // 
-            this.txtSteamLoginSecure.Location = new System.Drawing.Point(123, 60);
+            this.txtSteamLoginSecure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSteamLoginSecure.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSteamLoginSecure.Location = new System.Drawing.Point(20, 158);
             this.txtSteamLoginSecure.Name = "txtSteamLoginSecure";
             this.txtSteamLoginSecure.PasswordChar = '*';
-            this.txtSteamLoginSecure.Size = new System.Drawing.Size(280, 20);
-            this.txtSteamLoginSecure.TabIndex = 4;
+            this.txtSteamLoginSecure.Size = new System.Drawing.Size(490, 24);
+            this.txtSteamLoginSecure.TabIndex = 7;
             this.txtSteamLoginSecure.TextChanged += new System.EventHandler(this.txtSteamLogin_TextChanged);
+            // 
+            // lblSteamParental
+            // 
+            this.lblSteamParental.AutoSize = true;
+            this.lblSteamParental.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSteamParental.Location = new System.Drawing.Point(20, 194);
+            this.lblSteamParental.Name = "lblSteamParental";
+            this.lblSteamParental.Size = new System.Drawing.Size(273, 15);
+            this.lblSteamParental.TabIndex = 8;
+            this.lblSteamParental.Text = "Steam Parental / Machine Auth (steamparental):";
             // 
             // txtSteamParental
             // 
-            this.txtSteamParental.Location = new System.Drawing.Point(123, 86);
+            this.txtSteamParental.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSteamParental.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSteamParental.Location = new System.Drawing.Point(20, 214);
             this.txtSteamParental.Name = "txtSteamParental";
             this.txtSteamParental.PasswordChar = '*';
-            this.txtSteamParental.Size = new System.Drawing.Size(280, 20);
-            this.txtSteamParental.TabIndex = 5;
+            this.txtSteamParental.Size = new System.Drawing.Size(490, 24);
+            this.txtSteamParental.TabIndex = 9;
             this.txtSteamParental.TextChanged += new System.EventHandler(this.txtSteamParental_TextChanged);
+            // 
+            // btnView
+            // 
+            this.btnView.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Location = new System.Drawing.Point(20, 252);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(120, 28);
+            this.btnView.TabIndex = 10;
+            this.btnView.Text = "Show Cookies";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // linkLabelWhatIsThis
+            // 
+            this.linkLabelWhatIsThis.AutoSize = true;
+            this.linkLabelWhatIsThis.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelWhatIsThis.Location = new System.Drawing.Point(150, 259);
+            this.linkLabelWhatIsThis.Name = "linkLabelWhatIsThis";
+            this.linkLabelWhatIsThis.Size = new System.Drawing.Size(157, 15);
+            this.linkLabelWhatIsThis.TabIndex = 11;
+            this.linkLabelWhatIsThis.TabStop = true;
+            this.linkLabelWhatIsThis.Text = "How to find session cookies?";
+            this.linkLabelWhatIsThis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelWhatIsThis_LinkClicked);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(270, 300);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 32);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdate.Location = new System.Drawing.Point(328, 113);
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(380, 300);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "&Update";
+            this.btnUpdate.Size = new System.Drawing.Size(130, 32);
+            this.btnUpdate.TabIndex = 13;
+            this.btnUpdate.Text = "&Save && Validate";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnView
-            // 
-            this.btnView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnView.Image = global::SteamTradeCardDropper.Properties.Resources.imgView;
-            this.btnView.Location = new System.Drawing.Point(123, 113);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(27, 23);
-            this.btnView.TabIndex = 6;
-            this.ttHelp.SetToolTip(this.btnView, "Display information above\r\n\r\n[WARNING] \r\nDo not share this information with anyon" +
-        "e, \r\nas it could potentially be used by an attacker to log into \r\nyour Steam acc" +
-        "ount.");
-            this.btnView.UseVisualStyleBackColor = true;
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // ttHelp
             // 
@@ -132,55 +205,57 @@ namespace SteamTradeCardDropper
             this.ttHelp.InitialDelay = 500;
             this.ttHelp.ReshowDelay = 100;
             // 
-            // linkLabelWhatIsThis
-            // 
-            this.linkLabelWhatIsThis.AutoSize = true;
-            this.linkLabelWhatIsThis.Location = new System.Drawing.Point(290, 9);
-            this.linkLabelWhatIsThis.Name = "linkLabelWhatIsThis";
-            this.linkLabelWhatIsThis.Size = new System.Drawing.Size(113, 13);
-            this.linkLabelWhatIsThis.TabIndex = 8;
-            this.linkLabelWhatIsThis.TabStop = true;
-            this.linkLabelWhatIsThis.Text = "What are these fields?";
-            this.linkLabelWhatIsThis.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelWhatIsThis_LinkClicked);
-            // 
             // frmSettingsAdvanced
             // 
             this.AcceptButton = this.btnUpdate;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.CancelButton = this.btnCancel;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 148);
-            this.Controls.Add(this.linkLabelWhatIsThis);
+            this.ClientSize = new System.Drawing.Size(530, 348);
             this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.linkLabelWhatIsThis);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.txtSteamParental);
+            this.Controls.Add(this.lblSteamParental);
             this.Controls.Add(this.txtSteamLoginSecure);
+            this.Controls.Add(this.lblSteamLoginSecure);
             this.Controls.Add(this.txtSessionID);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Controls.Add(this.lblSessionID);
+            this.Controls.Add(this.pnlDivider);
+            this.Controls.Add(this.lblSubtitle);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.picIcon);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSettingsAdvanced";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Steam Authentication Data";
+            this.Text = "Steam Trade Card Dropper — Authentication Data";
             this.Load += new System.EventHandler(this.frmSettingsAdvanced_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private TextBox txtSessionID;
-        private TextBox txtSteamLoginSecure;
-        private TextBox txtSteamParental;
-        private Button btnView;
-        private Button btnUpdate;
-        private ToolTip ttHelp;
-        private LinkLabel linkLabelWhatIsThis;
+        private System.Windows.Forms.PictureBox picIcon;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblSubtitle;
+        private System.Windows.Forms.Panel pnlDivider;
+        private System.Windows.Forms.Label lblSessionID;
+        private System.Windows.Forms.TextBox txtSessionID;
+        private System.Windows.Forms.Label lblSteamLoginSecure;
+        private System.Windows.Forms.TextBox txtSteamLoginSecure;
+        private System.Windows.Forms.Label lblSteamParental;
+        private System.Windows.Forms.TextBox txtSteamParental;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.LinkLabel linkLabelWhatIsThis;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ToolTip ttHelp;
     }
 }

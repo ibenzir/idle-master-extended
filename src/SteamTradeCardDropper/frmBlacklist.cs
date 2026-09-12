@@ -21,50 +21,39 @@ namespace SteamTradeCardDropper
 
         private void frmBlacklist_Load(object sender, EventArgs e)
         {
-            try { if (Resources.appIcon != null) this.Icon = Resources.appIcon; } catch { }
+            try
+            {
+                if (Resources.appIcon != null) this.Icon = Resources.appIcon;
+                picIcon.Image = ThemeManager.IsDarkTheme ? Resources.imgBlacklist_w : Resources.imgBlacklist;
+            }
+            catch { }
 
             // Localize form
             btnAdd.Text = localization.strings.add;
             btnSave.Text = localization.strings.save;
             this.Text = localization.strings.manage_blacklist;
-            grpAdd.Text = localization.strings.add_game_blacklist;
+            lblTitle.Text = localization.strings.manage_blacklist;
 
             lstBlacklist.Items.AddRange(Settings.Default.blacklist.Cast<string>().ToArray());
 
-            if (Settings.Default.customTheme)
-            {
-                runtimeCustomThemeBlacklist();
-            }
+            applyTheme();
         }
 
-        // Make everything dark to match the dark theme
-        private void runtimeCustomThemeBlacklist()
+        private void applyTheme()
         {
-            System.Drawing.Color colorBgd = Settings.Default.colorBgd; // Dark gray (from Steam)
-            System.Drawing.Color colorTxt = Settings.Default.colorTxt; // Light gray (from Steam)
+            this.BackColor = ThemeManager.WindowBg;
+            this.ForeColor = ThemeManager.TextPrimary;
 
-            // Form
-            this.BackColor = colorBgd;
-            this.ForeColor = colorTxt;
+            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
 
-            // Button
-            btnAdd.FlatStyle = btnSave.FlatStyle = btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnAdd.BackColor = btnSave.BackColor = btnRemove.BackColor = colorBgd;
-            btnAdd.ForeColor = btnSave.ForeColor = btnRemove.ForeColor = colorTxt;
+            lblAppId.ForeColor = ThemeManager.TextPrimary;
+            ThemeManager.StyleInput(txtAppid);
+            ThemeManager.StyleSecondaryButton(btnAdd);
 
-            // List
-            lstBlacklist.BackColor = colorBgd;
-            lstBlacklist.ForeColor = colorTxt;
+            ThemeManager.StyleListBox(lstBlacklist);
 
-            // Group
-            grpAdd.BackColor = colorBgd;
-            grpAdd.ForeColor = colorTxt;
-
-            // Textbox Appid
-            txtAppid.BackColor = colorBgd;
-            txtAppid.ForeColor = colorTxt;
-
-            btnRemove.Image = Settings.Default.whiteIcons ? Resources.imgTrash_w : Resources.imgTrash;
+            ThemeManager.StyleSecondaryButton(btnRemove);
+            ThemeManager.StylePrimaryButton(btnSave);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -87,7 +76,10 @@ namespace SteamTradeCardDropper
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            lstBlacklist.Items.Remove(lstBlacklist.SelectedItem);
+            if (lstBlacklist.SelectedItem != null)
+            {
+                lstBlacklist.Items.Remove(lstBlacklist.SelectedItem);
+            }
         }
     }
 }

@@ -71,6 +71,8 @@ namespace SteamTradeCardDropper
             Settings.Default.ShutdownWindowsOnDone = chkShutdown.Checked;
             Settings.Default.IdleOnlyPlayed = chkIdleOnlyPlayed.Checked;
 
+            Settings.Default.customTheme = ThemeManager.IsDarkTheme;
+            Settings.Default.whiteIcons = ThemeManager.IsDarkTheme;
             Settings.Default.Save();
 
             Close();
@@ -78,7 +80,12 @@ namespace SteamTradeCardDropper
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
-            try { if (Resources.appIcon != null) this.Icon = Resources.appIcon; } catch { }
+            try
+            {
+                if (Resources.appIcon != null) this.Icon = Resources.appIcon;
+                picIcon.Image = ThemeManager.IsDarkTheme ? Resources.imgSettings_w : Resources.imgSettings;
+            }
+            catch { }
 
             if (Settings.Default.language != "")
             {
@@ -113,6 +120,7 @@ namespace SteamTradeCardDropper
 
             // Load translation
             this.Text = localization.strings.idle_master_settings;
+            lblTitle.Text = localization.strings.idle_master_settings;
             grpGeneral.Text = localization.strings.general;
             grpIdlingQuantity.Text = localization.strings.idling_behavior;
             grpPriority.Text = localization.strings.idling_order;
@@ -190,75 +198,56 @@ namespace SteamTradeCardDropper
             runtimeCustomThemeSettings();
         }
 
-
         private void runtimeCustomThemeSettings()
         {
-            // Read settings
-            var customTheme = Settings.Default.customTheme;
-            var whiteIcons = Settings.Default.whiteIcons;
+            this.BackColor = ThemeManager.WindowBg;
+            this.ForeColor = ThemeManager.TextPrimary;
 
-            // Set checkboxes (Not necessary, as the checkboxes are bound to the global setting)
-            //darkThemeCheckBox.Checked = customTheme;
-            //whiteIconsCheckBox.Checked = whiteIcons;
+            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
 
-            if (customTheme)
-            {
-                // Custom theme colors (could be user selected, probably)
-                Settings.Default.colorBgd = Color.FromArgb(38, 38, 38);
-                Settings.Default.colorTxt = Color.FromArgb(196, 196, 196);
-            }
+            grpGeneral.ForeColor = ThemeManager.TextPrimary;
+            grpIdlingQuantity.ForeColor = ThemeManager.TextPrimary;
+            grpPriority.ForeColor = ThemeManager.TextPrimary;
 
-            // Define colors
-            Color colorBgd = customTheme ? Settings.Default.colorBgd : Settings.Default.colorBgdOriginal;
-            Color colorTxt = customTheme ? Settings.Default.colorTxt : Settings.Default.colorTxtOriginal;
+            chkMinToTray.ForeColor = ThemeManager.TextPrimary;
+            chkIgnoreClientStatus.ForeColor = ThemeManager.TextPrimary;
+            chkShowUsername.ForeColor = ThemeManager.TextPrimary;
+            chkPreventSleep.ForeColor = ThemeManager.TextPrimary;
+            chkShutdown.ForeColor = ThemeManager.TextPrimary;
+            chkIdleOnlyPlayed.ForeColor = ThemeManager.TextPrimary;
 
-            // Define button style
-            FlatStyle buttonStyle = customTheme ? FlatStyle.Flat : FlatStyle.Standard;
+            radFastMode.ForeColor = ThemeManager.TextPrimary;
+            radWhitelistMode.ForeColor = ThemeManager.TextPrimary;
+            radOneGameOnly.ForeColor = ThemeManager.TextPrimary;
+            radManyThenOne.ForeColor = ThemeManager.TextPrimary;
+            radOneThenMany.ForeColor = ThemeManager.TextPrimary;
 
-            // --------------------------
-            // -- APPLY THEME SETTINGS --
-            // --------------------------
+            radIdleDefault.ForeColor = ThemeManager.TextPrimary;
+            radIdleMostDrops.ForeColor = ThemeManager.TextPrimary;
+            radIdleLeastDrops.ForeColor = ThemeManager.TextPrimary;
 
-            // Form colors
-            this.BackColor = colorBgd;
-            this.ForeColor = colorTxt;
+            lblLanguage.ForeColor = ThemeManager.TextSecondary;
+            cboLanguage.BackColor = ThemeManager.InputBg;
+            cboLanguage.ForeColor = ThemeManager.TextPrimary;
+            cboLanguage.FlatStyle = FlatStyle.Flat;
 
-            // Group title colors
-            grpGeneral.ForeColor = grpIdlingQuantity.ForeColor = grpPriority.ForeColor = colorTxt;
+            linkLabelAppData.LinkColor = ThemeManager.LinkColor;
+            lnkGitHubWiki.LinkColor = ThemeManager.LinkColor;
 
-            // Dropdown
-            cboLanguage.BackColor = colorBgd;
-            cboLanguage.ForeColor = colorTxt;
+            ThemeManager.StyleSecondaryButton(btnAdvanced);
+            btnAdvanced.Image = ThemeManager.IsDarkTheme ? Resources.imgLock_w : Resources.imgLock;
+            btnAdvanced.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAdvanced.TextAlign = ContentAlignment.MiddleRight;
+            btnAdvanced.TextImageRelation = TextImageRelation.ImageBeforeText;
 
-            // Buttons
-            btnOK.FlatStyle = btnCancel.FlatStyle = btnAdvanced.FlatStyle = buttonStyle;
-            btnOK.BackColor = btnCancel.BackColor = btnAdvanced.BackColor = colorBgd;
-            btnOK.ForeColor = btnCancel.ForeColor = btnAdvanced.ForeColor = colorTxt;
-
-            // Link labels
-            linkLabelAppData.LinkColor = lnkGitHubWiki.LinkColor = customTheme ? Color.GhostWhite : Color.Blue;
-
-            // Update the icon(s)
-            runtimeWhiteIconsSettings();
-            Settings.Default.Save();
-        }
-
-        private void runtimeWhiteIconsSettings()
-        {
-            btnAdvanced.Image = Settings.Default.whiteIcons ? Resources.imgLock_w : Resources.imgLock;
+            ThemeManager.StyleSecondaryButton(btnCancel);
+            ThemeManager.StylePrimaryButton(btnOK);
         }
 
         private void btnAdvanced_Click(object sender, EventArgs e)
         {
             var frm = new frmSettingsAdvanced();
             frm.ShowDialog();
-        }
-
-        private void darkThemeCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.Default.customTheme = darkThemeCheckBox.Checked;
-            Settings.Default.whiteIcons = darkThemeCheckBox.Checked;
-            runtimeCustomThemeSettings();
         }
 
         private void chkShutdown_CheckedChanged(object sender, EventArgs e)
@@ -268,18 +257,22 @@ namespace SteamTradeCardDropper
                 if (MessageBox.Show("Are you sure you want Steam Trade Card Dropper to shutdown Windows when idling is done?\n\nNote: This setting will only be active once.",
                                     "Shutdown Windows", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    Settings.Default.ShutdownWindowsOnDone = chkShutdown.Checked;
+                    Settings.Default.ShutdownWindowsOnDone = true;
                 }
                 else
                 {
                     chkShutdown.Checked = false;
                 }
             }
+            else
+            {
+                Settings.Default.ShutdownWindowsOnDone = false;
+            }
         }
 
         private void linkLabelSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("explorer.exe", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\SteamTradeCardDropper");
+            Process.Start("explorer.exe", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\SteamTradeCardDropper");
         }
 
         private void lnkGitHubWiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

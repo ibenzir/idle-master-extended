@@ -34,37 +34,14 @@ namespace SteamTradeCardDropper
 
         private void ApplyTheme()
         {
-            bool isDark = false;
-            try
-            {
-                using (var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"))
-                {
-                    if (key != null)
-                    {
-                        object val = key.GetValue("AppsUseLightTheme");
-                        if (val != null && Convert.ToInt32(val) == 0)
-                        {
-                            isDark = true;
-                        }
-                    }
-                }
-            }
-            catch { }
-
-            if (isDark)
-            {
-                this.BackColor = Color.FromArgb(24, 24, 36);
-                lblHeader.ForeColor = Color.White;
-                lblSubHeader.ForeColor = Color.FromArgb(160, 165, 180);
-                pnlDivider.BackColor = Color.FromArgb(45, 45, 65);
-                txtTerms.BackColor = Color.FromArgb(18, 18, 28);
-                txtTerms.ForeColor = Color.FromArgb(230, 235, 245);
-                btnDecline.BackColor = Color.FromArgb(35, 35, 50);
-                btnDecline.ForeColor = Color.FromArgb(220, 220, 220);
-                btnDecline.FlatAppearance.BorderColor = Color.FromArgb(60, 60, 80);
-                btnAccept.BackColor = Color.FromArgb(59, 130, 246);
-                btnAccept.ForeColor = Color.White;
-            }
+            ThemeManager.ApplyBaseTheme(this);
+            lblHeader.ForeColor = ThemeManager.TextPrimary;
+            lblSubHeader.ForeColor = ThemeManager.TextSecondary;
+            pnlDivider.BackColor = ThemeManager.DividerColor;
+            txtTerms.BackColor = ThemeManager.CardBg;
+            txtTerms.ForeColor = ThemeManager.TextPrimary;
+            ThemeManager.ApplySecondaryButton(btnDecline);
+            ThemeManager.ApplyPrimaryButton(btnAccept);
         }
 
         private void LoadTermsText()

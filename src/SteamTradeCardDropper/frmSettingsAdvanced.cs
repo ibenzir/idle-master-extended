@@ -16,43 +16,44 @@ namespace SteamTradeCardDropper
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            txtSessionID.PasswordChar = '\0';
-            txtSteamLoginSecure.PasswordChar = '\0';
-            txtSteamParental.PasswordChar = '\0';
+            bool isMasked = (txtSessionID.PasswordChar == '*');
+            char newChar = isMasked ? '\0' : '*';
+            txtSessionID.PasswordChar = newChar;
+            txtSteamLoginSecure.PasswordChar = newChar;
+            txtSteamParental.PasswordChar = newChar;
 
             txtSessionID.Enabled = true;
             txtSteamLoginSecure.Enabled = true;
             txtSteamParental.Enabled = true;
 
-            btnView.Visible = false;
+            btnView.Text = isMasked ? "Hide Cookies" : "Show Cookies";
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void frmSettingsAdvanced_Load(object sender, EventArgs e)
         {
-            try { if (Resources.appIcon != null) this.Icon = Resources.appIcon; } catch { }
+            try
+            {
+                if (Resources.appIcon != null)
+                {
+                    this.Icon = Resources.appIcon;
+                }
+                picIcon.Image = ThemeManager.IsDarkTheme ? Resources.imgLock_w : Resources.imgLock;
+            }
+            catch { }
 
             // Localize Form
             btnUpdate.Text = localization.strings.update;
             this.Text = localization.strings.auth_data;
+            lblTitle.Text = localization.strings.auth_data;
             ttHelp.SetToolTip(btnView, localization.strings.cookie_warning);
 
-            // Read settings
-            var customTheme = Settings.Default.customTheme;
-            var whiteIcons = Settings.Default.whiteIcons;
-
-            // Define colors
-            this.BackColor = customTheme ? Settings.Default.colorBgd : Settings.Default.colorBgdOriginal;
-            this.ForeColor = customTheme ? Settings.Default.colorTxt : Settings.Default.colorTxtOriginal;
-
-            // Buttons
-            FlatStyle buttonStyle = customTheme ? FlatStyle.Flat : FlatStyle.Standard;
-            btnView.FlatStyle = btnUpdate.FlatStyle = buttonStyle;
-            btnView.BackColor = btnUpdate.BackColor = this.BackColor;
-            btnView.ForeColor = btnUpdate.ForeColor = this.ForeColor;
-            btnView.Image = customTheme ? Resources.imgView_w : Resources.imgView;
-
-            // Links
-            linkLabelWhatIsThis.LinkColor = customTheme ? Color.GhostWhite : Color.Blue;
+            // Apply theme
+            ApplyTheme();
 
             if (!string.IsNullOrWhiteSpace(Settings.Default.sessionid))
             {
@@ -87,10 +88,32 @@ namespace SteamTradeCardDropper
 
             if (txtSessionID.Enabled && txtSteamLoginSecure.Enabled && txtSteamParental.Enabled)
             {
-                btnView.Visible = false;
+                btnView.Text = "Hide Cookies";
             }
 
             btnUpdate.Enabled = false;
+        }
+
+        private void ApplyTheme()
+        {
+            this.BackColor = ThemeManager.WindowBg;
+            this.ForeColor = ThemeManager.TextPrimary;
+
+            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
+
+            lblSessionID.ForeColor = ThemeManager.TextPrimary;
+            lblSteamLoginSecure.ForeColor = ThemeManager.TextPrimary;
+            lblSteamParental.ForeColor = ThemeManager.TextPrimary;
+
+            ThemeManager.StyleInput(txtSessionID);
+            ThemeManager.StyleInput(txtSteamLoginSecure);
+            ThemeManager.StyleInput(txtSteamParental);
+
+            ThemeManager.StyleSecondaryButton(btnView);
+            ThemeManager.StyleSecondaryButton(btnCancel);
+            ThemeManager.StylePrimaryButton(btnUpdate);
+
+            linkLabelWhatIsThis.LinkColor = ThemeManager.LinkColor;
         }
 
         private void txtSessionID_TextChanged(object sender, EventArgs e)

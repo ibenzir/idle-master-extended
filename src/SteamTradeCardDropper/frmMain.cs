@@ -47,27 +47,7 @@ namespace SteamTradeCardDropper
 
         public bool IsDarkThemeActive
         {
-            get { return Settings.Default.customTheme || IsSystemInDarkMode(); }
-        }
-
-        private static bool IsSystemInDarkMode()
-        {
-            try
-            {
-                using (var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"))
-                {
-                    if (key != null)
-                    {
-                        object val = key.GetValue("AppsUseLightTheme");
-                        if (val != null)
-                        {
-                            return Convert.ToInt32(val) == 0;
-                        }
-                    }
-                }
-            }
-            catch { }
-            return false;
+            get { return ThemeManager.IsDarkTheme; }
         }
 
         private void SetFormHeight(double scaleMultiplier)
@@ -690,9 +670,9 @@ namespace SteamTradeCardDropper
 
             GamesState.Columns[GamesState.Columns.IndexOf(Hours)].Width = Settings.Default.IdlingModeWhitelist ? 0 : 45;
 
-            // JN: Recolor the listview
-            GamesState.BackColor = Settings.Default.customTheme ? Settings.Default.colorBgd : Settings.Default.colorBgdOriginal;
-            GamesState.ForeColor = Settings.Default.customTheme ? Settings.Default.colorTxt : Settings.Default.colorTxtOriginal;
+            // Recolor the listview
+            GamesState.BackColor = IsDarkThemeActive ? Settings.Default.colorBgd : Settings.Default.colorBgdOriginal;
+            GamesState.ForeColor = IsDarkThemeActive ? Settings.Default.colorTxt : Settings.Default.colorTxtOriginal;
         }
         #endregion
 

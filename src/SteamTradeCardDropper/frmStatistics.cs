@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SteamTradeCardDropper
@@ -14,13 +15,22 @@ namespace SteamTradeCardDropper
 
         private void frmStatistics_Load(object sender, EventArgs e)
         {
-            try { if (Properties.Resources.appIcon != null) this.Icon = Properties.Resources.appIcon; } catch { }
+            try
+            {
+                if (Properties.Resources.appIcon != null)
+                {
+                    this.Icon = Properties.Resources.appIcon;
+                }
+                picIcon.Image = ThemeManager.IsDarkTheme ? Properties.Resources.imgStatistics_w : Properties.Resources.imgStatistics;
+            }
+            catch { }
 
             // Localize Form
             this.Text = localization.strings.statistics.Replace("&", "");
+            lblTitle.Text = localization.strings.statistics.Replace("&", "");
             btnOK.Text = localization.strings.accept;
-            lblSessionHeader.Text = localization.strings.this_session + ":";
-            lblTotalHeader.Text = localization.strings.total + ":";
+            lblSessionHeader.Text = localization.strings.this_session;
+            lblTotalHeader.Text = localization.strings.total;
 
             TimeSpan sessionMinutesIdled = TimeSpan.FromMinutes(statistics.getSessionMinutesIdled());
             TimeSpan totalMinutesIdled = TimeSpan.FromMinutes(Properties.Settings.Default.totalMinutesIdled);
@@ -28,7 +38,7 @@ namespace SteamTradeCardDropper
             int sessionHoursIdled = (sessionMinutesIdled.Days * 24) + sessionMinutesIdled.Hours;
             int totalHoursIdled = (totalMinutesIdled.Days * 24) + totalMinutesIdled.Hours;
 
-            //Session
+            // Session
             if (sessionHoursIdled > 0)
             {
                 lblSessionTime.Text = String.Format("{0} hour{1}, {2} minute{3} idled",
@@ -45,7 +55,7 @@ namespace SteamTradeCardDropper
             }
             lblSessionCards.Text = statistics.getSessionCardIdled().ToString() + " cards idled";
 
-            //Total
+            // Total
             if (totalHoursIdled > 0)
             {
                 lblTotalTime.Text = String.Format("{0} hour{1}, {2} minute{3} idled",
@@ -62,26 +72,29 @@ namespace SteamTradeCardDropper
             }
             lblTotalCards.Text = Properties.Settings.Default.totalCardIdled.ToString() + " cards idled";
 
-            if (Properties.Settings.Default.customTheme)
-            {
-                runtimeCustomThemeStatistics(); // JN: Apply the dark theme
-            }
+            ApplyTheme();
         }
 
-        // Make everything dark to match the dark theme
-        private void runtimeCustomThemeStatistics()
+        private void ApplyTheme()
         {
-            System.Drawing.Color colorBgd = Properties.Settings.Default.colorBgd; // Dark gray (from Steam)
-            System.Drawing.Color colorTxt = Properties.Settings.Default.colorTxt; // Light gray (from Steam)
+            this.BackColor = ThemeManager.WindowBg;
+            this.ForeColor = ThemeManager.TextPrimary;
 
-            // Form
-            this.BackColor = colorBgd;
-            this.ForeColor = colorTxt;
+            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
 
-            // Button
-            btnOK.FlatStyle = FlatStyle.Flat; // Flat style to customize buttons
-            btnOK.BackColor = colorBgd;
-            btnOK.ForeColor = colorTxt;
+            pnlSessionCard.BackColor = ThemeManager.CardBg;
+            pnlTotalCard.BackColor = ThemeManager.CardBg;
+
+            lblSessionHeader.ForeColor = ThemeManager.TextPrimary;
+            lblTotalHeader.ForeColor = ThemeManager.TextPrimary;
+
+            lblSessionCards.ForeColor = ThemeManager.IsDarkTheme ? Color.FromArgb(96, 165, 250) : Color.FromArgb(37, 99, 235);
+            lblTotalCards.ForeColor = ThemeManager.IsDarkTheme ? Color.FromArgb(96, 165, 250) : Color.FromArgb(37, 99, 235);
+
+            lblSessionTime.ForeColor = ThemeManager.TextSecondary;
+            lblTotalTime.ForeColor = ThemeManager.TextSecondary;
+
+            ThemeManager.StylePrimaryButton(btnOK);
         }
 
         private void btnOK_Click(object sender, EventArgs e)
