@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     partial class frmSettings
     {
@@ -121,7 +121,7 @@ namespace IdleMasterExtended
             // darkThemeCheckBox
             // 
             this.darkThemeCheckBox.AutoSize = true;
-            this.darkThemeCheckBox.Checked = global::IdleMasterExtended.Properties.Settings.Default.customTheme;
+            this.darkThemeCheckBox.Checked = global::SteamTradeCardDropper.Properties.Settings.Default.customTheme;
             this.darkThemeCheckBox.Location = new System.Drawing.Point(306, 20);
             this.darkThemeCheckBox.Name = "darkThemeCheckBox";
             this.darkThemeCheckBox.Size = new System.Drawing.Size(81, 17);
@@ -294,7 +294,7 @@ namespace IdleMasterExtended
             // btnAdvanced
             // 
             this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdvanced.Image = global::IdleMasterExtended.Properties.Resources.imgLock;
+            this.btnAdvanced.Image = global::SteamTradeCardDropper.Properties.Resources.imgLock;
             this.btnAdvanced.Location = new System.Drawing.Point(12, 451);
             this.btnAdvanced.Name = "btnAdvanced";
             this.btnAdvanced.Size = new System.Drawing.Size(25, 23);

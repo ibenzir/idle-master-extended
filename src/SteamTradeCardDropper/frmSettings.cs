@@ -1,12 +1,12 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using IdleMasterExtended.Properties;
+using SteamTradeCardDropper.Properties;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     public partial class frmSettings : Form
     {
@@ -263,7 +263,7 @@ namespace IdleMasterExtended
         {
             if (chkShutdown.Checked)
             {
-                if (MessageBox.Show("Are you sure you want Idle Master Extended to shutdown Windows when idling is done?\n\nNote: This setting will only be active once.",
+                if (MessageBox.Show("Are you sure you want Steam Trade Card Dropper to shutdown Windows when idling is done?\n\nNote: This setting will only be active once.",
                                     "Shutdown Windows", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Settings.Default.ShutdownWindowsOnDone = chkShutdown.Checked;
@@ -277,12 +277,12 @@ namespace IdleMasterExtended
 
         private void linkLabelSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("explorer.exe", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\IdleMasterExtended");
+            Process.Start("explorer.exe", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\SteamTradeCardDropper");
         }
 
         private void lnkGitHubWiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/ibenzir/idle-master-extended#readme");
+            Process.Start("https://github.com/ibenzir/steam-trade-card-dropper#readme");
         }
     }
 }
