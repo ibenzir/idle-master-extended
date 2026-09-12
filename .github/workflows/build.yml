@@ -19,17 +19,17 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Build Solution
-      run: msbuild IdleMasterExtended.sln /p:Configuration=Release /v:m
+      run: msbuild SteamTradeCardDropper.sln /p:Configuration=Release /v:m
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: IdleMasterExtended-Release
+        name: SteamTradeCardDropper-Release
         path: |
-          src/IdleMasterExtended/bin/Release/IdleMasterExtended.exe
-          src/IdleMasterExtended/bin/Release/steam-idle.exe
-          src/IdleMasterExtended/bin/Release/steam_api64.dll
-          src/IdleMasterExtended/bin/Release/Steamworks.NET.dll
-          src/IdleMasterExtended/bin/Release/HtmlAgilityPack.dll
-          src/IdleMasterExtended/bin/Release/Languages/
+          src/SteamTradeCardDropper/bin/Release/SteamTradeCardDropper.exe
+          src/SteamTradeCardDropper/bin/Release/steam_api64.dll
+          src/SteamTradeCardDropper/bin/Release/Steamworks.NET.dll
+          src/SteamTradeCardDropper/bin/Release/HtmlAgilityPack.dll
+          src/SteamTradeCardDropper/bin/Release/Languages/
         if-no-files-found: error
+
