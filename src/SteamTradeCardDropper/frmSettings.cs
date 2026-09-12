@@ -78,6 +78,8 @@ namespace SteamTradeCardDropper
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
+            try { if (Resources.appIcon != null) this.Icon = Resources.appIcon; } catch { }
+
             if (Settings.Default.language != "")
             {
                 cboLanguage.SelectedItem = Settings.Default.language;

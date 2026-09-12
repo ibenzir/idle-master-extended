@@ -29,6 +29,8 @@ namespace SteamTradeCardDropper
 
         private void frmSettingsAdvanced_Load(object sender, EventArgs e)
         {
+            try { if (Resources.appIcon != null) this.Icon = Resources.appIcon; } catch { }
+
             // Localize Form
             btnUpdate.Text = localization.strings.update;
             this.Text = localization.strings.auth_data;
