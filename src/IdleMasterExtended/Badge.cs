@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Text.RegularExpressions;
@@ -36,7 +36,7 @@ namespace IdleMasterExtended
             if (InIdle)
                 return idleProcess;
 
-            idleProcess = Process.Start(new ProcessStartInfo("steam-idle.exe", AppId.ToString()) { WindowStyle = ProcessWindowStyle.Hidden });
+            idleProcess = Process.Start(new ProcessStartInfo(Application.ExecutablePath, AppId.ToString()) { WindowStyle = ProcessWindowStyle.Hidden });
             return idleProcess;
         }
 
