@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Source/IdleMasterExtended/logo1.ico" width="80" alt="Idle Master Extended Logo" />
+  <img src="src/IdleMasterExtended/logo1.ico" width="80" alt="Idle Master Extended Logo" />
   <h1 align="center">Idle Master Extended</h1>
   <p align="center">
     <strong>Fast, automated Steam Trading Card drops — without downloading or launching games.</strong>
@@ -7,6 +7,7 @@
   <p align="center">
     <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Maintainer-Benzir_Ahammed_Shawon-blue.svg?style=flat-square" alt="Maintainer"></a>
     <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Website-ibenzir.me-informational.svg?style=flat-square" alt="Website"></a>
+    <a href="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml"><img src="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
     <img src="https://img.shields.io/badge/.NET_Framework-v4.8-512BD4.svg?style=flat-square" alt=".NET Framework 4.8">
     <img src="https://img.shields.io/badge/Platform-Windows-0078D6.svg?style=flat-square" alt="Platform: Windows">
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--2.0-green.svg?style=flat-square" alt="License: GPL-2.0"></a>
@@ -97,24 +98,48 @@ Idle Master Extended needs to read your badge data from Steam Community. Because
 
 ---
 
+## 📁 Repository Structure
+
+```text
+idle-master-extended/
+├── .github/
+│   ├── ISSUE_TEMPLATE/       # Bug report & feature request templates
+│   └── workflows/            # GitHub Actions CI build & CodeQL pipelines
+├── buildtools/               # Self-contained Assembly Linker (al.exe) compiler shim
+├── Dependencies/             # Native & managed libraries (Steamworks.NET, steam_api64, HtmlAgilityPack)
+├── src/
+│   ├── IdleMasterExtended/   # Main Windows Forms application source & UI assets
+│   │   ├── localization/     # 24 localized satellite resource translations
+│   │   └── Properties/       # App manifests, branding & assembly info
+│   └── steam-idle/           # Lightweight Steamworks app idler stub
+├── IdleMasterExtended.sln    # Unified Visual Studio multi-project solution
+├── LICENSE                   # GNU General Public License v2.0
+└── README.md                 # Complete project documentation & guide
+```
+
+---
+
 ## 🛠️ Building from Source
 
-This project includes custom compiler adapters and a built-in assembly linker shim (`buildtools/al.exe`), allowing it to build immediately on any Windows installation without needing the heavy Windows SDK.
+This project includes custom compiler adapters and a built-in assembly linker shim (`buildtools/al.exe`), allowing it to compile immediately on standard Windows installations without requiring the full Windows SDK.
 
 ### Build with MSBuild (Command Line)
 
-Run from PowerShell or Command Prompt:
+To compile both `steam-idle` and `IdleMasterExtended` in Release mode:
 
 ```powershell
-# 1. Build the lightweight game idler stub
-& "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" "steam-idle Source\steam-idle.sln" /p:Configuration=Release
-
-# 2. Build the main application (with built-in AL shim)
-& "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" "Source\IdleMasterExtended.sln" /p:Configuration=Release /p:AlToolPath="$(Get-Location)\buildtools\"
+# Run from repository root
+& "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" "IdleMasterExtended.sln" /p:Configuration=Release
 ```
 
-The compiled binaries will be output to:
-`Source\IdleMasterExtended\bin\Release\`
+Or simply with Visual Studio Developer Command Prompt:
+
+```cmd
+msbuild IdleMasterExtended.sln /p:Configuration=Release
+```
+
+The compiled binaries and all dependencies will be output to:
+`src\IdleMasterExtended\bin\Release\`
 
 ---
 
