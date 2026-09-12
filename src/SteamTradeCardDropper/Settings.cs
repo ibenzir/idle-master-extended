@@ -1,4 +1,4 @@
-﻿namespace IdleMasterExtended.Properties
+namespace SteamTradeCardDropper.Properties
 {
 
 

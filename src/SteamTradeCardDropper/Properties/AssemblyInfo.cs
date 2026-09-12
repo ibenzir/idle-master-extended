@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Idle Master Extended")]
-[assembly: AssemblyDescription("Steam Trading Card Idler - benzir (https://ibenzir.me)")]
+[assembly: AssemblyTitle("Steam Trade Card Dropper")]
+[assembly: AssemblyDescription("Steam Trade Card Dropper - benzir (https://ibenzir.me)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("benzir")]
-[assembly: AssemblyProduct("Idle Master Extended")]
+[assembly: AssemblyProduct("Steam Trade Card Dropper")]
 [assembly: AssemblyCopyright("Copyright © benzir")]
 [assembly: AssemblyTrademark("GNU General Public License v2.0")]
 [assembly: AssemblyCulture("")]
