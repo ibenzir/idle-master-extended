@@ -36,7 +36,7 @@ namespace IdleMasterExtended
             if (InIdle)
                 return idleProcess;
 
-            idleProcess = Process.Start(new ProcessStartInfo(Application.ExecutablePath, AppId.ToString()) { WindowStyle = ProcessWindowStyle.Hidden });
+            idleProcess = Process.Start(new ProcessStartInfo(System.Windows.Forms.Application.ExecutablePath, AppId.ToString()) { WindowStyle = ProcessWindowStyle.Hidden });
             return idleProcess;
         }
 

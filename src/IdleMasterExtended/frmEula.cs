@@ -41,7 +41,10 @@ namespace IdleMasterExtended
                     if (key != null)
                     {
                         object val = key.GetValue("AppsUseLightTheme");
-                        if (val is int i) isDark = (i == 0);
+                        if (val != null && Convert.ToInt32(val) == 0)
+                        {
+                            isDark = true;
+                        }
                     }
                 }
             }
