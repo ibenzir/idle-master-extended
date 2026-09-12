@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="src/IdleMasterExtended/icon.ico" width="80" alt="Idle Master Extended Logo" />
-  <h1 align="center">Idle Master Extended</h1>
+  <img src="src/SteamTradeCardDropper/icon.ico" width="80" alt="Steam Trade Card Dropper Logo" />
+  <h1 align="center">Steam Trade Card Dropper</h1>
   <p align="center">
     <strong>Fast, automated Steam Trading Card drops — without downloading or launching games.</strong>
   </p>
   <p align="center">
     <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Maintainer-benzir-blue.svg?style=flat-square" alt="Maintainer"></a>
     <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Website-ibenzir.me-informational.svg?style=flat-square" alt="Website"></a>
-    <a href="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml"><img src="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
+    <a href="https://github.com/ibenzir/steam-trade-card-dropper/actions/workflows/build.yml"><img src="https://github.com/ibenzir/steam-trade-card-dropper/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
     <img src="https://img.shields.io/badge/.NET_Framework-v4.8-512BD4.svg?style=flat-square" alt=".NET Framework 4.8">
-    <a href="https://github.com/ibenzir/idle-master-extended/releases/latest"><img src="https://img.shields.io/github/v/release/ibenzir/idle-master-extended?style=flat-square&color=blue" alt="Latest Release"></a>
-    <a href="https://github.com/ibenzir/idle-master-extended/releases/latest"><img src="https://img.shields.io/badge/Download-.EXE_Package-success?style=flat-square&logo=windows" alt="Download .EXE Package"></a>
+    <a href="https://github.com/ibenzir/steam-trade-card-dropper/releases/latest"><img src="https://img.shields.io/github/v/release/ibenzir/steam-trade-card-dropper?style=flat-square&color=blue" alt="Latest Release"></a>
+    <a href="https://github.com/ibenzir/steam-trade-card-dropper/releases/latest"><img src="https://img.shields.io/badge/Download-.EXE_Package-success?style=flat-square&logo=windows" alt="Download .EXE Package"></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--2.0-green.svg?style=flat-square" alt="License: GPL-2.0"></a>
   </p>
 </p>
@@ -19,11 +19,11 @@
 
 ## 📌 About This Project
 
-**Idle Master Extended** is a lightweight Windows utility that automates the collection of [Steam Trading Cards](https://steamcommunity.com/tradingcards/).
+**Steam Trade Card Dropper** is a lightweight Windows utility that automates the collection of [Steam Trading Cards](https://steamcommunity.com/tradingcards/).
 
-Instead of downloading gigabytes of game assets and running resource-heavy game executables, Idle Master Extended communicates directly with the running Steam client via the `Steamworks API` to simulate playing games with remaining card drops.
+Instead of downloading gigabytes of game assets and running resource-heavy game executables, Steam Trade Card Dropper communicates directly with the running Steam client via the `Steamworks API` to simulate playing games with remaining card drops.
 
-This repository is an actively maintained edition curated by **[benzir](https://ibenzir.me)**, featuring modernized build toolchains, compiler compatibility enhancements, and improved documentation.
+This repository is an actively maintained project curated by **[benzir](https://ibenzir.me)**, featuring modernized build toolchains, compiler compatibility enhancements, and improved documentation.
 
 ---
 
@@ -54,15 +54,15 @@ This repository is an actively maintained edition curated by **[benzir](https://
 
 ### Setup & Authentication
 
-Idle Master Extended needs to read your badge data from Steam Community. Because Steam enforces modern session security, manual cookie authentication is the most reliable method:
+Steam Trade Card Dropper needs to read your badge data from Steam Community. Because Steam enforces modern session security, manual cookie authentication is the most reliable method:
 
-1. Launch **Idle Master Extended**.
+1. Launch **Steam Trade Card Dropper**.
 2. Go to **File** > **Settings** > **Lock Icon (Authentication Data)**.
 3. Open your web browser (Chrome, Edge, Firefox, Brave) and navigate to [Steam Community](https://steamcommunity.com).
 4. Make sure you are signed in, then press <kbd>F12</kbd> (or right-click > **Inspect**) to open Developer Tools.
 5. Go to the **Application** (or **Storage** in Firefox) tab.
 6. Expand **Cookies** on the left panel and select `https://steamcommunity.com`.
-7. Locate and copy the following cookie values into Idle Master Extended:
+7. Locate and copy the following cookie values into Steam Trade Card Dropper:
    - `sessionid`: 24-character alphanumeric string.
    - `steamLoginSecure`: 64+ character token starting with your Steam ID.
    - `steamparental` *(optional)*: only if Family View is enabled on your account.
@@ -78,20 +78,20 @@ Idle Master Extended needs to read your badge data from Steam Community. Because
 |                  (Must be open & running)                   |
 +------------------------------+------------------------------+
                                |
-                   Local Steamworks IPC
+                    Local Steamworks IPC
                                |
                                v
 +------------------------------+------------------------------+
-|                   Idle Master Extended                      |
+|                Steam Trade Card Dropper                     |
 |                                                             |
 |  [frmMain] <-------- WebClient (Cookies) --------> Steam Web|
 |  - Badge Scraping                                           |
 |  - Queue Management                                         |
 |  - Idling Coordinator                                       |
 |                                                             |
-|         | Spawns with AppId argument                        |
+|         | Spawns with AppId argument (-idle=<appid>)        |
 |         v                                                   |
-|  [steam-idle.exe] (Lightweight stub)                        |
+|  [FormCardDropper worker] (Integrated subprocess)           |
 |  - Invokes SteamAPI.Init()                                  |
 |  - Notifies Steam Client that AppId is active               |
 +-------------------------------------------------------------+
@@ -102,20 +102,20 @@ Idle Master Extended needs to read your badge data from Steam Community. Because
 ## 📁 Repository Structure
 
 ```text
-idle-master-extended/
+steam-trade-card-dropper/
 ├── .github/
-│   ├── ISSUE_TEMPLATE/       # Bug report & feature request templates
-│   └── workflows/            # GitHub Actions CI build & CodeQL pipelines
-├── buildtools/               # Self-contained Assembly Linker (al.exe) compiler shim
-├── Dependencies/             # Native & managed libraries (Steamworks.NET, steam_api64, HtmlAgilityPack)
+│   ├── ISSUE_TEMPLATE/           # Bug report & feature request templates
+│   └── workflows/                # GitHub Actions CI build & CodeQL pipelines
+├── buildtools/                   # Self-contained Assembly Linker (al.exe) compiler shim
+├── Dependencies/                 # Native & managed libraries (Steamworks.NET, steam_api64, HtmlAgilityPack)
 ├── src/
-│   ├── IdleMasterExtended/   # Main Windows Forms application source & UI assets
-│   │   ├── localization/     # 24 localized satellite resource translations
-│   │   └── Properties/       # App manifests, branding & assembly info
-│   └── steam-idle/           # Lightweight Steamworks app idler stub
-├── IdleMasterExtended.sln    # Unified Visual Studio multi-project solution
-├── LICENSE                   # GNU General Public License v2.0
-└── README.md                 # Complete project documentation & guide
+│   └── SteamTradeCardDropper/    # Application source, background worker & UI assets
+│       ├── localization/         # 24 localized satellite resource translations
+│       └── Properties/           # App manifests, branding & assembly info
+├── SteamTradeCardDropper.sln      # Unified Visual Studio solution
+├── LEGAL.md                      # Comprehensive legal, safety & security notice
+├── LICENSE                       # GNU General Public License v2.0
+└── README.md                     # Complete project documentation & guide
 ```
 
 ---
@@ -126,34 +126,34 @@ This project includes custom compiler adapters and a built-in assembly linker sh
 
 ### Build with MSBuild (Command Line)
 
-To compile both `steam-idle` and `IdleMasterExtended` in Release mode:
+To compile `SteamTradeCardDropper` in Release mode:
 
 ```powershell
 # Run from repository root
-& "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" "IdleMasterExtended.sln" /p:Configuration=Release
+& "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" "SteamTradeCardDropper.sln" /p:Configuration=Release
 ```
 
 Or simply with Visual Studio Developer Command Prompt:
 
 ```cmd
-msbuild IdleMasterExtended.sln /p:Configuration=Release
+msbuild SteamTradeCardDropper.sln /p:Configuration=Release
 ```
 
-The compiled binaries and all dependencies will be output to:
-`src\IdleMasterExtended\bin\Release\`
+The compiled binary and all dependencies will be output to:
+`src\SteamTradeCardDropper\bin\Release\`
 
 ---
 
 ## 🔒 Security, Privacy & Authentication FAQ
 
 - **How does authentication work? Is this session hijacking?**  
-  **No.** In cybersecurity and law, *session hijacking* refers to unauthorized interception or theft of another user's credentials without their consent. Idle Master Extended operates entirely on your personal computer: you manually supply your *own* active session cookies (`sessionid` and `steamLoginSecure`) to allow this open-source utility to read your personal badge progress.  
+  **No.** In cybersecurity and law, *session hijacking* refers to unauthorized interception or theft of another user's credentials without their consent. Steam Trade Card Dropper operates entirely on your personal computer: you manually supply your *own* active session cookies (`sessionid` and `steamLoginSecure`) to allow this open-source utility to read your personal badge progress.  
   - **100% Local Execution**: All HTTP requests are made directly between your computer and official Steam endpoints (`https://steamcommunity.com`) over encrypted TLS.
   - **Zero Telemetry / Zero Proxying**: Your cookies, credentials, Steam ID, and inventory data are **never** logged remotely, sent to the maintainer, or shared with third parties.
 - **Can I revoke my session cookies at any time?**  
   **Yes, immediately.** Simply log out of Steam in your web browser, or navigate to Steam Guard Settings and click **"Deauthorize all other devices"**, or change your account password. This immediately invalidates all active session cookies on Valve's servers.
-- **Is Idle Master Extended safe? Can I get VAC banned?**  
-  Idle Master Extended uses the official `Steamworks API` (via `Steamworks.NET`) to notify the running Steam client that an AppID is open. It does **not** inject code or modify game binaries. However, as a precaution, **never idle VAC-secured games** (e.g., CS2, TF2, Rust) while actively connected to VAC servers. Use the built-in **Blacklist** to exclude any competitive or VAC-secured games.
+- **Is Steam Trade Card Dropper safe? Can I get VAC banned?**  
+  Steam Trade Card Dropper uses the official `Steamworks API` (via `Steamworks.NET`) to notify the running Steam client that an AppID is open. It does **not** inject code or modify game binaries. However, as a precaution, **never idle VAC-secured games** (e.g., CS2, TF2, Rust) while actively connected to VAC servers. Use the built-in **Blacklist** to exclude any competitive or VAC-secured games.
 
 ---
 
@@ -161,7 +161,7 @@ The compiled binaries and all dependencies will be output to:
 
 > [!WARNING]
 > **Valve Corporation & Steam Non-Affiliation**:  
-> Idle Master Extended is an independent, open-source utility and is **not** affiliated with, authorized, maintained, sponsored, or endorsed by **Valve Corporation**, **Steam**, or any of their affiliates. Valve, Steam, and their respective logos and marks are trademarks and/or registered trademarks of Valve Corporation.
+> Steam Trade Card Dropper is an independent, open-source utility and is **not** affiliated with, authorized, maintained, sponsored, or endorsed by **Valve Corporation**, **Steam**, or any of their affiliates. Valve, Steam, and their respective logos and marks are trademarks and/or registered trademarks of Valve Corporation.
 > 
 > **Limitation of Liability**:  
 > Use of this software is at your own sole risk and discretion. Interacting with Steam services via automated tools may be subject to the [Steam Subscriber Agreement (SSA)](https://store.steampowered.com/subscriber_agreement/). Under no circumstances shall the developer (**benzir**) or open-source contributors be held liable for any account restrictions, community bans, VAC flags, inventory loss, or damages resulting from the use of this software. For complete details, see [**LEGAL.md**](LEGAL.md).
@@ -169,6 +169,8 @@ The compiled binaries and all dependencies will be output to:
 > [!NOTE]
 > **Windows SmartScreen Notice**:  
 > If Windows displays *"Windows protected your PC"* on initial launch, click **More info** > **Run anyway**. As an independent open-source project distributed without an enterprise code-signing certificate, this is standard Windows behavior for newly downloaded binaries. An official open-source Terms of Use dialog will welcome you upon first launch.
+
+---
 
 ## 👤 Maintainer & Credentials
 
@@ -185,4 +187,3 @@ The compiled binaries and all dependencies will be output to:
   - [Open Iconic](https://github.com/iconic/open-iconic) icon suite.
 
 This project is licensed under the **[GNU General Public License v2.0 (GPL-2.0)](LICENSE)**.
-
