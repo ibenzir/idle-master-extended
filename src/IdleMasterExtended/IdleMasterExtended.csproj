@@ -333,8 +333,12 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <AlToolPath Condition="'$(AlToolPath)' == '' and Exists('$(MSBuildProjectDirectory)\..\..\buildtools\al.exe')">$(MSBuildProjectDirectory)\..\..\buildtools\</AlToolPath>
-    <PostBuildEvent>XCOPY /Y /D "$(SolutionDir)..\steam-idle Source\steam-idle\bin\Release\steam-idle.exe" "$(TargetDir)"
-XCOPY /Y /D "$(SolutionDir)..\Dependencies\steam_api64.dll" "$(TargetDir)"
+    <PostBuildEvent>IF EXIST "$(MSBuildProjectDirectory)\..\steam-idle\bin\$(Configuration)\steam-idle.exe" (
+  XCOPY /Y /D "$(MSBuildProjectDirectory)\..\steam-idle\bin\$(Configuration)\steam-idle.exe" "$(TargetDir)"
+) ELSE (
+  XCOPY /Y /D "$(MSBuildProjectDirectory)\..\steam-idle\bin\Release\steam-idle.exe" "$(TargetDir)"
+)
+XCOPY /Y /D "$(MSBuildProjectDirectory)\..\..\Dependencies\steam_api64.dll" "$(TargetDir)"
 
 RMDIR /S /Q "$(TargetDir)Languages"
 MKDIR "$(TargetDir)Languages"
