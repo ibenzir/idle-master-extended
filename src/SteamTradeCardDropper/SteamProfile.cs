@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Net;
 using System.Text;
 using System.Xml;
-using IdleMasterExtended.Properties;
+using SteamTradeCardDropper.Properties;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     internal class SteamProfile
     {

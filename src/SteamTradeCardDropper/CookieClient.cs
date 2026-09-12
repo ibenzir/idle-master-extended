@@ -3,9 +3,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
-using IdleMasterExtended.Properties;
+using SteamTradeCardDropper.Properties;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     public class CookieClient : WebClient
     {

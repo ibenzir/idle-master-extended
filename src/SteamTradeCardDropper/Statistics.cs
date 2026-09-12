@@ -1,4 +1,4 @@
-﻿namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     public class Statistics
     {
