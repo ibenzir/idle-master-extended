@@ -5,7 +5,7 @@
     <strong>Fast, automated Steam Trading Card drops — without downloading or launching games.</strong>
   </p>
   <p align="center">
-    <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Maintainer-Benzir_Ahammed_Shawon-blue.svg?style=flat-square" alt="Maintainer"></a>
+    <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Maintainer-BENZIR-blue.svg?style=flat-square" alt="Maintainer"></a>
     <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Website-ibenzir.me-informational.svg?style=flat-square" alt="Website"></a>
     <a href="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml"><img src="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
     <img src="https://img.shields.io/badge/.NET_Framework-v4.8-512BD4.svg?style=flat-square" alt=".NET Framework 4.8">
@@ -23,7 +23,7 @@
 
 Instead of downloading gigabytes of game assets and running resource-heavy game executables, Idle Master Extended communicates directly with the running Steam client via the `Steamworks API` to simulate playing games with remaining card drops.
 
-This repository is a revitalized and actively maintained edition curated by **[Benzir Ahammed Shawon](https://ibenzir.me)**, featuring modernized build toolchains, compiler compatibility enhancements, and improved documentation.
+This repository is an actively maintained edition curated by **[BENZIR](https://ibenzir.me)**, featuring modernized build toolchains, compiler compatibility enhancements, and improved documentation.
 
 ---
 
@@ -164,7 +164,7 @@ The compiled binaries and all dependencies will be output to:
 > Idle Master Extended is an independent, open-source utility and is **not** affiliated with, authorized, maintained, sponsored, or endorsed by **Valve Corporation**, **Steam**, or any of their affiliates. Valve, Steam, and their respective logos and marks are trademarks and/or registered trademarks of Valve Corporation.
 > 
 > **Limitation of Liability**:  
-> Use of this software is at your own sole risk and discretion. Interacting with Steam services via automated tools may be subject to the [Steam Subscriber Agreement (SSA)](https://store.steampowered.com/subscriber_agreement/). Under no circumstances shall the maintainer (**Benzir Ahammed Shawon**), upstream authors, or open-source contributors be held liable for any account restrictions, community bans, VAC flags, inventory loss, or damages resulting from the use of this software. For complete details, see [**LEGAL.md**](LEGAL.md).
+> Use of this software is at your own sole risk and discretion. Interacting with Steam services via automated tools may be subject to the [Steam Subscriber Agreement (SSA)](https://store.steampowered.com/subscriber_agreement/). Under no circumstances shall the maintainer (**BENZIR**), upstream authors, or open-source contributors be held liable for any account restrictions, community bans, VAC flags, inventory loss, or damages resulting from the use of this software. For complete details, see [**LEGAL.md**](LEGAL.md).
 
 ## 👤 Maintainer & Credentials
 
