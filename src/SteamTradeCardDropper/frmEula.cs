@@ -16,13 +16,14 @@ namespace SteamTradeCardDropper
         {
             try
             {
-                using (Icon appIcon = Icon.ExtractAssociatedIcon(Application.ExecutablePath))
+                if (Resources.appIcon != null)
                 {
-                    if (appIcon != null)
-                    {
-                        picIcon.Image = appIcon.ToBitmap();
-                        this.Icon = appIcon;
-                    }
+                    this.Icon = Resources.appIcon;
+                }
+                if (Resources.appLogo != null)
+                {
+                    picIcon.Image = Resources.appLogo;
+                    picIcon.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
             catch { }
