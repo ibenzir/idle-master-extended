@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="src/IdleMasterExtended/logo1.ico" width="80" alt="Idle Master Extended Logo" />
+  <img src="src/IdleMasterExtended/icon.ico" width="80" alt="Idle Master Extended Logo" />
   <h1 align="center">Idle Master Extended</h1>
   <p align="center">
     <strong>Fast, automated Steam Trading Card drops — without downloading or launching games.</strong>
   </p>
   <p align="center">
-    <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Maintainer-BENZIR-blue.svg?style=flat-square" alt="Maintainer"></a>
+    <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Maintainer-benzir-blue.svg?style=flat-square" alt="Maintainer"></a>
     <a href="https://ibenzir.me"><img src="https://img.shields.io/badge/Website-ibenzir.me-informational.svg?style=flat-square" alt="Website"></a>
     <a href="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml"><img src="https://github.com/ibenzir/idle-master-extended/actions/workflows/build.yml/badge.svg" alt="Build Status"></a>
     <img src="https://img.shields.io/badge/.NET_Framework-v4.8-512BD4.svg?style=flat-square" alt=".NET Framework 4.8">
@@ -23,13 +23,13 @@
 
 Instead of downloading gigabytes of game assets and running resource-heavy game executables, Idle Master Extended communicates directly with the running Steam client via the `Steamworks API` to simulate playing games with remaining card drops.
 
-This repository is an actively maintained edition curated by **[BENZIR](https://ibenzir.me)**, featuring modernized build toolchains, compiler compatibility enhancements, and improved documentation.
+This repository is an actively maintained edition curated by **[benzir](https://ibenzir.me)**, featuring modernized build toolchains, compiler compatibility enhancements, and improved documentation.
 
 ---
 
 ## ✨ Features
 
-- ⚡ **Zero Installation Idling**: Simulates game execution via a lightweight stub (`steam-idle.exe`) without needing game files installed.
+- ⚡ **Zero Installation Idling**: Simulates game execution seamlessly through an integrated background worker without needing game files installed.
 - 🎯 **Smart Badge Detection**: Automatically parses your Steam badge page to identify which games have card drops remaining.
 - 🔄 **Multiple Idling Strategies**:
   - **Sequential (One-by-One)**: Idles one game until all drops are exhausted before moving to the next.
@@ -164,7 +164,11 @@ The compiled binaries and all dependencies will be output to:
 > Idle Master Extended is an independent, open-source utility and is **not** affiliated with, authorized, maintained, sponsored, or endorsed by **Valve Corporation**, **Steam**, or any of their affiliates. Valve, Steam, and their respective logos and marks are trademarks and/or registered trademarks of Valve Corporation.
 > 
 > **Limitation of Liability**:  
-> Use of this software is at your own sole risk and discretion. Interacting with Steam services via automated tools may be subject to the [Steam Subscriber Agreement (SSA)](https://store.steampowered.com/subscriber_agreement/). Under no circumstances shall the developer (**BENZIR**) or open-source contributors be held liable for any account restrictions, community bans, VAC flags, inventory loss, or damages resulting from the use of this software. For complete details, see [**LEGAL.md**](LEGAL.md).
+> Use of this software is at your own sole risk and discretion. Interacting with Steam services via automated tools may be subject to the [Steam Subscriber Agreement (SSA)](https://store.steampowered.com/subscriber_agreement/). Under no circumstances shall the developer (**benzir**) or open-source contributors be held liable for any account restrictions, community bans, VAC flags, inventory loss, or damages resulting from the use of this software. For complete details, see [**LEGAL.md**](LEGAL.md).
+
+> [!NOTE]
+> **Windows SmartScreen Notice**:  
+> If Windows displays *"Windows protected your PC"* on initial launch, click **More info** > **Run anyway**. As an independent open-source project distributed without an enterprise code-signing certificate, this is standard Windows behavior for newly downloaded binaries. An official open-source Terms of Use dialog will welcome you upon first launch.
 
 ## 👤 Maintainer & Credentials
 
