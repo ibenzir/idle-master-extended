@@ -172,7 +172,7 @@ namespace SteamTradeCardDropper
             this.lblSidebarVersion.Name = "lblSidebarVersion";
             this.lblSidebarVersion.Size = new System.Drawing.Size(37, 12);
             this.lblSidebarVersion.TabIndex = 2;
-            this.lblSidebarVersion.Text = "v1.11.0";
+            this.lblSidebarVersion.Text = "v2.0.0";
             // 
             // pnlNavDivider
             // 
