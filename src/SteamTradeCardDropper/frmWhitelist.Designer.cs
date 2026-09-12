@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     partial class frmWhitelist
     {
@@ -102,7 +102,7 @@ namespace IdleMasterExtended
             // 
             // btnRemove
             // 
-            this.btnRemove.Image = global::IdleMasterExtended.Properties.Resources.imgTrash;
+            this.btnRemove.Image = global::SteamTradeCardDropper.Properties.Resources.imgTrash;
             this.btnRemove.Location = new System.Drawing.Point(289, 13);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(28, 28);
