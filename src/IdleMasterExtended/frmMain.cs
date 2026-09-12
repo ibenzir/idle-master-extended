@@ -1103,7 +1103,7 @@ namespace IdleMasterExtended
 
         private void officialGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://steamcommunity.com/groups/idlemastery");
+            Process.Start("https://github.com/ibenzir/idle-master-extended");
         }
 
         private void donateToolStripMenuItem_Click(object sender, EventArgs e)
