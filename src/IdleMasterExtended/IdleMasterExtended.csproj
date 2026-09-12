@@ -55,7 +55,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo1.ico</ApplicationIcon>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>2E30D3385B38F3716634E7A4D3A3E0DB97BAA205</ManifestCertificateThumbprint>
@@ -129,6 +130,18 @@
     <Compile Include="Badge.cs" />
     <Compile Include="CookieClient.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormSteamIdle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSteamIdle.Designer.cs">
+      <DependentUpon>FormSteamIdle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEula.Designer.cs">
+      <DependentUpon>frmEula.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
@@ -299,7 +312,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="logo1.ico" />
+    <Content Include="icon.ico" />
     <None Include="Resources\select2-spinner_inverted.gif" />
     <None Include="Resources\x-2x_w.png" />
     <None Include="Resources\trash-2x_w.png" />
@@ -330,12 +343,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <AlToolPath Condition="'$(AlToolPath)' == '' and Exists('$(MSBuildProjectDirectory)\..\..\buildtools\al.exe')">$(MSBuildProjectDirectory)\..\..\buildtools\</AlToolPath>
-    <PostBuildEvent>IF EXIST "$(MSBuildProjectDirectory)\..\steam-idle\bin\$(Configuration)\steam-idle.exe" (
-  XCOPY /Y /D "$(MSBuildProjectDirectory)\..\steam-idle\bin\$(Configuration)\steam-idle.exe" "$(TargetDir)"
-) ELSE (
-  XCOPY /Y /D "$(MSBuildProjectDirectory)\..\steam-idle\bin\Release\steam-idle.exe" "$(TargetDir)"
-)
-XCOPY /Y /D "$(MSBuildProjectDirectory)\..\..\Dependencies\steam_api64.dll" "$(TargetDir)"
+    <PostBuildEvent>XCOPY /Y /D "$(MSBuildProjectDirectory)\..\..\Dependencies\steam_api64.dll" "$(TargetDir)"
 
 RMDIR /S /Q "$(TargetDir)Languages"
 MKDIR "$(TargetDir)Languages"
