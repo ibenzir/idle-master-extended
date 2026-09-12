@@ -17,6 +17,7 @@ using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 using System.Globalization;
 using System.Security.Principal;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 namespace IdleMasterExtended
 {
@@ -43,6 +44,39 @@ namespace IdleMasterExtended
 
         private bool IsCurrentThemeCustom;
         private bool IsCurrentIconsWhite;
+
+        public bool IsDarkThemeActive
+        {
+            get { return Settings.Default.customTheme || IsSystemInDarkMode(); }
+        }
+
+        private static bool IsSystemInDarkMode()
+        {
+            try
+            {
+                using (var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"))
+                {
+                    if (key != null)
+                    {
+                        object val = key.GetValue("AppsUseLightTheme");
+                        if (val != null)
+                        {
+                            return Convert.ToInt32(val) == 0;
+                        }
+                    }
+                }
+            }
+            catch { }
+            return false;
+        }
+
+        private void SetFormHeight(double scaleMultiplier)
+        {
+            var graphics = CreateGraphics();
+            var calculated = (int)(graphics.DpiY * scaleMultiplier);
+            var minHeight = (int)(graphics.DpiY * 3.75);
+            Height = Math.Max(calculated, minHeight);
+        }
 
         public frmMain()
         {
@@ -238,24 +272,38 @@ namespace IdleMasterExtended
             try
             {
                 String username = WindowsIdentity.GetCurrent().Name;
-                foreach (var process in Process.GetProcessesByName("steam-idle"))
+                int currentPid = Process.GetCurrentProcess().Id;
+                List<Process> candidates = new List<Process>();
+                candidates.AddRange(Process.GetProcessesByName("steam-idle"));
+                foreach (var p in Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName))
                 {
-                    ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * From Win32_Process Where ProcessID = " + process.Id);
-                    ManagementObjectCollection processList = searcher.Get();
-
-                    foreach (ManagementObject obj in processList)
+                    if (p.Id != currentPid)
                     {
-                        string[] argList = new string[] { string.Empty, string.Empty };
-                        int returnVal = Convert.ToInt32(obj.InvokeMethod("GetOwner", argList));
-                        if (returnVal == 0)
+                        candidates.Add(p);
+                    }
+                }
+
+                foreach (var process in candidates)
+                {
+                    try
+                    {
+                        ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * From Win32_Process Where ProcessID = " + process.Id);
+                        ManagementObjectCollection processList = searcher.Get();
+
+                        foreach (ManagementObject obj in processList)
                         {
-                            if (argList[1] + "\\" + argList[0] == username)
+                            string[] argList = new string[] { string.Empty, string.Empty };
+                            int returnVal = Convert.ToInt32(obj.InvokeMethod("GetOwner", argList));
+                            if (returnVal == 0)
                             {
-                                process.Kill();
+                                if (argList[1] + "\\" + argList[0] == username)
+                                {
+                                    process.Kill();
+                                }
                             }
                         }
                     }
-
+                    catch { }
                 }
             }
             catch (Exception ex)
@@ -352,9 +400,7 @@ namespace IdleMasterExtended
                 ssFooter.Visible = false;
 
                 // Resize the form
-                var graphics = CreateGraphics();
-                var scale = graphics.DpiY * 2.000;
-                Height = Convert.ToInt32(scale);
+                SetFormHeight(2.000);
 
                 // Kill the idling process
                 foreach (var badge in AllBadges.Where(b => b.InIdle))
@@ -450,8 +496,7 @@ namespace IdleMasterExtended
             // Set the correct buttons on the form for pause / resume
             ShowInterruptiveButtons();
 
-            var scale = CreateGraphics().DpiY * 3.9;
-            Height = Convert.ToInt32(scale);
+            SetFormHeight(3.9);
         }
 
         public void StartMultipleIdle()
@@ -485,8 +530,7 @@ namespace IdleMasterExtended
 
             ShowInterruptiveButtons();
 
-            var scale = CreateGraphics().DpiY * 3.86;
-            Height = Convert.ToInt32(scale);
+            SetFormHeight(3.86);
         }
 
         /// <summary>
@@ -552,9 +596,7 @@ namespace IdleMasterExtended
             // TODO: Refresh button?
 
             // Resize the form
-            var graphics = CreateGraphics();
-            var scale = graphics.DpiY * 2.000;
-            Height = Convert.ToInt32(scale);
+            SetFormHeight(2.000);
 
             if (Settings.Default.ShutdownWindowsOnDone)
             {
@@ -751,9 +793,7 @@ namespace IdleMasterExtended
             AllBadges.Clear();
 
             // Resize the form
-            var graphics = CreateGraphics();
-            var scale = graphics.DpiY * 1.625;
-            Height = Convert.ToInt32(scale);
+            SetFormHeight(1.625);
 
             // Set timer intervals
             tmrCheckSteam.Interval = 500;
@@ -790,9 +830,7 @@ namespace IdleMasterExtended
             lblIdle.Text = "";
 
             // Set the form height
-            var graphics = CreateGraphics();
-            var scale = graphics.DpiY * 1.625;
-            Height = Convert.ToInt32(scale);
+            SetFormHeight(1.625);
             ssFooter.Visible = false;
         }
 
@@ -913,7 +951,6 @@ namespace IdleMasterExtended
             blacklistCurrentGameToolStripMenuItem.Text = localization.strings.blacklist_current_game;
             statisticsToolStripMenuItem.Text = localization.strings.statistics;
             changelogToolStripMenuItem.Text = localization.strings.release_notes;
-            officialGroupToolStripMenuItem.Text = localization.strings.official_group;
             aboutToolStripMenuItem.Text = localization.strings.about;
             lnkSignIn.Text = "(" + localization.strings.sign_in + ")";
             lnkResetCookies.Text = "(" + localization.strings.sign_out + ")";
@@ -926,19 +963,16 @@ namespace IdleMasterExtended
             GamesState.Columns[1].Text = localization.strings.hours;
 
             // Set the form height
-            var graphics = CreateGraphics();
-            var scale = graphics.DpiY * 1.625;
-            Height = Convert.ToInt32(scale);
+            SetFormHeight(1.625);
 
-            // Set the location of certain elements so that they scale correctly for different DPI settings
-            var point = new Point(Convert.ToInt32(graphics.DpiX * 1.14), Convert.ToInt32(lblGameName.Location.Y));
-            lblGameName.Location = point;
-            point = new Point(Convert.ToInt32(graphics.DpiX * 2.35), Convert.ToInt32(lnkSignIn.Location.Y));
-            lnkSignIn.Location = point;
-            point = new Point(Convert.ToInt32(graphics.DpiX * 2.15), Convert.ToInt32(lnkResetCookies.Location.Y));
-            lnkResetCookies.Location = point;
-            point = new Point(Convert.ToInt32(graphics.DpiX * 2.15), Convert.ToInt32(lnkLatestRelease.Location.Y));
-            lnkLatestRelease.Location = point;
+            try
+            {
+                picSidebarLogo.Image = Icon.ExtractAssociatedIcon(Application.ExecutablePath).ToBitmap();
+                picSidebarLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch { }
+
+            SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
 
             SetTheme();
             GetLatestVersion();
@@ -950,8 +984,28 @@ namespace IdleMasterExtended
             }
         }
 
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General || e.Category == UserPreferenceCategory.Color)
+            {
+                try
+                {
+                    if (this.IsHandleCreated)
+                    {
+                        this.BeginInvoke(new Action(() => SetTheme()));
+                    }
+                }
+                catch { }
+            }
+        }
+
         private void frmMain_FormClose(object sender, FormClosedEventArgs e)
         {
+            try
+            {
+                SystemEvents.UserPreferenceChanged -= SystemEvents_UserPreferenceChanged;
+            }
+            catch { }
             StopIdle();
         }
 
@@ -1101,16 +1155,6 @@ namespace IdleMasterExtended
             frm.ShowDialog();
         }
 
-        private void officialGroupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/ibenzir/idle-master-extended");
-        }
-
-        private void donateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://ibenzir.me");
-        }
-
         private void wikiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/ibenzir/idle-master-extended#readme");
@@ -1161,6 +1205,20 @@ namespace IdleMasterExtended
         {
             var frm = new frmAbout();
             frm.ShowDialog();
+        }
+
+        private void btnNavDashboard_Click(object sender, EventArgs e)
+        {
+            UpdateStateInfo();
+            Activate();
+        }
+
+        private void btnNavEula_Click(object sender, EventArgs e)
+        {
+            using (var frm = new frmEula())
+            {
+                frm.ShowDialog(this);
+            }
         }
         #endregion
 
@@ -1322,19 +1380,19 @@ namespace IdleMasterExtended
 
         private void tmrCheckCookieData_Tick(object sender, EventArgs e)
         {
-            // JN: White icons
-            var whiteIcons = Settings.Default.whiteIcons;
+            var isDark = IsDarkThemeActive;
+            var whiteIcons = isDark || Settings.Default.whiteIcons;
             var imgFalse = whiteIcons ? Resources.imgFalse_w : Resources.imgFalse;
             var imgTrue = whiteIcons ? Resources.imgTrue_w : Resources.imgTrue;
             SetTheme();
 
             var connected = !string.IsNullOrWhiteSpace(Settings.Default.sessionid) && !string.IsNullOrWhiteSpace(Settings.Default.steamLoginSecure);
 
-            var colorGreen = Settings.Default.customTheme ? Settings.Default.colorSteamGreen : Color.Green; // Adjust the green depending on the theme
+            var colorGreen = isDark ? Settings.Default.colorSteamGreen : Color.Green;
 
             lblCookieStatus.Text = connected ? localization.strings.idle_master_connected : localization.strings.idle_master_notconnected;
-            lblCookieStatus.ForeColor = connected ? colorGreen : this.ForeColor; // JN: Changed the color of "not connected" message
-            picCookieStatus.Image = connected ? imgTrue : imgFalse; // JN: Supports dark theme
+            lblCookieStatus.ForeColor = connected ? colorGreen : this.ForeColor;
+            picCookieStatus.Image = connected ? imgTrue : imgFalse;
             lnkSignIn.Visible = !connected;
             lnkResetCookies.Visible = connected;
             IsCookieReady = connected;
@@ -1342,22 +1400,21 @@ namespace IdleMasterExtended
 
         private void tmrCheckSteam_Tick(object sender, EventArgs e)
         {
-            // JN: White icons
-            var whiteIcons = Settings.Default.whiteIcons;
+            var isDark = IsDarkThemeActive;
+            var whiteIcons = isDark || Settings.Default.whiteIcons;
             var imgFalse = whiteIcons ? Resources.imgFalse_w : Resources.imgFalse;
             var imgTrue = whiteIcons ? Resources.imgTrue_w : Resources.imgTrue;
 
-            var colorGreen = Settings.Default.customTheme ? Settings.Default.colorSteamGreen : Color.Green; // Adjust the green depending on the theme
+            var colorGreen = isDark ? Settings.Default.colorSteamGreen : Color.Green;
 
             var isSteamRunning = SteamAPI.IsSteamRunning() || Settings.Default.ignoreclient;
             lblSteamStatus.Text = isSteamRunning ? (Settings.Default.ignoreclient ? localization.strings.steam_ignored : localization.strings.steam_running) : localization.strings.steam_notrunning;
-            lblSteamStatus.ForeColor = isSteamRunning ? colorGreen : this.ForeColor; // JN: Changed color of the not connected status
-            picSteamStatus.Image = isSteamRunning ? imgTrue : imgFalse; // JN: Supports dark theme
+            lblSteamStatus.ForeColor = isSteamRunning ? colorGreen : this.ForeColor;
+            picSteamStatus.Image = isSteamRunning ? imgTrue : imgFalse;
             tmrCheckSteam.Interval = isSteamRunning ? 5000 : 500;
             skipGameToolStripMenuItem.Enabled = isSteamRunning;
             pauseIdlingToolStripMenuItem.Enabled = isSteamRunning;
             IsSteamReady = isSteamRunning;
-
         }
 
         public void DisableCardDropCheckTimer()
@@ -1375,60 +1432,74 @@ namespace IdleMasterExtended
 
         #region THEME
         /// <summary>
-        /// Changes the color of the main window components to match a Steam-like dark theme
+        /// Changes the color of the main window components to match modern dark/light system preference
         /// </summary>
         private void SetTheme()
         {
             // Icon images
             ApplyIcons();
 
-            // Read settings
-            bool customTheme = Settings.Default.customTheme;
+            bool isDark = IsDarkThemeActive;
 
-            if (IsCurrentThemeCustom != customTheme)
+            if (IsCurrentThemeCustom != isDark)
             {
-                IsCurrentThemeCustom = customTheme;
+                IsCurrentThemeCustom = isDark;
 
                 // Define colors
-                FlatStyle buttonStyle = customTheme ? FlatStyle.Flat : FlatStyle.Standard;
-                Color colorBgd = customTheme ? Settings.Default.colorBgd : Settings.Default.colorBgdOriginal;
-                Color colorTxt = customTheme ? Settings.Default.colorTxt : Settings.Default.colorTxtOriginal;
-
-                // --------------------------
-                // -- APPLY THEME SETTINGS --
-                // --------------------------
+                FlatStyle buttonStyle = isDark ? FlatStyle.Flat : FlatStyle.Standard;
+                Color colorBgd = isDark ? Settings.Default.colorBgd : Settings.Default.colorBgdOriginal;
+                Color colorTxt = isDark ? Settings.Default.colorTxt : Settings.Default.colorTxtOriginal;
+                Color sidebarBgd = isDark ? Color.FromArgb(20, 24, 30) : Color.FromArgb(241, 245, 249);
+                Color sidebarTxt = isDark ? Color.FromArgb(226, 232, 240) : Color.FromArgb(51, 65, 85);
+                Color sidebarHover = isDark ? Color.FromArgb(37, 44, 56) : Color.FromArgb(226, 232, 240);
+                Color dividerColor = isDark ? Color.FromArgb(45, 55, 72) : Color.FromArgb(226, 232, 240);
 
                 // Main frame window
                 this.BackColor = colorBgd;
                 this.ForeColor = colorTxt;
 
+                // Sidebar panel and labels
+                pnlSidebar.BackColor = sidebarBgd;
+                lblSidebarBrand.ForeColor = isDark ? Color.White : Color.FromArgb(15, 23, 42);
+                lblSidebarVersion.ForeColor = isDark ? Color.FromArgb(148, 163, 184) : Color.FromArgb(100, 116, 139);
+                pnlNavDivider.BackColor = dividerColor;
+
+                Button[] navButtons = new Button[] {
+                    btnNavDashboard, btnNavSettings, btnNavWhitelist, btnNavBlacklist,
+                    btnNavStatistics, btnNavEula, btnNavAbout, btnNavExit
+                };
+                foreach (var btn in navButtons)
+                {
+                    btn.BackColor = sidebarBgd;
+                    btn.ForeColor = sidebarTxt;
+                    btn.FlatAppearance.MouseOverBackColor = sidebarHover;
+                    btn.FlatAppearance.MouseDownBackColor = isDark ? Color.FromArgb(50, 60, 78) : Color.FromArgb(203, 213, 225);
+                }
+
                 // Link colors
+                Color linkColor = isDark ? Color.FromArgb(100, 181, 246) : Color.FromArgb(13, 110, 253);
                 lnkLatestRelease.LinkColor
                     = lnkSignIn.LinkColor
                     = lnkResetCookies.LinkColor
                     = lblCurrentRemaining.ForeColor
                     = lblGameName.LinkColor
                     = lblCurrentStatus.LinkColor
-                    = customTheme ? Color.GhostWhite : Color.Blue;
+                    = linkColor;
 
                 // ToolStripMenu Top
                 mnuTop.BackColor = colorBgd;
                 mnuTop.ForeColor = colorTxt;
 
-                // ToolStripMenuItem and the ToolStripMenuItem dropdowns
                 foreach (ToolStripMenuItem item in mnuTop.Items)
                 {
-                    // Menu item coloring
                     item.BackColor = colorBgd;
                     item.ForeColor = colorTxt;
-
-                    // Dropdown coloring
                     item.DropDown.BackColor = colorBgd;
                     item.DropDown.ForeColor = colorTxt;
                 }
 
                 // Game state list (needs to be colored in RefreshGamesStateListView)
-                GamesState.BackColor = colorBgd;
+                GamesState.BackColor = isDark ? Color.FromArgb(20, 24, 30) : colorBgd;
                 GamesState.ForeColor = colorTxt;
 
                 // lblTimer
@@ -1439,11 +1510,12 @@ namespace IdleMasterExtended
                 toolStripStatusLabel1.BackColor = colorBgd;
 
                 // Footer
-                ssFooter.BackColor = colorBgd;
+                ssFooter.BackColor = isDark ? Color.FromArgb(20, 24, 30) : colorBgd;
+                ssFooter.ForeColor = colorTxt;
 
                 // Buttons
                 btnPause.FlatStyle = btnResume.FlatStyle = btnSkip.FlatStyle = buttonStyle;
-                btnPause.BackColor = btnResume.BackColor = btnSkip.BackColor = colorBgd;
+                btnPause.BackColor = btnResume.BackColor = btnSkip.BackColor = isDark ? Color.FromArgb(37, 44, 56) : colorBgd;
                 btnPause.ForeColor = btnResume.ForeColor = btnSkip.ForeColor = colorTxt;
             }
         }
@@ -1453,11 +1525,22 @@ namespace IdleMasterExtended
         /// </summary>
         private void ApplyIcons()
         {
-            bool whiteIcons = Settings.Default.whiteIcons;
+            bool isDark = IsDarkThemeActive;
+            bool whiteIcons = isDark || Settings.Default.whiteIcons;
 
             if (IsCurrentIconsWhite != whiteIcons)
             {
                 IsCurrentIconsWhite = whiteIcons;
+
+                // SIDEBAR NAVIGATION BUTTONS
+                btnNavDashboard.Image = whiteIcons ? Resources.imgPlaySmall_w : Resources.imgPlaySmall;
+                btnNavSettings.Image = whiteIcons ? Resources.imgSettings_w : Resources.imgSettings;
+                btnNavWhitelist.Image = whiteIcons ? Resources.imgTrue_w : Resources.imgTrue;
+                btnNavBlacklist.Image = whiteIcons ? Resources.imgBlacklist_w : Resources.imgBlacklist;
+                btnNavStatistics.Image = whiteIcons ? Resources.imgStatistics_w : Resources.imgStatistics;
+                btnNavEula.Image = whiteIcons ? Resources.imgDocument_w : Resources.imgDocument;
+                btnNavAbout.Image = whiteIcons ? Resources.imgInfo_w : Resources.imgInfo;
+                btnNavExit.Image = whiteIcons ? Resources.imgExit_w : Resources.imgExit;
 
                 // TOOL STRIP MENU ITEMS
                 // File
@@ -1465,7 +1548,6 @@ namespace IdleMasterExtended
                 blacklistToolStripMenuItem.Image = whiteIcons ? Resources.imgBlacklist_w : Resources.imgBlacklist;
                 exitToolStripMenuItem.Image = whiteIcons ? Resources.imgExit_w : Resources.imgExit;
                 whitelistToolStripMenuItem.Image = whiteIcons ? Resources.imgTrue_w : Resources.imgTrue;
-                donateToolStripMenuItem.Image = whiteIcons ? Resources.imgView_w : Resources.imgView;
                 // Game
                 pauseIdlingToolStripMenuItem.Image = whiteIcons ? Resources.imgPause_w : Resources.imgPause;
                 resumeIdlingToolStripMenuItem.Image = whiteIcons ? Resources.imgPlay_w : Resources.imgPlay;
@@ -1475,10 +1557,6 @@ namespace IdleMasterExtended
                 wikiToolStripMenuItem.Image = whiteIcons ? Resources.imgInfo_w : Resources.imgInfo;
                 statisticsToolStripMenuItem.Image = whiteIcons ? Resources.imgStatistics_w : Resources.imgStatistics;
                 changelogToolStripMenuItem.Image = whiteIcons ? Resources.imgDocument_w : Resources.imgDocument;
-                officialGroupToolStripMenuItem.Image = whiteIcons ? Resources.imgGlobe_w : Resources.imgGlobe;
-
-                // STATUS
-                // Handled in respective tick drawing functions
 
                 // BUTTONS
                 btnPause.Image = whiteIcons ? Resources.imgPauseSmall_w : Resources.imgPauseSmall;
