@@ -47,6 +47,7 @@ namespace SteamTradeCardDropper
             this.lblHeader.Size = new System.Drawing.Size(260, 21);
             this.lblHeader.TabIndex = 1;
             this.lblHeader.Text = "Terms of Use & Open Source Notice";
+            this.lblHeader.UseMnemonic = false;
             // 
             // lblSubHeader
             // 
