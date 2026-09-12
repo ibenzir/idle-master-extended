@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Build Solution
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Build Solution
+      run: msbuild IdleMasterExtended.sln /p:Configuration=Release /v:m
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: IdleMasterExtended-Release
+        path: |
+          src/IdleMasterExtended/bin/Release/IdleMasterExtended.exe
+          src/IdleMasterExtended/bin/Release/steam-idle.exe
+          src/IdleMasterExtended/bin/Release/steam_api64.dll
+          src/IdleMasterExtended/bin/Release/Steamworks.NET.dll
+          src/IdleMasterExtended/bin/Release/HtmlAgilityPack.dll
+          src/IdleMasterExtended/bin/Release/Languages/
+        if-no-files-found: error
