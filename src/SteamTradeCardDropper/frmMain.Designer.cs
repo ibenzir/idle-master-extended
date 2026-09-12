@@ -101,6 +101,12 @@ namespace SteamTradeCardDropper
             this.btnNavEula = new System.Windows.Forms.Button();
             this.btnNavAbout = new System.Windows.Forms.Button();
             this.btnNavExit = new System.Windows.Forms.Button();
+            this.pnlStatusCard = new System.Windows.Forms.Panel();
+            this.pnlSessionCard = new System.Windows.Forms.Panel();
+            this.pnlEmptyState = new System.Windows.Forms.Panel();
+            this.picEmptyIcon = new System.Windows.Forms.PictureBox();
+            this.lblEmptyTitle = new System.Windows.Forms.Label();
+            this.lblEmptySubtitle = new System.Windows.Forms.Label();
             this.mnuTop.SuspendLayout();
             this.ssFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReadingPage)).BeginInit();
@@ -110,6 +116,10 @@ namespace SteamTradeCardDropper
             ((System.ComponentModel.ISupportInitialize)(this.picApp)).BeginInit();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSidebarLogo)).BeginInit();
+            this.pnlStatusCard.SuspendLayout();
+            this.pnlSessionCard.SuspendLayout();
+            this.pnlEmptyState.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmptyIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -130,25 +140,26 @@ namespace SteamTradeCardDropper
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(148, 335);
+            this.pnlSidebar.Size = new System.Drawing.Size(160, 385);
             this.pnlSidebar.TabIndex = 31;
             // 
             // picSidebarLogo
             // 
-            this.picSidebarLogo.Location = new System.Drawing.Point(12, 12);
+            this.picSidebarLogo.Location = new System.Drawing.Point(14, 12);
             this.picSidebarLogo.Name = "picSidebarLogo";
-            this.picSidebarLogo.Size = new System.Drawing.Size(28, 28);
-            this.picSidebarLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSidebarLogo.Size = new System.Drawing.Size(32, 32);
+            this.picSidebarLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picSidebarLogo.TabIndex = 0;
             this.picSidebarLogo.TabStop = false;
+            this.picSidebarLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.picSidebarLogo_Paint);
             // 
             // lblSidebarBrand
             // 
             this.lblSidebarBrand.AutoSize = true;
-            this.lblSidebarBrand.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSidebarBrand.Location = new System.Drawing.Point(44, 10);
+            this.lblSidebarBrand.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSidebarBrand.Location = new System.Drawing.Point(50, 10);
             this.lblSidebarBrand.Name = "lblSidebarBrand";
-            this.lblSidebarBrand.Size = new System.Drawing.Size(81, 17);
+            this.lblSidebarBrand.Size = new System.Drawing.Size(100, 19);
             this.lblSidebarBrand.TabIndex = 1;
             this.lblSidebarBrand.Text = "Card Dropper";
             // 
@@ -157,18 +168,18 @@ namespace SteamTradeCardDropper
             this.lblSidebarVersion.AutoSize = true;
             this.lblSidebarVersion.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSidebarVersion.ForeColor = System.Drawing.Color.DimGray;
-            this.lblSidebarVersion.Location = new System.Drawing.Point(46, 27);
+            this.lblSidebarVersion.Location = new System.Drawing.Point(52, 28);
             this.lblSidebarVersion.Name = "lblSidebarVersion";
-            this.lblSidebarVersion.Size = new System.Drawing.Size(77, 12);
+            this.lblSidebarVersion.Size = new System.Drawing.Size(37, 12);
             this.lblSidebarVersion.TabIndex = 2;
             this.lblSidebarVersion.Text = "v1.11.0";
             // 
             // pnlNavDivider
             // 
             this.pnlNavDivider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
-            this.pnlNavDivider.Location = new System.Drawing.Point(10, 48);
+            this.pnlNavDivider.Location = new System.Drawing.Point(12, 50);
             this.pnlNavDivider.Name = "pnlNavDivider";
-            this.pnlNavDivider.Size = new System.Drawing.Size(128, 1);
+            this.pnlNavDivider.Size = new System.Drawing.Size(136, 1);
             this.pnlNavDivider.TabIndex = 3;
             // 
             // btnNavDashboard
@@ -178,9 +189,9 @@ namespace SteamTradeCardDropper
             this.btnNavDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavDashboard.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavDashboard.Location = new System.Drawing.Point(6, 56);
+            this.btnNavDashboard.Location = new System.Drawing.Point(7, 58);
             this.btnNavDashboard.Name = "btnNavDashboard";
-            this.btnNavDashboard.Size = new System.Drawing.Size(136, 26);
+            this.btnNavDashboard.Size = new System.Drawing.Size(146, 28);
             this.btnNavDashboard.TabIndex = 4;
             this.btnNavDashboard.Text = "  Dashboard";
             this.btnNavDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -195,9 +206,9 @@ namespace SteamTradeCardDropper
             this.btnNavSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavSettings.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavSettings.Location = new System.Drawing.Point(6, 85);
+            this.btnNavSettings.Location = new System.Drawing.Point(7, 88);
             this.btnNavSettings.Name = "btnNavSettings";
-            this.btnNavSettings.Size = new System.Drawing.Size(136, 26);
+            this.btnNavSettings.Size = new System.Drawing.Size(146, 28);
             this.btnNavSettings.TabIndex = 5;
             this.btnNavSettings.Text = "  Settings";
             this.btnNavSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -212,9 +223,9 @@ namespace SteamTradeCardDropper
             this.btnNavWhitelist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavWhitelist.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavWhitelist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavWhitelist.Location = new System.Drawing.Point(6, 114);
+            this.btnNavWhitelist.Location = new System.Drawing.Point(7, 118);
             this.btnNavWhitelist.Name = "btnNavWhitelist";
-            this.btnNavWhitelist.Size = new System.Drawing.Size(136, 26);
+            this.btnNavWhitelist.Size = new System.Drawing.Size(146, 28);
             this.btnNavWhitelist.TabIndex = 6;
             this.btnNavWhitelist.Text = "  Whitelist";
             this.btnNavWhitelist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,9 +240,9 @@ namespace SteamTradeCardDropper
             this.btnNavBlacklist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavBlacklist.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavBlacklist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavBlacklist.Location = new System.Drawing.Point(6, 143);
+            this.btnNavBlacklist.Location = new System.Drawing.Point(7, 148);
             this.btnNavBlacklist.Name = "btnNavBlacklist";
-            this.btnNavBlacklist.Size = new System.Drawing.Size(136, 26);
+            this.btnNavBlacklist.Size = new System.Drawing.Size(146, 28);
             this.btnNavBlacklist.TabIndex = 7;
             this.btnNavBlacklist.Text = "  Blacklist";
             this.btnNavBlacklist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,9 +257,9 @@ namespace SteamTradeCardDropper
             this.btnNavStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavStatistics.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavStatistics.Location = new System.Drawing.Point(6, 172);
+            this.btnNavStatistics.Location = new System.Drawing.Point(7, 178);
             this.btnNavStatistics.Name = "btnNavStatistics";
-            this.btnNavStatistics.Size = new System.Drawing.Size(136, 26);
+            this.btnNavStatistics.Size = new System.Drawing.Size(146, 28);
             this.btnNavStatistics.TabIndex = 8;
             this.btnNavStatistics.Text = "  Statistics";
             this.btnNavStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -263,9 +274,9 @@ namespace SteamTradeCardDropper
             this.btnNavEula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavEula.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavEula.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavEula.Location = new System.Drawing.Point(6, 201);
+            this.btnNavEula.Location = new System.Drawing.Point(7, 208);
             this.btnNavEula.Name = "btnNavEula";
-            this.btnNavEula.Size = new System.Drawing.Size(136, 26);
+            this.btnNavEula.Size = new System.Drawing.Size(146, 28);
             this.btnNavEula.TabIndex = 9;
             this.btnNavEula.Text = "  Terms / EULA";
             this.btnNavEula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -280,9 +291,9 @@ namespace SteamTradeCardDropper
             this.btnNavAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavAbout.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavAbout.Location = new System.Drawing.Point(6, 230);
+            this.btnNavAbout.Location = new System.Drawing.Point(7, 238);
             this.btnNavAbout.Name = "btnNavAbout";
-            this.btnNavAbout.Size = new System.Drawing.Size(136, 26);
+            this.btnNavAbout.Size = new System.Drawing.Size(146, 28);
             this.btnNavAbout.TabIndex = 10;
             this.btnNavAbout.Text = "  About";
             this.btnNavAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -297,9 +308,9 @@ namespace SteamTradeCardDropper
             this.btnNavExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavExit.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavExit.Location = new System.Drawing.Point(6, 265);
+            this.btnNavExit.Location = new System.Drawing.Point(7, 276);
             this.btnNavExit.Name = "btnNavExit";
-            this.btnNavExit.Size = new System.Drawing.Size(136, 26);
+            this.btnNavExit.Size = new System.Drawing.Size(146, 28);
             this.btnNavExit.TabIndex = 11;
             this.btnNavExit.Text = "  Exit";
             this.btnNavExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -307,115 +318,16 @@ namespace SteamTradeCardDropper
             this.btnNavExit.UseVisualStyleBackColor = true;
             this.btnNavExit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // lblCookieStatus
-            // 
-            this.lblCookieStatus.AutoSize = true;
-            this.lblCookieStatus.Location = new System.Drawing.Point(180, 38);
-            this.lblCookieStatus.Name = "lblCookieStatus";
-            this.lblCookieStatus.Size = new System.Drawing.Size(186, 13);
-            this.lblCookieStatus.TabIndex = 0;
-            this.lblCookieStatus.Text = "Steam Trade Card Dropper is not connected to Steam";
-            // 
             // tmrCheckCookieData
             // 
             this.tmrCheckCookieData.Enabled = true;
             this.tmrCheckCookieData.Tick += new System.EventHandler(this.tmrCheckCookieData_Tick);
-            // 
-            // lblSteamStatus
-            // 
-            this.lblSteamStatus.AutoSize = true;
-            this.lblSteamStatus.Location = new System.Drawing.Point(180, 16);
-            this.lblSteamStatus.Name = "lblSteamStatus";
-            this.lblSteamStatus.Size = new System.Drawing.Size(103, 13);
-            this.lblSteamStatus.TabIndex = 3;
-            this.lblSteamStatus.Text = "Steam is not running";
             // 
             // tmrCheckSteam
             // 
             this.tmrCheckSteam.Enabled = true;
             this.tmrCheckSteam.Interval = 500;
             this.tmrCheckSteam.Tick += new System.EventHandler(this.tmrCheckSteam_Tick);
-            // 
-            // lnkResetCookies
-            // 
-            this.lnkResetCookies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkResetCookies.AutoSize = true;
-            this.lnkResetCookies.Location = new System.Drawing.Point(384, 38);
-            this.lnkResetCookies.Name = "lnkResetCookies";
-            this.lnkResetCookies.Size = new System.Drawing.Size(52, 13);
-            this.lnkResetCookies.TabIndex = 4;
-            this.lnkResetCookies.TabStop = true;
-            this.lnkResetCookies.Text = "(Sign out)";
-            this.lnkResetCookies.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkResetCookies_LinkClicked);
-            // 
-            // lnkSignIn
-            // 
-            this.lnkSignIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkSignIn.AutoSize = true;
-            this.lnkSignIn.Location = new System.Drawing.Point(394, 38);
-            this.lnkSignIn.Name = "lnkSignIn";
-            this.lnkSignIn.Size = new System.Drawing.Size(45, 13);
-            this.lnkSignIn.TabIndex = 5;
-            this.lnkSignIn.TabStop = true;
-            this.lnkSignIn.Text = "(Sign in)";
-            this.lnkSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSignIn_LinkClicked);
-            // 
-            // lblDrops
-            // 
-            this.lblDrops.AutoSize = true;
-            this.lblDrops.Location = new System.Drawing.Point(180, 72);
-            this.lblDrops.Name = "lblDrops";
-            this.lblDrops.Size = new System.Drawing.Size(105, 13);
-            this.lblDrops.TabIndex = 9;
-            this.lblDrops.Text = "card drops remaining";
-            this.lblDrops.Visible = false;
-            // 
-            // lblIdle
-            // 
-            this.lblIdle.AutoSize = true;
-            this.lblIdle.Location = new System.Drawing.Point(180, 88);
-            this.lblIdle.Name = "lblIdle";
-            this.lblIdle.Size = new System.Drawing.Size(86, 13);
-            this.lblIdle.TabIndex = 10;
-            this.lblIdle.Text = "games left to idle";
-            this.lblIdle.Visible = false;
-            // 
-            // lblCurrentStatus
-            // 
-            this.lblCurrentStatus.AutoSize = true;
-            this.lblCurrentStatus.DisabledLinkColor = System.Drawing.SystemColors.Control;
-            this.lblCurrentStatus.Enabled = false;
-            this.lblCurrentStatus.Location = new System.Drawing.Point(160, 115);
-            this.lblCurrentStatus.Name = "lblCurrentStatus";
-            this.lblCurrentStatus.Size = new System.Drawing.Size(88, 13);
-            this.lblCurrentStatus.TabIndex = 11;
-            this.lblCurrentStatus.TabStop = true;
-            this.lblCurrentStatus.Text = "Currently in-game";
-            this.lblCurrentStatus.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCurrentStatus_LinkClicked);
-            // 
-            // lblCurrentRemaining
-            // 
-            this.lblCurrentRemaining.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCurrentRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentRemaining.ForeColor = System.Drawing.Color.Blue;
-            this.lblCurrentRemaining.Location = new System.Drawing.Point(160, 275);
-            this.lblCurrentRemaining.Name = "lblCurrentRemaining";
-            this.lblCurrentRemaining.Size = new System.Drawing.Size(274, 19);
-            this.lblCurrentRemaining.TabIndex = 12;
-            this.lblCurrentRemaining.Text = "3 card drops remaining";
-            this.lblCurrentRemaining.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblCurrentRemaining.Click += new System.EventHandler(this.lblCurrentRemaining_Click);
-            // 
-            // lblGameName
-            // 
-            this.lblGameName.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblGameName.Location = new System.Drawing.Point(245, 115);
-            this.lblGameName.Name = "lblGameName";
-            this.lblGameName.Size = new System.Drawing.Size(150, 16);
-            this.lblGameName.TabIndex = 16;
-            this.lblGameName.TabStop = true;
-            this.lblGameName.Text = "Game Name";
-            this.lblGameName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblGameName_LinkClicked);
             // 
             // mnuTop
             // 
@@ -627,106 +539,288 @@ namespace SteamTradeCardDropper
             // 
             // notifyIcon1
             // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Icon = global::SteamTradeCardDropper.Properties.Resources.appIcon;
             this.notifyIcon1.Text = "Steam Trade Card Dropper";
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // pnlStatusCard
+            // 
+            this.pnlStatusCard.BackColor = System.Drawing.Color.White;
+            this.pnlStatusCard.Controls.Add(this.lnkLatestRelease);
+            this.pnlStatusCard.Controls.Add(this.picSteamStatus);
+            this.pnlStatusCard.Controls.Add(this.lblSteamStatus);
+            this.pnlStatusCard.Controls.Add(this.lnkSignIn);
+            this.pnlStatusCard.Controls.Add(this.lnkResetCookies);
+            this.pnlStatusCard.Controls.Add(this.picCookieStatus);
+            this.pnlStatusCard.Controls.Add(this.lblCookieStatus);
+            this.pnlStatusCard.Controls.Add(this.lblSignedOnAs);
+            this.pnlStatusCard.Location = new System.Drawing.Point(176, 14);
+            this.pnlStatusCard.Name = "pnlStatusCard";
+            this.pnlStatusCard.Size = new System.Drawing.Size(388, 76);
+            this.pnlStatusCard.TabIndex = 32;
+            this.pnlStatusCard.Paint += new System.Windows.Forms.PaintEventHandler(this.Card_Paint);
+            // 
+            // picSteamStatus
+            // 
+            this.picSteamStatus.Location = new System.Drawing.Point(14, 14);
+            this.picSteamStatus.Name = "picSteamStatus";
+            this.picSteamStatus.Size = new System.Drawing.Size(16, 16);
+            this.picSteamStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSteamStatus.TabIndex = 7;
+            this.picSteamStatus.TabStop = false;
+            // 
+            // lblSteamStatus
+            // 
+            this.lblSteamStatus.AutoSize = true;
+            this.lblSteamStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSteamStatus.Location = new System.Drawing.Point(36, 14);
+            this.lblSteamStatus.Name = "lblSteamStatus";
+            this.lblSteamStatus.Size = new System.Drawing.Size(117, 15);
+            this.lblSteamStatus.TabIndex = 3;
+            this.lblSteamStatus.Text = "Steam is not running";
+            // 
+            // lnkLatestRelease
+            // 
+            this.lnkLatestRelease.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkLatestRelease.AutoSize = true;
+            this.lnkLatestRelease.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkLatestRelease.Location = new System.Drawing.Point(292, 14);
+            this.lnkLatestRelease.Name = "lnkLatestRelease";
+            this.lnkLatestRelease.Size = new System.Drawing.Size(84, 13);
+            this.lnkLatestRelease.TabIndex = 30;
+            this.lnkLatestRelease.TabStop = true;
+            this.lnkLatestRelease.Text = "(Latest release)";
+            this.lnkLatestRelease.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLatestRelease_LinkClicked);
+            // 
+            // picCookieStatus
+            // 
+            this.picCookieStatus.Location = new System.Drawing.Point(14, 44);
+            this.picCookieStatus.Name = "picCookieStatus";
+            this.picCookieStatus.Size = new System.Drawing.Size(16, 16);
+            this.picCookieStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCookieStatus.TabIndex = 8;
+            this.picCookieStatus.TabStop = false;
+            // 
+            // lblCookieStatus
+            // 
+            this.lblCookieStatus.AutoSize = true;
+            this.lblCookieStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCookieStatus.Location = new System.Drawing.Point(36, 44);
+            this.lblCookieStatus.Name = "lblCookieStatus";
+            this.lblCookieStatus.Size = new System.Drawing.Size(262, 15);
+            this.lblCookieStatus.TabIndex = 0;
+            this.lblCookieStatus.Text = "Steam Trade Card Dropper is not connected to Steam";
+            // 
+            // lblSignedOnAs
+            // 
+            this.lblSignedOnAs.AutoSize = true;
+            this.lblSignedOnAs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSignedOnAs.Location = new System.Drawing.Point(36, 44);
+            this.lblSignedOnAs.Name = "lblSignedOnAs";
+            this.lblSignedOnAs.Size = new System.Drawing.Size(71, 15);
+            this.lblSignedOnAs.TabIndex = 27;
+            this.lblSignedOnAs.Text = "Signed in as";
+            this.lblSignedOnAs.Visible = false;
+            // 
+            // lnkSignIn
+            // 
+            this.lnkSignIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkSignIn.AutoSize = true;
+            this.lnkSignIn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkSignIn.Location = new System.Drawing.Point(330, 44);
+            this.lnkSignIn.Name = "lnkSignIn";
+            this.lnkSignIn.Size = new System.Drawing.Size(46, 13);
+            this.lnkSignIn.TabIndex = 5;
+            this.lnkSignIn.TabStop = true;
+            this.lnkSignIn.Text = "(Sign in)";
+            this.lnkSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSignIn_LinkClicked);
+            // 
+            // lnkResetCookies
+            // 
+            this.lnkResetCookies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkResetCookies.AutoSize = true;
+            this.lnkResetCookies.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkResetCookies.Location = new System.Drawing.Point(322, 44);
+            this.lnkResetCookies.Name = "lnkResetCookies";
+            this.lnkResetCookies.Size = new System.Drawing.Size(54, 13);
+            this.lnkResetCookies.TabIndex = 4;
+            this.lnkResetCookies.TabStop = true;
+            this.lnkResetCookies.Text = "(Sign out)";
+            this.lnkResetCookies.Visible = false;
+            this.lnkResetCookies.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkResetCookies_LinkClicked);
+            // 
+            // pnlSessionCard
+            // 
+            this.pnlSessionCard.BackColor = System.Drawing.Color.White;
+            this.pnlSessionCard.Controls.Add(this.pnlEmptyState);
+            this.pnlSessionCard.Controls.Add(this.lblCurrentStatus);
+            this.pnlSessionCard.Controls.Add(this.btnPause);
+            this.pnlSessionCard.Controls.Add(this.btnResume);
+            this.pnlSessionCard.Controls.Add(this.btnSkip);
+            this.pnlSessionCard.Controls.Add(this.lblGameName);
+            this.pnlSessionCard.Controls.Add(this.picApp);
+            this.pnlSessionCard.Controls.Add(this.GamesState);
+            this.pnlSessionCard.Controls.Add(this.lblHoursPlayed);
+            this.pnlSessionCard.Controls.Add(this.lblCurrentRemaining);
+            this.pnlSessionCard.Location = new System.Drawing.Point(176, 100);
+            this.pnlSessionCard.Name = "pnlSessionCard";
+            this.pnlSessionCard.Size = new System.Drawing.Size(388, 258);
+            this.pnlSessionCard.TabIndex = 33;
+            this.pnlSessionCard.Paint += new System.Windows.Forms.PaintEventHandler(this.Card_Paint);
+            // 
+            // pnlEmptyState
+            // 
+            this.pnlEmptyState.BackColor = System.Drawing.Color.White;
+            this.pnlEmptyState.Controls.Add(this.picEmptyIcon);
+            this.pnlEmptyState.Controls.Add(this.lblEmptyTitle);
+            this.pnlEmptyState.Controls.Add(this.lblEmptySubtitle);
+            this.pnlEmptyState.Controls.Add(this.picReadingPage);
+            this.pnlEmptyState.Controls.Add(this.lblDrops);
+            this.pnlEmptyState.Controls.Add(this.lblIdle);
+            this.pnlEmptyState.Location = new System.Drawing.Point(1, 1);
+            this.pnlEmptyState.Name = "pnlEmptyState";
+            this.pnlEmptyState.Size = new System.Drawing.Size(386, 256);
+            this.pnlEmptyState.TabIndex = 34;
+            // 
+            // picEmptyIcon
+            // 
+            this.picEmptyIcon.Location = new System.Drawing.Point(171, 26);
+            this.picEmptyIcon.Name = "picEmptyIcon";
+            this.picEmptyIcon.Size = new System.Drawing.Size(44, 44);
+            this.picEmptyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEmptyIcon.TabIndex = 0;
+            this.picEmptyIcon.TabStop = false;
+            this.picEmptyIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.picEmptyIcon_Paint);
+            // 
+            // lblEmptyTitle
+            // 
+            this.lblEmptyTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmptyTitle.Location = new System.Drawing.Point(14, 78);
+            this.lblEmptyTitle.Name = "lblEmptyTitle";
+            this.lblEmptyTitle.Size = new System.Drawing.Size(358, 24);
+            this.lblEmptyTitle.TabIndex = 1;
+            this.lblEmptyTitle.Text = "Steam Trade Card Dropper";
+            this.lblEmptyTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEmptySubtitle
+            // 
+            this.lblEmptySubtitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmptySubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
+            this.lblEmptySubtitle.Location = new System.Drawing.Point(20, 104);
+            this.lblEmptySubtitle.Name = "lblEmptySubtitle";
+            this.lblEmptySubtitle.Size = new System.Drawing.Size(346, 42);
+            this.lblEmptySubtitle.TabIndex = 2;
+            this.lblEmptySubtitle.Text = "Please launch Steam or sign in to start gathering card drops.";
+            this.lblEmptySubtitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // picReadingPage
             // 
             this.picReadingPage.Image = global::SteamTradeCardDropper.Properties.Resources.imgSpin;
-            this.picReadingPage.Location = new System.Drawing.Point(160, 70);
+            this.picReadingPage.Location = new System.Drawing.Point(185, 156);
             this.picReadingPage.Name = "picReadingPage";
-            this.picReadingPage.Size = new System.Drawing.Size(15, 16);
+            this.picReadingPage.Size = new System.Drawing.Size(16, 16);
             this.picReadingPage.TabIndex = 26;
             this.picReadingPage.TabStop = false;
             this.picReadingPage.Visible = false;
             // 
-            // btnSkip
+            // lblDrops
             // 
-            this.btnSkip.Image = global::SteamTradeCardDropper.Properties.Resources.imgSkipSmall;
-            this.btnSkip.Location = new System.Drawing.Point(419, 115);
-            this.btnSkip.Name = "btnSkip";
-            this.btnSkip.Size = new System.Drawing.Size(15, 16);
-            this.btnSkip.TabIndex = 23;
-            this.btnSkip.UseVisualStyleBackColor = true;
-            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
+            this.lblDrops.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDrops.Location = new System.Drawing.Point(14, 180);
+            this.lblDrops.Name = "lblDrops";
+            this.lblDrops.Size = new System.Drawing.Size(358, 20);
+            this.lblDrops.TabIndex = 9;
+            this.lblDrops.Text = "card drops remaining";
+            this.lblDrops.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDrops.Visible = false;
             // 
-            // picIdleStatus
+            // lblIdle
             // 
-            this.picIdleStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.picIdleStatus.Location = new System.Drawing.Point(430, 319);
-            this.picIdleStatus.Name = "picIdleStatus";
-            this.picIdleStatus.Size = new System.Drawing.Size(15, 16);
-            this.picIdleStatus.TabIndex = 15;
-            this.picIdleStatus.TabStop = false;
-            this.picIdleStatus.Visible = false;
+            this.lblIdle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdle.Location = new System.Drawing.Point(14, 204);
+            this.lblIdle.Name = "lblIdle";
+            this.lblIdle.Size = new System.Drawing.Size(358, 20);
+            this.lblIdle.TabIndex = 10;
+            this.lblIdle.Text = "games left to idle";
+            this.lblIdle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblIdle.Visible = false;
             // 
-            // picCookieStatus
+            // lblCurrentStatus
             // 
-            this.picCookieStatus.Location = new System.Drawing.Point(160, 37);
-            this.picCookieStatus.Name = "picCookieStatus";
-            this.picCookieStatus.Size = new System.Drawing.Size(15, 16);
-            this.picCookieStatus.TabIndex = 8;
-            this.picCookieStatus.TabStop = false;
-            // 
-            // picSteamStatus
-            // 
-            this.picSteamStatus.Location = new System.Drawing.Point(160, 14);
-            this.picSteamStatus.Name = "picSteamStatus";
-            this.picSteamStatus.Size = new System.Drawing.Size(15, 16);
-            this.picSteamStatus.TabIndex = 7;
-            this.picSteamStatus.TabStop = false;
-            // 
-            // picApp
-            // 
-            this.picApp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picApp.Location = new System.Drawing.Point(160, 134);
-            this.picApp.Name = "picApp";
-            this.picApp.Size = new System.Drawing.Size(274, 138);
-            this.picApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picApp.TabIndex = 6;
-            this.picApp.TabStop = false;
-            this.picApp.Visible = false;
+            this.lblCurrentStatus.AutoSize = true;
+            this.lblCurrentStatus.DisabledLinkColor = System.Drawing.SystemColors.Control;
+            this.lblCurrentStatus.Enabled = false;
+            this.lblCurrentStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentStatus.Location = new System.Drawing.Point(14, 12);
+            this.lblCurrentStatus.Name = "lblCurrentStatus";
+            this.lblCurrentStatus.Size = new System.Drawing.Size(99, 13);
+            this.lblCurrentStatus.TabIndex = 11;
+            this.lblCurrentStatus.TabStop = true;
+            this.lblCurrentStatus.Text = "Currently in-game";
+            this.lblCurrentStatus.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCurrentStatus_LinkClicked);
             // 
             // btnPause
             // 
+            this.btnPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPause.FlatAppearance.BorderSize = 0;
+            this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPause.Image = global::SteamTradeCardDropper.Properties.Resources.imgPauseSmall;
-            this.btnPause.Location = new System.Drawing.Point(404, 115);
+            this.btnPause.Location = new System.Drawing.Point(336, 9);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(15, 16);
+            this.btnPause.Size = new System.Drawing.Size(20, 20);
             this.btnPause.TabIndex = 22;
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnResume
             // 
+            this.btnResume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnResume.FlatAppearance.BorderSize = 0;
+            this.btnResume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResume.Image = global::SteamTradeCardDropper.Properties.Resources.imgPlaySmall;
-            this.btnResume.Location = new System.Drawing.Point(404, 115);
+            this.btnResume.Location = new System.Drawing.Point(336, 9);
             this.btnResume.Name = "btnResume";
-            this.btnResume.Size = new System.Drawing.Size(15, 16);
+            this.btnResume.Size = new System.Drawing.Size(20, 20);
             this.btnResume.TabIndex = 24;
             this.btnResume.UseVisualStyleBackColor = true;
             this.btnResume.Visible = false;
             this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
             // 
-            // tmrStartNext
+            // btnSkip
             // 
-            this.tmrStartNext.Tick += new System.EventHandler(this.tmrStartNext_Tick);
+            this.btnSkip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSkip.FlatAppearance.BorderSize = 0;
+            this.btnSkip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSkip.Image = global::SteamTradeCardDropper.Properties.Resources.imgSkipSmall;
+            this.btnSkip.Location = new System.Drawing.Point(360, 9);
+            this.btnSkip.Name = "btnSkip";
+            this.btnSkip.Size = new System.Drawing.Size(20, 20);
+            this.btnSkip.TabIndex = 23;
+            this.btnSkip.UseVisualStyleBackColor = true;
+            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
             // 
-            // tmrBadgeReload
+            // lblGameName
             // 
-            this.tmrBadgeReload.Interval = 1000;
-            this.tmrBadgeReload.Tick += new System.EventHandler(this.tmrBadgeReload_Tick);
+            this.lblGameName.AutoEllipsis = true;
+            this.lblGameName.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameName.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblGameName.Location = new System.Drawing.Point(14, 32);
+            this.lblGameName.Name = "lblGameName";
+            this.lblGameName.Size = new System.Drawing.Size(360, 20);
+            this.lblGameName.TabIndex = 16;
+            this.lblGameName.TabStop = true;
+            this.lblGameName.Text = "Game Name";
+            this.lblGameName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblGameName_LinkClicked);
             // 
-            // lblSignedOnAs
+            // picApp
             // 
-            this.lblSignedOnAs.AutoSize = true;
-            this.lblSignedOnAs.Location = new System.Drawing.Point(175, 53);
-            this.lblSignedOnAs.Name = "lblSignedOnAs";
-            this.lblSignedOnAs.Size = new System.Drawing.Size(65, 13);
-            this.lblSignedOnAs.TabIndex = 27;
-            this.lblSignedOnAs.Text = "Signed in as";
-            this.lblSignedOnAs.Visible = false;
+            this.picApp.Location = new System.Drawing.Point(14, 56);
+            this.picApp.Name = "picApp";
+            this.picApp.Size = new System.Drawing.Size(360, 158);
+            this.picApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picApp.TabIndex = 6;
+            this.picApp.TabStop = false;
+            this.picApp.Visible = false;
             // 
             // GamesState
             // 
@@ -734,10 +828,10 @@ namespace SteamTradeCardDropper
             this.GameName,
             this.Hours});
             this.GamesState.HideSelection = false;
-            this.GamesState.Location = new System.Drawing.Point(160, 134);
+            this.GamesState.Location = new System.Drawing.Point(14, 56);
             this.GamesState.Margin = new System.Windows.Forms.Padding(2);
             this.GamesState.Name = "GamesState";
-            this.GamesState.Size = new System.Drawing.Size(275, 139);
+            this.GamesState.Size = new System.Drawing.Size(360, 158);
             this.GamesState.TabIndex = 28;
             this.GamesState.UseCompatibleStateImageBehavior = false;
             this.GamesState.View = System.Windows.Forms.View.Details;
@@ -758,61 +852,66 @@ namespace SteamTradeCardDropper
             // lblHoursPlayed
             // 
             this.lblHoursPlayed.AutoSize = true;
-            this.lblHoursPlayed.Location = new System.Drawing.Point(160, 275);
+            this.lblHoursPlayed.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoursPlayed.Location = new System.Drawing.Point(14, 226);
             this.lblHoursPlayed.Name = "lblHoursPlayed";
             this.lblHoursPlayed.Size = new System.Drawing.Size(0, 13);
             this.lblHoursPlayed.TabIndex = 29;
             this.lblHoursPlayed.Visible = false;
+            // 
+            // lblCurrentRemaining
+            // 
+            this.lblCurrentRemaining.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCurrentRemaining.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCurrentRemaining.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentRemaining.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblCurrentRemaining.Location = new System.Drawing.Point(164, 224);
+            this.lblCurrentRemaining.Name = "lblCurrentRemaining";
+            this.lblCurrentRemaining.Size = new System.Drawing.Size(210, 20);
+            this.lblCurrentRemaining.TabIndex = 12;
+            this.lblCurrentRemaining.Text = "3 card drops remaining";
+            this.lblCurrentRemaining.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCurrentRemaining.Click += new System.EventHandler(this.lblCurrentRemaining_Click);
+            // 
+            // picIdleStatus
+            // 
+            this.picIdleStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picIdleStatus.Location = new System.Drawing.Point(556, 364);
+            this.picIdleStatus.Name = "picIdleStatus";
+            this.picIdleStatus.Size = new System.Drawing.Size(15, 16);
+            this.picIdleStatus.TabIndex = 15;
+            this.picIdleStatus.TabStop = false;
+            this.picIdleStatus.Visible = false;
+            // 
+            // tmrStartNext
+            // 
+            this.tmrStartNext.Tick += new System.EventHandler(this.tmrStartNext_Tick);
+            // 
+            // tmrBadgeReload
+            // 
+            this.tmrBadgeReload.Interval = 1000;
+            this.tmrBadgeReload.Tick += new System.EventHandler(this.tmrBadgeReload_Tick);
             // 
             // tmrStatistics
             // 
             this.tmrStatistics.Interval = 60000;
             this.tmrStatistics.Tick += new System.EventHandler(this.tmrStatistics_Tick);
             // 
-            // lnkLatestRelease
-            // 
-            this.lnkLatestRelease.AutoSize = true;
-            this.lnkLatestRelease.Location = new System.Drawing.Point(315, 16);
-            this.lnkLatestRelease.Name = "lnkLatestRelease";
-            this.lnkLatestRelease.Size = new System.Drawing.Size(79, 13);
-            this.lnkLatestRelease.TabIndex = 30;
-            this.lnkLatestRelease.TabStop = true;
-            this.lnkLatestRelease.Text = "(Latest release)";
-            this.lnkLatestRelease.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLatestRelease_LinkClicked);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(450, 335);
+            this.ClientSize = new System.Drawing.Size(580, 385);
+            this.Controls.Add(this.pnlSessionCard);
+            this.Controls.Add(this.pnlStatusCard);
             this.Controls.Add(this.pnlSidebar);
-            this.Controls.Add(this.lnkLatestRelease);
-            this.Controls.Add(this.lblHoursPlayed);
-            this.Controls.Add(this.GamesState);
-            this.Controls.Add(this.lblSignedOnAs);
-            this.Controls.Add(this.picReadingPage);
-            this.Controls.Add(this.btnSkip);
             this.Controls.Add(this.picIdleStatus);
-            this.Controls.Add(this.lblCurrentRemaining);
-            this.Controls.Add(this.lblCurrentStatus);
-            this.Controls.Add(this.lblIdle);
-            this.Controls.Add(this.lblDrops);
-            this.Controls.Add(this.picCookieStatus);
-            this.Controls.Add(this.picSteamStatus);
-            this.Controls.Add(this.lnkSignIn);
-            this.Controls.Add(this.lnkResetCookies);
-            this.Controls.Add(this.lblSteamStatus);
-            this.Controls.Add(this.lblCookieStatus);
             this.Controls.Add(this.mnuTop);
-            this.Controls.Add(this.btnPause);
-            this.Controls.Add(this.btnResume);
-            this.Controls.Add(this.lblGameName);
-            this.Controls.Add(this.picApp);
             this.Controls.Add(this.ssFooter);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::SteamTradeCardDropper.Properties.Resources.appIcon;
             this.MainMenuStrip = this.mnuTop;
             this.MaximizeBox = false;
             this.Name = "frmMain";
@@ -833,6 +932,12 @@ namespace SteamTradeCardDropper
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSidebarLogo)).EndInit();
+            this.pnlStatusCard.ResumeLayout(false);
+            this.pnlStatusCard.PerformLayout();
+            this.pnlSessionCard.ResumeLayout(false);
+            this.pnlSessionCard.PerformLayout();
+            this.pnlEmptyState.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picEmptyIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
@@ -906,5 +1011,11 @@ namespace SteamTradeCardDropper
         private Button btnNavEula;
         private Button btnNavAbout;
         private Button btnNavExit;
+        private Panel pnlStatusCard;
+        private Panel pnlSessionCard;
+        private Panel pnlEmptyState;
+        private PictureBox picEmptyIcon;
+        private Label lblEmptyTitle;
+        private Label lblEmptySubtitle;
     }
 }
