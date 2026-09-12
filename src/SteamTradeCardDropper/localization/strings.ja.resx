@@ -157,10 +157,10 @@
     <value>時間のプレイ記録</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle MasterはSteamと接続しました</value>
+    <value>Steam Trade Card DropperはSteamと接続しました</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle MasterはSteamと接続していません</value>
+    <value>Steam Trade Card DropperはSteamと接続していません</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>ゲームアイドル中</value>
@@ -247,7 +247,7 @@
     <value>より詳細な認証情報を表示する</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Masterの認証情報</value>
+    <value>Steam Trade Card Dropperの認証情報</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;キャンセル</value>
@@ -265,7 +265,7 @@
     <value>ゲームを一つづつ個別にアイドルする</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Masterの設定</value>
+    <value>Steam Trade Card Dropperの設定</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>複数のゲームを同時に2時間アイドルし、その後一つづつ個別にアイドルする</value>
@@ -283,10 +283,10 @@
     <value>言語</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Idle Masterのブラックリストを編集する</value>
+    <value>Steam Trade Card Dropperのブラックリストを編集する</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Idle Masterを通知領域に最小化する</value>
+    <value>Steam Trade Card Dropperを通知領域に最小化する</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;はい</value>
@@ -310,13 +310,13 @@
     <value>言語の変更を完了するために再起動してください。</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Masterの更新履歴</value>
+    <value>Steam Trade Card Dropperの更新履歴</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;保存</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Masterはあなたの情報を保存中です</value>
+    <value>Steam Trade Card Dropperはあなたの情報を保存中です</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>現在サインイン中のユーザー名を表示する</value>

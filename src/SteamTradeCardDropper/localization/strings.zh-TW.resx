@@ -157,10 +157,10 @@
     <value>小時</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master已經連結至Steam</value>
+    <value>Steam Trade Card Dropper已經連結至Steam</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master尚未連結至Steam</value>
+    <value>Steam Trade Card Dropper尚未連結至Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>現在開始掉落</value>
@@ -247,7 +247,7 @@
     <value>顯示進階身份驗證資訊</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master認證資料</value>
+    <value>Steam Trade Card Dropper認證資料</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>取消(&amp;C)</value>
@@ -266,7 +266,7 @@
     <value>各遊戲卡片分開掉落</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master設定</value>
+    <value>Steam Trade Card Dropper設定</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>所有遊戲同時等待掉落2小時，然後再分開進行</value>
@@ -284,10 +284,10 @@
     <value>介面語言</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>管理Idle Master黑名單</value>
+    <value>管理Steam Trade Card Dropper黑名單</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>將Idle Master縮小至系統工具列</value>
+    <value>將Steam Trade Card Dropper縮小至系統工具列</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>確認(&amp;O)</value>
@@ -311,13 +311,13 @@
     <value>請重新啟動程式，使語言更改生效</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master版本發佈說明</value>
+    <value>Steam Trade Card Dropper版本發佈說明</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>儲存(&amp;S)</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master正在儲存您的資訊</value>
+    <value>Steam Trade Card Dropper正在儲存您的資訊</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>顯示已登入Steam帳戶的使用者名字</value>
@@ -344,7 +344,7 @@
     <value>將遊戲加到白名單</value>
   </data>
   <data name="manage_whitelist" xml:space="preserve">
-    <value>管理Idle Master白名單</value>
+    <value>管理Steam Trade Card Dropper白名單</value>
   </data>
   <data name="whitelist" xml:space="preserve">
     <value>白名單(&amp;W)</value>

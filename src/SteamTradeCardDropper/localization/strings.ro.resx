@@ -157,10 +157,10 @@
     <value>ore inregistrate</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master este conectat la Steam</value>
+    <value>Steam Trade Card Dropper este conectat la Steam</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master nu este conectat la Steam</value>
+    <value>Steam Trade Card Dropper nu este conectat la Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>rulează acum</value>
@@ -247,7 +247,7 @@
     <value>Afișează informații de autentificare avansate</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Datele de autentificare Idle Master</value>
+    <value>Datele de autentificare Steam Trade Card Dropper</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Revocare</value>
@@ -267,7 +267,7 @@ pentru a se conecta la contul dumneavoastra de Steam.</value>
     <value>Rulează fiecare joc individual</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Setări Idle Master</value>
+    <value>Setări Steam Trade Card Dropper</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>Rulează jocuri simultan maxim 2 ore, apoi individual</value>
@@ -285,10 +285,10 @@ pentru a se conecta la contul dumneavoastra de Steam.</value>
     <value>Limbă interfață</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Gestionează Lista Neagră Idle Master</value>
+    <value>Gestionează Lista Neagră Steam Trade Card Dropper</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Minimizeazâ Idle Master în bara de sistem</value>
+    <value>Minimizeazâ Steam Trade Card Dropper în bara de sistem</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
@@ -312,13 +312,13 @@ pentru a se conecta la contul dumneavoastra de Steam.</value>
     <value>Vă rugăm să reporniţi aplicaţia pentru ca modificările de limbă să aibă efect.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Note de lansare Idle Master</value>
+    <value>Note de lansare Steam Trade Card Dropper</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Salveaza</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master salvează informaţiile dumneavoastră</value>
+    <value>Steam Trade Card Dropper salvează informaţiile dumneavoastră</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Afiseaza numele de utilizator Steam a utilizatorului logat</value>

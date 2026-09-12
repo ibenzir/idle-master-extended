@@ -157,10 +157,10 @@
     <value>часа(ов) всего</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master подключён к Steam</value>
+    <value>Steam Trade Card Dropper подключён к Steam</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master не подключён к Steam</value>
+    <value>Steam Trade Card Dropper не подключён к Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>в процессе</value>
@@ -285,7 +285,7 @@
     <value>Язык интерфейса</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Управление чёрным списком Idle Master</value>
+    <value>Управление чёрным списком Steam Trade Card Dropper</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
     <value>Сворачивать программу в системный трей</value>
@@ -318,7 +318,7 @@
     <value>&amp;Сохранить</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master сохраняет Вашу информацию</value>
+    <value>Steam Trade Card Dropper сохраняет Вашу информацию</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Показывать имя подключённого пользователя Steam</value>

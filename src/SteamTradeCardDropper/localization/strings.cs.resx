@@ -157,10 +157,10 @@
     <value>zaznamenaných hodin</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master je připojen ke Steamu</value>
+    <value>Steam Trade Card Dropper je připojen ke Steamu</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master není připojen ke Steamu</value>
+    <value>Steam Trade Card Dropper není připojen ke Steamu</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>právě běží na pozadí</value>
@@ -247,7 +247,7 @@
     <value>Zobrazit pokročilé informace o autentifikaci</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master autentifikační data</value>
+    <value>Steam Trade Card Dropper autentifikační data</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Zrušit</value>
@@ -266,7 +266,7 @@ mohli by být zneužity útočníkem pro přihlášení k vašemu účtu Steam.<
     <value>Procházet každou hru zvlášť</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master nastavení</value>
+    <value>Steam Trade Card Dropper nastavení</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>Nechat běžet hry na pozadí až 2 hodiny, poté každou zvlášť</value>
@@ -287,7 +287,7 @@ mohli by být zneužity útočníkem pro přihlášení k vašemu účtu Steam.<
     <value>Spravovat ignorované hry</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Minimalizovat Idle Master do oznamovací oblasti</value>
+    <value>Minimalizovat Steam Trade Card Dropper do oznamovací oblasti</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
@@ -311,13 +311,13 @@ mohli by být zneužity útočníkem pro přihlášení k vašemu účtu Steam.<
     <value>Restartujte prosím aplikaci, aby mohlo dojít ke změně jazyka.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master - Poznámky k vydání</value>
+    <value>Steam Trade Card Dropper - Poznámky k vydání</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Uložit</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master právě ukládá vaše data</value>
+    <value>Steam Trade Card Dropper právě ukládá vaše data</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Zobrazit Steam jméno přihlášeného uživatele</value>

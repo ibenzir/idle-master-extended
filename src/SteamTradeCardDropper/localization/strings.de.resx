@@ -157,10 +157,10 @@
     <value>Stunden seit Aufzeichnungsbeginn</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master ist mit Steam verbunden</value>
+    <value>Steam Trade Card Dropper ist mit Steam verbunden</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master ist nicht mit Steam verbunden</value>
+    <value>Steam Trade Card Dropper ist nicht mit Steam verbunden</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>jetzt aktiv</value>
@@ -247,7 +247,7 @@
     <value>Erweiterte Authentifizierungsinformationen anzeigen</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master Authentifizierungs Daten</value>
+    <value>Steam Trade Card Dropper Authentifizierungs Daten</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Abbrechen</value>
@@ -267,7 +267,7 @@ um sich bei deinem Steam Account anzumelden!</value>
     <value>Jedes Spiel einzeln Idlen</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master Einstellungen</value>
+    <value>Steam Trade Card Dropper Einstellungen</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>Spiele für zwei Stunden gleichzeitig Idlen und danach einzeln</value>
@@ -285,10 +285,10 @@ um sich bei deinem Steam Account anzumelden!</value>
     <value>Interface Sprache</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Idle Master Blacklist verwalten</value>
+    <value>Steam Trade Card Dropper Blacklist verwalten</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Idle Master in den Infobereich minimieren</value>
+    <value>Steam Trade Card Dropper in den Infobereich minimieren</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
@@ -312,13 +312,13 @@ um sich bei deinem Steam Account anzumelden!</value>
     <value>Bitte starten Sie die Anwendung neu, damit die Sprachänderungen wirksam werden.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master Versionshinweise</value>
+    <value>Steam Trade Card Dropper Versionshinweise</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Speichern</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master Speichert gerade deine Daten</value>
+    <value>Steam Trade Card Dropper Speichert gerade deine Daten</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Zeige den Steam Nutzernamen des gerade angemeldeten Nutzers</value>

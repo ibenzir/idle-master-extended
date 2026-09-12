@@ -157,10 +157,10 @@
     <value>sati zabilježeno</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master je spojena na Steam</value>
+    <value>Steam Trade Card Dropper je spojena na Steam</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master nije spojen na Steam</value>
+    <value>Steam Trade Card Dropper nije spojen na Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>idle sada</value>
@@ -247,7 +247,7 @@
     <value>Prikaz informacija o naprednoj provjeri autentičnosti</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Podaci autentičnosti Idle Mastera</value>
+    <value>Podaci autentičnosti Steam Trade Card Droppera</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Poništi</value>
@@ -267,7 +267,7 @@ vaš Steam račun.</value>
     <value>Idleaj svaku igru zasebno</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master Postavke</value>
+    <value>Steam Trade Card Dropper Postavke</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>Idleajte igre istovremeno do 2 sata, onda zasebno</value>
@@ -285,10 +285,10 @@ vaš Steam račun.</value>
     <value>Jezik</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Upravljanje Idle Master Crnom Listom</value>
+    <value>Upravljanje Steam Trade Card Dropper Crnom Listom</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Minimizirajte Idle Master u sustavnu traku</value>
+    <value>Minimizirajte Steam Trade Card Dropper u sustavnu traku</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;U redu</value>
@@ -312,13 +312,13 @@ vaš Steam račun.</value>
     <value>Molimo Vas ponovno pokrenite program kako bi se jezik promijenio</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master Obavijesti Izdanja</value>
+    <value>Steam Trade Card Dropper Obavijesti Izdanja</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Spremite</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master sprema Vaše informacije</value>
+    <value>Steam Trade Card Dropper sprema Vaše informacije</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Prikažite korisničko ime prijavljenog Steam korisnika</value>
@@ -345,7 +345,7 @@ vaš Steam račun.</value>
     <value>Dodaj igru na Bijelu Listu</value>
   </data>
   <data name="manage_whitelist" xml:space="preserve">
-    <value>Upravljanje Idle Master Bijelom Listom</value>
+    <value>Upravljanje Steam Trade Card Dropper Bijelom Listom</value>
   </data>
   <data name="whitelist" xml:space="preserve">
     <value>&amp;Bijela Lista</value>

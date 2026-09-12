@@ -157,10 +157,10 @@
     <value>horas registradas</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master está conectado à Steam</value>
+    <value>Steam Trade Card Dropper está conectado à Steam</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master não está conectado à Steam</value>
+    <value>Steam Trade Card Dropper não está conectado à Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>agora</value>
@@ -247,7 +247,7 @@
     <value>Exibir informações de autenticação avançadas</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Dados de autenticação do Idle Master</value>
+    <value>Dados de autenticação do Steam Trade Card Dropper</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Cancelar</value>
@@ -265,7 +265,7 @@ não compartilhe essa informação com ninguém, pois poderá ser usada por pess
     <value>Processar cada jogo individualmente</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Configurações do Idle Master</value>
+    <value>Configurações do Steam Trade Card Dropper</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>Processar jogos simultaneamente por até duas horas.</value>
@@ -283,10 +283,10 @@ não compartilhe essa informação com ninguém, pois poderá ser usada por pess
     <value>Idioma da interface</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Gerenciar a lista negra do Idle Master</value>
+    <value>Gerenciar a lista negra do Steam Trade Card Dropper</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Minimizar o Idle Master para a barra de tarefas do sistema</value>
+    <value>Minimizar o Steam Trade Card Dropper para a barra de tarefas do sistema</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
@@ -310,13 +310,13 @@ não compartilhe essa informação com ninguém, pois poderá ser usada por pess
     <value>Por favor, reinicie o aplicativo para que as alterações de linguagem tenham efeito.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Notas de Lançamento do Idle Master</value>
+    <value>Notas de Lançamento do Steam Trade Card Dropper</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Salvar</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>O Idle Master está salvando suas informações</value>
+    <value>O Steam Trade Card Dropper está salvando suas informações</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Mostrar o nome de usuário da Steam</value>

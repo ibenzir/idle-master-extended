@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="about" xml:space="preserve">
-    <value>Idle Master 정보(A)</value>
+    <value>Steam Trade Card Dropper 정보(A)</value>
   </data>
   <data name="badge_didnt_load" xml:space="preserve">
     <value>배지 페이지를 불러오지 못했습니다. __num__초 후 다시 시도합니다.</value>
@@ -157,10 +157,10 @@
     <value>시간째 플레이</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle master가 Steam에 연결되었습니다.</value>
+    <value>Steam Trade Card Dropper가 Steam에 연결되었습니다.</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master가 Steam과 연결되어 있지 않습니다</value>
+    <value>Steam Trade Card Dropper가 Steam과 연결되어 있지 않습니다</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>현재 농사중</value>
@@ -247,7 +247,7 @@
     <value>고급 인증 정보를 표시합니다</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master 인증 정보</value>
+    <value>Steam Trade Card Dropper 인증 정보</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>취소(C)</value>
@@ -266,7 +266,7 @@
     <value>개별 게임을 각각 농사짓습니다</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master 설정</value>
+    <value>Steam Trade Card Dropper 설정</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>2시간까지는 동시에 농사를 짓고, 이후에는 따로 농사를 짓습니다</value>
@@ -284,10 +284,10 @@
     <value>인터페이스 언어</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Idle Master 블랙 리스트를 관리합니다</value>
+    <value>Steam Trade Card Dropper 블랙 리스트를 관리합니다</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Idle Master를 시스템 트레이로 최소화합니다</value>
+    <value>Steam Trade Card Dropper를 시스템 트레이로 최소화합니다</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>확인(O)</value>
@@ -311,13 +311,13 @@
     <value>언어 변경 내역을 적용하려면 응용 프로그램을 다시 실행해 주십시오.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master 릴리스 노트</value>
+    <value>Steam Trade Card Dropper 릴리스 노트</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>저장(S)</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master가 귀하의 정보를 저장중입니다</value>
+    <value>Steam Trade Card Dropper가 귀하의 정보를 저장중입니다</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Steam에 로그인한 사용자의 이름을 보여줍니다</value>

@@ -157,10 +157,10 @@
     <value>hrs on record</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master is connected to Steam</value>
+    <value>Steam Trade Card Dropper is connected to Steam</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master is not connected to Steam</value>
+    <value>Steam Trade Card Dropper is not connected to Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>idle now</value>
@@ -247,7 +247,7 @@
     <value>Display advanced authentication information</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master Authentication Data</value>
+    <value>Steam Trade Card Dropper Authentication Data</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Cancel</value>
@@ -267,7 +267,7 @@ your Steam account.</value>
     <value>Idle each game individually</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master Settings</value>
+    <value>Steam Trade Card Dropper Settings</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>Idle games simultaneously up to 2 hours, then individually</value>
@@ -285,10 +285,10 @@ your Steam account.</value>
     <value>Interface Language</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Manage Idle Master Blacklist</value>
+    <value>Manage Steam Trade Card Dropper Blacklist</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Minimize Idle Master to system tray</value>
+    <value>Minimize Steam Trade Card Dropper to system tray</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
@@ -312,13 +312,13 @@ your Steam account.</value>
     <value>Please restart the application for language changes to take effect.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master Release Notes</value>
+    <value>Steam Trade Card Dropper Release Notes</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Save</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master is saving your information</value>
+    <value>Steam Trade Card Dropper is saving your information</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Show Steam username of signed on user</value>
@@ -345,7 +345,7 @@ your Steam account.</value>
     <value>Add Game to Whitelist</value>
   </data>
   <data name="manage_whitelist" xml:space="preserve">
-    <value>Manage Idle Master Whitelist</value>
+    <value>Manage Steam Trade Card Dropper Whitelist</value>
   </data>
   <data name="whitelist" xml:space="preserve">
     <value>&amp;Whitelist</value>

@@ -157,10 +157,10 @@
     <value>ชั่วโมงที่บันทึก</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master ได้เชื่อมต่อกับ Steam เรียบร้อย</value>
+    <value>Steam Trade Card Dropper ได้เชื่อมต่อกับ Steam เรียบร้อย</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master ยังไม่ได้เชื่อมต่อกับ Steam</value>
+    <value>Steam Trade Card Dropper ยังไม่ได้เชื่อมต่อกับ Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>เปิดดรอปการ์ดเดี๋ยวนี้</value>
@@ -247,7 +247,7 @@
     <value>แสดงข้อมูลขั้นสูง</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master กำลังตรวจสอบข้อมูล</value>
+    <value>Steam Trade Card Dropper กำลังตรวจสอบข้อมูล</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;ยกเลิก</value>
@@ -264,7 +264,7 @@
     <value>แต่ละเกมที่ไม่ได้ใช้</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>ตั้งค่า Idle Master</value>
+    <value>ตั้งค่า Steam Trade Card Dropper</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>เปิดตั้งค่าเกมไห้รันพร้อมกันถึง สองชั่วโมง</value>

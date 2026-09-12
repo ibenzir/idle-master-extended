@@ -157,10 +157,10 @@
     <value>ώρες στη καταγραφή</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Το Idle Master συνδέθηκε με το Steam</value>
+    <value>Το Steam Trade Card Dropper συνδέθηκε με το Steam</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Το Idle Master δεν είναι συνδεδεμένο με το Steam</value>
+    <value>Το Steam Trade Card Dropper δεν είναι συνδεδεμένο με το Steam</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>σε αδράνεια τώρα</value>
@@ -247,7 +247,7 @@
     <value>Εμφάνιση πληροφοριών ελέγχου ταυτότητας για προχωρημένους</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Δεδομένα ελέγχου ταυτότητας Idle Master</value>
+    <value>Δεδομένα ελέγχου ταυτότητας Steam Trade Card Dropper</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Ακύρωση</value>
@@ -265,7 +265,7 @@
     <value>Αδρανοποίησε κάθε παιχνίδι ξεχωριστά</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Ρυθμίσεις του Idle Master</value>
+    <value>Ρυθμίσεις του Steam Trade Card Dropper</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>Αδρανοποίησε τα παιχνίδια ταυτόχρονα μέχρι 2 ώρες, στη συνέχεια, ξεχωριστά</value>
@@ -283,10 +283,10 @@
     <value>Γλώσσα διεπαφής</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Διαχείριση της μαύρης λίστας του Idle Master</value>
+    <value>Διαχείριση της μαύρης λίστας του Steam Trade Card Dropper</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Ελαχιστοποίηση του Idle Master στη περιοχή ειδοποιήσεων</value>
+    <value>Ελαχιστοποίηση του Steam Trade Card Dropper στη περιοχή ειδοποιήσεων</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;Εντάξει</value>
@@ -310,13 +310,13 @@
     <value>Παρακαλώ επανεκκινήστε την εφαρμογή για να ισχύσουν οι αλλαγές στην γλώσσα.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Σημειώσεις έκδοσης του Idle Master</value>
+    <value>Σημειώσεις έκδοσης του Steam Trade Card Dropper</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Αποθήκευση</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Το Idle Master αποθηκεύει τις πληροφορίες σας</value>
+    <value>Το Steam Trade Card Dropper αποθηκεύει τις πληροφορίες σας</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Εμφάνιση ονόματος χρήστη Steam του συνδεδεμένου χρήστη</value>

@@ -157,10 +157,10 @@
     <value>tuntia yhteensä</value>
   </data>
   <data name="idle_master_connected" xml:space="preserve">
-    <value>Idle Master on yhdistettynä Steamiin</value>
+    <value>Steam Trade Card Dropper on yhdistettynä Steamiin</value>
   </data>
   <data name="idle_master_notconnected" xml:space="preserve">
-    <value>Idle Master ei ole yhdistetty Steamiin</value>
+    <value>Steam Trade Card Dropper ei ole yhdistetty Steamiin</value>
   </data>
   <data name="idle_now" xml:space="preserve">
     <value>idlaa nyt</value>
@@ -247,7 +247,7 @@
     <value>Näytä todennuksen lisätiedot</value>
   </data>
   <data name="auth_data" xml:space="preserve">
-    <value>Idle Master todennustiedot</value>
+    <value>Steam Trade Card Dropper todennustiedot</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>&amp;Peruuta</value>
@@ -267,7 +267,7 @@ kirjautua sinun Steam tilillesi.</value>
     <value>Idlaa jokainen peli yksitellen</value>
   </data>
   <data name="idle_master_settings" xml:space="preserve">
-    <value>Idle Master asetukset</value>
+    <value>Steam Trade Card Dropper asetukset</value>
   </data>
   <data name="idle_simultaneous" xml:space="preserve">
     <value>Idlaa pelit yhtäaikaa 2:een tuntiin asti, sitten yksitellen</value>
@@ -285,10 +285,10 @@ kirjautua sinun Steam tilillesi.</value>
     <value>Käyttöliittymän kieli</value>
   </data>
   <data name="manage_blacklist" xml:space="preserve">
-    <value>Hallitse Idle Masterin mustaa listaa</value>
+    <value>Hallitse Steam Trade Card Dropperin mustaa listaa</value>
   </data>
   <data name="minimize_to_tray" xml:space="preserve">
-    <value>Pienennä Idle Master tehtäväpalkkiin</value>
+    <value>Pienennä Steam Trade Card Dropper tehtäväpalkkiin</value>
   </data>
   <data name="ok" xml:space="preserve">
     <value>&amp;OK</value>
@@ -312,13 +312,13 @@ kirjautua sinun Steam tilillesi.</value>
     <value>Käynnistä sovellus uudelleen jotta kielimuutokset tulevat voimaan.</value>
   </data>
   <data name="release_notes_title" xml:space="preserve">
-    <value>Idle Master julkaisutiedot</value>
+    <value>Steam Trade Card Dropper julkaisutiedot</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>&amp;Tallenna</value>
   </data>
   <data name="saving_info" xml:space="preserve">
-    <value>Idle Master tallentaa tietojasi</value>
+    <value>Steam Trade Card Dropper tallentaa tietojasi</value>
   </data>
   <data name="show_username" xml:space="preserve">
     <value>Näytä kirjautuneen käyttäjän Steam käyttäjätunnus</value>
