@@ -33,8 +33,15 @@ class Program {
         if (outPath != null) {
             string fullOut = Path.IsPathRooted(outPath) ? outPath : Path.Combine(Environment.CurrentDirectory, outPath);
             string dir = Path.GetDirectoryName(fullOut);
-            if (!string.IsNullOrEmpty(dir)) Directory.CreateDirectory(dir);
-            var csc = @"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe";
+            string runtimeDir = System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory();
+            string csc = Path.Combine(runtimeDir, "csc.exe");
+            if (!File.Exists(csc)) {
+                string windir = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
+                csc = Path.Combine(windir, @"Microsoft.NET\Framework64\v4.0.30319\csc.exe");
+                if (!File.Exists(csc)) {
+                    csc = Path.Combine(windir, @"Microsoft.NET\Framework\v4.0.30319\csc.exe");
+                }
+            }
             string cscArgs = "/target:library /out:\"" + fullOut + "\"";
             if (embedPath != null) {
                 cscArgs += " /res:\"" + embedPath + "\"";
