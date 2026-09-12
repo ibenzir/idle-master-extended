@@ -2,9 +2,9 @@ using System;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
-using IdleMasterExtended.Properties;
+using SteamTradeCardDropper.Properties;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     public partial class frmAbout : Form
     {
@@ -63,7 +63,7 @@ namespace IdleMasterExtended
 
         private void linkLabelVersion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/ibenzir/idle-master-extended/releases");
+            System.Diagnostics.Process.Start("https://github.com/ibenzir/steam-trade-card-dropper/releases");
         }
 
         private void lnkWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

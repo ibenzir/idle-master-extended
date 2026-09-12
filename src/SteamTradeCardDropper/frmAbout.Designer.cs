@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     partial class frmAbout
     {
@@ -61,7 +61,7 @@ namespace IdleMasterExtended
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(182, 21);
             this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Idle Master Extended";
+            this.lblTitle.Text = "Steam Trade Card Dropper";
             // 
             // lblSubtitle
             // 
@@ -164,7 +164,7 @@ namespace IdleMasterExtended
             this.Name = "frmAbout";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About Idle Master Extended";
+            this.Text = "About Steam Trade Card Dropper";
             this.Load += new System.EventHandler(this.frmAbout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picAppIcon)).EndInit();
             this.ResumeLayout(false);
