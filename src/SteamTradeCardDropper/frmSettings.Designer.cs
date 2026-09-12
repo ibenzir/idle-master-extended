@@ -205,7 +205,7 @@ namespace SteamTradeCardDropper
             this.chkMinToTray.Name = "chkMinToTray";
             this.chkMinToTray.Size = new System.Drawing.Size(379, 17);
             this.chkMinToTray.TabIndex = 0;
-            this.chkMinToTray.Text = "Minimize Idle Master to system tray";
+            this.chkMinToTray.Text = "Minimize Steam Trade Card Dropper to system tray";
             this.chkMinToTray.UseVisualStyleBackColor = true;
             // 
             // linkLabelAppData
@@ -415,7 +415,7 @@ namespace SteamTradeCardDropper
             this.MaximizeBox = false;
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Idle Master Extended Settings";
+            this.Text = "Steam Trade Card Dropper Settings";
             this.Load += new System.EventHandler(this.frmSettings_Load);
             this.grpGeneral.ResumeLayout(false);
             this.grpGeneral.PerformLayout();
