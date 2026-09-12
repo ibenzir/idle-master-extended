@@ -108,11 +108,11 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="HtmlAgilityPack">
-      <HintPath>..\..\Dependencies\HtmlAgilityPack.dll</HintPath>
+      <HintPath>..\..\dependencies\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Steamworks.NET, Version=20.2.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\Steamworks.NET.dll</HintPath>
+      <HintPath>..\..\dependencies\Steamworks.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -344,7 +344,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <AlToolPath Condition="'$(AlToolPath)' == '' and Exists('$(MSBuildProjectDirectory)\..\..\buildtools\al.exe')">$(MSBuildProjectDirectory)\..\..\buildtools\</AlToolPath>
-    <PostBuildEvent>XCOPY /Y /D "$(MSBuildProjectDirectory)\..\..\Dependencies\steam_api64.dll" "$(TargetDir)"
+    <PostBuildEvent>XCOPY /Y /D "$(MSBuildProjectDirectory)\..\..\dependencies\steam_api64.dll" "$(TargetDir)"
 
 RMDIR /S /Q "$(TargetDir)Languages"
 MKDIR "$(TargetDir)Languages"
