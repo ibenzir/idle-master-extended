@@ -144,14 +144,27 @@ The compiled binaries and all dependencies will be output to:
 
 ---
 
-## 🔒 Security & Privacy FAQ
+## 🔒 Security, Privacy & Authentication FAQ
 
+- **How does authentication work? Is this session hijacking?**  
+  **No.** In cybersecurity and law, *session hijacking* refers to unauthorized interception or theft of another user's credentials without their consent. Idle Master Extended operates entirely on your personal computer: you manually supply your *own* active session cookies (`sessionid` and `steamLoginSecure`) to allow this open-source utility to read your personal badge progress.  
+  - **100% Local Execution**: All HTTP requests are made directly between your computer and official Steam endpoints (`https://steamcommunity.com`) over encrypted TLS.
+  - **Zero Telemetry / Zero Proxying**: Your cookies, credentials, Steam ID, and inventory data are **never** logged remotely, sent to the maintainer, or shared with third parties.
+- **Can I revoke my session cookies at any time?**  
+  **Yes, immediately.** Simply log out of Steam in your web browser, or navigate to Steam Guard Settings and click **"Deauthorize all other devices"**, or change your account password. This immediately invalidates all active session cookies on Valve's servers.
 - **Is Idle Master Extended safe? Can I get VAC banned?**  
-  Idle Master Extended uses `Steamworks.NET` to register simulated playtime. It does not inject memory or modify game binaries. However, as a precaution, it is strongly recommended not to idle VAC-secured games (such as CS2 or TF2) while connected to VAC servers, or you can simply add them to the built-in Blacklist.
-- **Where are credentials stored?**  
-  Your session cookies (`sessionid`, `steamLoginSecure`) are stored locally on your machine in standard Windows user settings `%LOCALAPPDATA%`. No account credentials or passwords are ever transmitted to any third party.
+  Idle Master Extended uses the official `Steamworks API` (via `Steamworks.NET`) to notify the running Steam client that an AppID is open. It does **not** inject code or modify game binaries. However, as a precaution, **never idle VAC-secured games** (e.g., CS2, TF2, Rust) while actively connected to VAC servers. Use the built-in **Blacklist** to exclude any competitive or VAC-secured games.
 
 ---
+
+## ⚖️ Legal Disclaimer & Terms of Use
+
+> [!WARNING]
+> **Valve Corporation & Steam Non-Affiliation**:  
+> Idle Master Extended is an independent, open-source utility and is **not** affiliated with, authorized, maintained, sponsored, or endorsed by **Valve Corporation**, **Steam**, or any of their affiliates. Valve, Steam, and their respective logos and marks are trademarks and/or registered trademarks of Valve Corporation.
+> 
+> **Limitation of Liability**:  
+> Use of this software is at your own sole risk and discretion. Interacting with Steam services via automated tools may be subject to the [Steam Subscriber Agreement (SSA)](https://store.steampowered.com/subscriber_agreement/). Under no circumstances shall the maintainer (**Benzir Ahammed Shawon**), upstream authors, or open-source contributors be held liable for any account restrictions, community bans, VAC flags, inventory loss, or damages resulting from the use of this software. For complete details, see [**LEGAL.md**](LEGAL.md).
 
 ## 👤 Maintainer & Credentials
 
