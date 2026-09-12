@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "Steam Trade Card Dropper",
+			"path": "."
+		}
+	],
+	"settings": {
+		"window.title": "Steam Trade Card Dropper - ${dirty}${activeEditorShort}"
+	}
+}
