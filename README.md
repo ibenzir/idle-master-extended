@@ -107,7 +107,7 @@ steam-trade-card-dropper/
 │   ├── ISSUE_TEMPLATE/           # Bug report & feature request templates
 │   └── workflows/                # GitHub Actions CI build & CodeQL pipelines
 ├── buildtools/                   # Self-contained Assembly Linker (al.exe) compiler shim
-├── Dependencies/                 # Native & managed libraries (Steamworks.NET, steam_api64, HtmlAgilityPack)
+├── dependencies/                 # Native & managed libraries (Steamworks.NET, steam_api64, HtmlAgilityPack)
 ├── src/
 │   └── SteamTradeCardDropper/    # Application source, background worker & UI assets
 │       ├── localization/         # 24 localized satellite resource translations
