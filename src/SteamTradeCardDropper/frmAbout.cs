@@ -22,11 +22,14 @@ namespace SteamTradeCardDropper
         {
             try
             {
-                var appIcon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
-                if (appIcon != null)
+                if (Resources.appIcon != null)
                 {
-                    this.Icon = appIcon;
-                    picAppIcon.Image = appIcon.ToBitmap();
+                    this.Icon = Resources.appIcon;
+                }
+                if (Resources.appLogo != null)
+                {
+                    picAppIcon.Image = Resources.appLogo;
+                    picAppIcon.SizeMode = PictureBoxSizeMode.Zoom;
                 }
             }
             catch
