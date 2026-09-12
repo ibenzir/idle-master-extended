@@ -1,4 +1,4 @@
-﻿using System.Resources;
+using System.Resources;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Idle Master Extended")]
-[assembly: AssemblyDescription("https://github.com/JonasNilson/idle_master_extended")]
+[assembly: AssemblyDescription("Steam Trading Card Idler - Maintained by Benzir Ahammed Shawon (https://ibenzir.me)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Benzir Ahammed Shawon")]
 [assembly: AssemblyProduct("Idle Master Extended")]
-[assembly: AssemblyCopyright("GNU General Public License v2.0")]
+[assembly: AssemblyCopyright("Copyright © Benzir Ahammed Shawon (Fork Maintainer). Original code GNU GPL v2.0")]
 [assembly: AssemblyTrademark("GNU General Public License v2.0")]
 [assembly: AssemblyCulture("")]
 

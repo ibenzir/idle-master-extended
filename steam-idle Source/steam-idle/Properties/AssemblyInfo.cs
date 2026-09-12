@@ -1,16 +1,16 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("steam-idle")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Steam Game Idler Stub - Maintained by Benzir Ahammed Shawon (https://ibenzir.me)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Benzir Ahammed Shawon")]
 [assembly: AssemblyProduct("steam-idle")]
-[assembly: AssemblyCopyright("Copyright © 2023")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © Benzir Ahammed Shawon (Fork Maintainer). Original code GNU GPL v2.0")]
+[assembly: AssemblyTrademark("GNU General Public License v2.0")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
