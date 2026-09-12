@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace IdleMasterExtended
 {
-    partial class FormSteamIdle
+    partial class FormCardDropper
     {
         private IContainer components = null;
 
@@ -31,7 +31,7 @@ namespace IdleMasterExtended
             this.picApp.TabIndex = 0;
             this.picApp.TabStop = false;
             // 
-            // FormSteamIdle
+            // FormCardDropper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -40,10 +40,10 @@ namespace IdleMasterExtended
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormSteamIdle";
+            this.Name = "FormCardDropper";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Steam Game Idler";
+            this.Text = "Steam Card Dropper";
             ((System.ComponentModel.ISupportInitialize)(this.picApp)).EndInit();
             this.ResumeLayout(false);
         }

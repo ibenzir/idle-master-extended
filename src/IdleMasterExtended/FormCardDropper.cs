@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace IdleMasterExtended
 {
-    public partial class FormSteamIdle : Form
+    public partial class FormCardDropper : Form
     {
-        public FormSteamIdle(long appid)
+        public FormCardDropper(long appid)
         {
             InitializeComponent();
             try
