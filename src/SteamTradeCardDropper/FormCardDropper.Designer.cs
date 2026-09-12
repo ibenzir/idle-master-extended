@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     partial class FormCardDropper
     {
