@@ -1,8 +1,8 @@
 using System;
-using System.Deployment.Application;
+using System.Drawing;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
+using IdleMasterExtended.Properties;
 
 namespace IdleMasterExtended
 {
@@ -20,39 +20,45 @@ namespace IdleMasterExtended
 
         private void frmAbout_Load(object sender, EventArgs e)
         {
-            SetLocalization();
-            SetTheme();
+            try
+            {
+                var appIcon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
+                if (appIcon != null)
+                {
+                    this.Icon = appIcon;
+                    picAppIcon.Image = appIcon.ToBitmap();
+                }
+            }
+            catch
+            {
+                // Fallback gracefully
+            }
+
             SetVersion();
-        }
 
-        private void SetLocalization()
-        {
-            btnOK.Text = localization.strings.ok;
-        }
-
-        private void SetTheme()
-        {
-            var settings = Properties.Settings.Default;
-            var customTheme = settings.customTheme;
-
-            if (customTheme)
+            var settings = Settings.Default;
+            if (settings.customTheme)
             {
                 this.BackColor = settings.colorBgd;
                 this.ForeColor = settings.colorTxt;
 
-                btnOK.FlatStyle = FlatStyle.Flat;
-                btnOK.BackColor = this.BackColor;
-                btnOK.ForeColor = this.ForeColor;
+                lblSubtitle.ForeColor = Color.DarkGray;
+                lblLicense.ForeColor = Color.Gray;
 
-                linkLabelVersion.LinkColor = this.ForeColor;
-                lnkWebsite.LinkColor = this.ForeColor;
+                btnOK.FlatStyle = FlatStyle.Flat;
+                btnOK.BackColor = settings.colorBgd;
+                btnOK.ForeColor = settings.colorTxt;
+
+                linkLabelVersion.LinkColor = settings.colorTxt;
+                lnkWebsite.LinkColor = settings.colorTxt;
+                pnlDivider.BackColor = Color.FromArgb(60, 60, 60);
             }
         }
 
         private void SetVersion()
         {
             var version = Assembly.GetExecutingAssembly().GetName().Version;
-            linkLabelVersion.Text = string.Format("Idle Master Extended v{0}.{1}.{2}", version.Major, version.Minor, version.Build);
+            linkLabelVersion.Text = string.Format("v{0}.{1}.{2}", version.Major, version.Minor, version.Build);
         }
 
         private void linkLabelVersion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
