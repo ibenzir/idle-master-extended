@@ -83,7 +83,7 @@ namespace SteamTradeCardDropper
             this.linkLabelVersion.Size = new System.Drawing.Size(46, 13);
             this.linkLabelVersion.TabIndex = 3;
             this.linkLabelVersion.TabStop = true;
-            this.linkLabelVersion.Text = "v1.11.0";
+            this.linkLabelVersion.Text = "v2.0.0";
             this.linkLabelVersion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelVersion_LinkClicked);
             // 
             // pnlDivider
