@@ -37,8 +37,6 @@ namespace SteamTradeCardDropper
             this.chkIdleOnlyPlayed = new System.Windows.Forms.CheckBox();
             this.chkShutdown = new System.Windows.Forms.CheckBox();
             this.chkPreventSleep = new System.Windows.Forms.CheckBox();
-            this.cboLanguage = new System.Windows.Forms.ComboBox();
-            this.lblLanguage = new System.Windows.Forms.Label();
             this.chkShowUsername = new System.Windows.Forms.CheckBox();
             this.chkIgnoreClientStatus = new System.Windows.Forms.CheckBox();
             this.chkMinToTray = new System.Windows.Forms.CheckBox();
@@ -91,15 +89,15 @@ namespace SteamTradeCardDropper
             this.lblSubtitle.Name = "lblSubtitle";
             this.lblSubtitle.Size = new System.Drawing.Size(326, 15);
             this.lblSubtitle.TabIndex = 2;
-            this.lblSubtitle.Text = "Customize idling preferences, language, and system behavior.";
+            this.lblSubtitle.Text = "Customize idling behavior, queue priority, and automation.";
             // 
             // pnlDivider
             // 
             this.pnlDivider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDivider.Location = new System.Drawing.Point(20, 68);
+            this.pnlDivider.Location = new System.Drawing.Point(20, 64);
             this.pnlDivider.Name = "pnlDivider";
-            this.pnlDivider.Size = new System.Drawing.Size(400, 1);
+            this.pnlDivider.Size = new System.Drawing.Size(500, 1);
             this.pnlDivider.TabIndex = 3;
             // 
             // grpGeneral
@@ -109,15 +107,13 @@ namespace SteamTradeCardDropper
             this.grpGeneral.Controls.Add(this.chkIdleOnlyPlayed);
             this.grpGeneral.Controls.Add(this.chkShutdown);
             this.grpGeneral.Controls.Add(this.chkPreventSleep);
-            this.grpGeneral.Controls.Add(this.cboLanguage);
-            this.grpGeneral.Controls.Add(this.lblLanguage);
             this.grpGeneral.Controls.Add(this.chkShowUsername);
             this.grpGeneral.Controls.Add(this.chkIgnoreClientStatus);
             this.grpGeneral.Controls.Add(this.chkMinToTray);
             this.grpGeneral.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpGeneral.Location = new System.Drawing.Point(20, 78);
+            this.grpGeneral.Location = new System.Drawing.Point(20, 74);
             this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(400, 156);
+            this.grpGeneral.Size = new System.Drawing.Size(500, 128);
             this.grpGeneral.TabIndex = 4;
             this.grpGeneral.TabStop = false;
             this.grpGeneral.Text = "General Options";
@@ -126,7 +122,7 @@ namespace SteamTradeCardDropper
             // 
             this.chkIdleOnlyPlayed.AutoSize = true;
             this.chkIdleOnlyPlayed.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIdleOnlyPlayed.Location = new System.Drawing.Point(10, 126);
+            this.chkIdleOnlyPlayed.Location = new System.Drawing.Point(16, 96);
             this.chkIdleOnlyPlayed.Name = "chkIdleOnlyPlayed";
             this.chkIdleOnlyPlayed.Size = new System.Drawing.Size(148, 19);
             this.chkIdleOnlyPlayed.TabIndex = 5;
@@ -137,7 +133,7 @@ namespace SteamTradeCardDropper
             // 
             this.chkShutdown.AutoSize = true;
             this.chkShutdown.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkShutdown.Location = new System.Drawing.Point(10, 101);
+            this.chkShutdown.Location = new System.Drawing.Point(265, 48);
             this.chkShutdown.Name = "chkShutdown";
             this.chkShutdown.Size = new System.Drawing.Size(193, 19);
             this.chkShutdown.TabIndex = 4;
@@ -149,66 +145,18 @@ namespace SteamTradeCardDropper
             // 
             this.chkPreventSleep.AutoSize = true;
             this.chkPreventSleep.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPreventSleep.Location = new System.Drawing.Point(10, 76);
+            this.chkPreventSleep.Location = new System.Drawing.Point(265, 24);
             this.chkPreventSleep.Name = "chkPreventSleep";
             this.chkPreventSleep.Size = new System.Drawing.Size(178, 19);
             this.chkPreventSleep.TabIndex = 3;
             this.chkPreventSleep.Text = "Prevent Windows from Sleep";
             this.chkPreventSleep.UseVisualStyleBackColor = true;
             // 
-            // cboLanguage
-            // 
-            this.cboLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLanguage.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboLanguage.FormattingEnabled = true;
-            this.cboLanguage.Items.AddRange(new object[] {
-            "English",
-            "Chinese (Simplified, China)",
-            "Chinese (Traditional, China)",
-            "Czech",
-            "Dutch",
-            "Finnish",
-            "French",
-            "German",
-            "Greek",
-            "Hungarian",
-            "Italian",
-            "Japanese",
-            "Korean",
-            "Norwegian",
-            "Polish",
-            "Portuguese",
-            "Portuguese (Brazil)",
-            "Romanian",
-            "Russian",
-            "Spanish",
-            "Swedish",
-            "Thai",
-            "Turkish",
-            "Ukrainian",
-            "Croatian"});
-            this.cboLanguage.Location = new System.Drawing.Point(235, 122);
-            this.cboLanguage.Name = "cboLanguage";
-            this.cboLanguage.Size = new System.Drawing.Size(155, 21);
-            this.cboLanguage.TabIndex = 7;
-            // 
-            // lblLanguage
-            // 
-            this.lblLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLanguage.Location = new System.Drawing.Point(235, 102);
-            this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(111, 15);
-            this.lblLanguage.TabIndex = 6;
-            this.lblLanguage.Text = "Interface Language:";
-            // 
             // chkShowUsername
             // 
             this.chkShowUsername.AutoSize = true;
             this.chkShowUsername.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkShowUsername.Location = new System.Drawing.Point(10, 51);
+            this.chkShowUsername.Location = new System.Drawing.Point(16, 48);
             this.chkShowUsername.Name = "chkShowUsername";
             this.chkShowUsername.Size = new System.Drawing.Size(248, 19);
             this.chkShowUsername.TabIndex = 2;
@@ -219,7 +167,7 @@ namespace SteamTradeCardDropper
             // 
             this.chkIgnoreClientStatus.AutoSize = true;
             this.chkIgnoreClientStatus.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIgnoreClientStatus.Location = new System.Drawing.Point(10, 26);
+            this.chkIgnoreClientStatus.Location = new System.Drawing.Point(16, 24);
             this.chkIgnoreClientStatus.Name = "chkIgnoreClientStatus";
             this.chkIgnoreClientStatus.Size = new System.Drawing.Size(168, 19);
             this.chkIgnoreClientStatus.TabIndex = 1;
@@ -228,10 +176,9 @@ namespace SteamTradeCardDropper
             // 
             // chkMinToTray
             // 
-            this.chkMinToTray.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkMinToTray.AutoSize = true;
             this.chkMinToTray.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkMinToTray.Location = new System.Drawing.Point(235, 26);
+            this.chkMinToTray.Location = new System.Drawing.Point(16, 72);
             this.chkMinToTray.Name = "chkMinToTray";
             this.chkMinToTray.Size = new System.Drawing.Size(155, 19);
             this.chkMinToTray.TabIndex = 0;
@@ -248,9 +195,9 @@ namespace SteamTradeCardDropper
             this.grpIdlingQuantity.Controls.Add(this.radManyThenOne);
             this.grpIdlingQuantity.Controls.Add(this.radOneGameOnly);
             this.grpIdlingQuantity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpIdlingQuantity.Location = new System.Drawing.Point(20, 244);
+            this.grpIdlingQuantity.Location = new System.Drawing.Point(20, 210);
             this.grpIdlingQuantity.Name = "grpIdlingQuantity";
-            this.grpIdlingQuantity.Size = new System.Drawing.Size(400, 142);
+            this.grpIdlingQuantity.Size = new System.Drawing.Size(500, 142);
             this.grpIdlingQuantity.TabIndex = 5;
             this.grpIdlingQuantity.TabStop = false;
             this.grpIdlingQuantity.Text = "Idling Behavior";
@@ -259,7 +206,7 @@ namespace SteamTradeCardDropper
             // 
             this.radWhitelistMode.AutoSize = true;
             this.radWhitelistMode.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radWhitelistMode.Location = new System.Drawing.Point(10, 44);
+            this.radWhitelistMode.Location = new System.Drawing.Point(16, 45);
             this.radWhitelistMode.Name = "radWhitelistMode";
             this.radWhitelistMode.Size = new System.Drawing.Size(205, 19);
             this.radWhitelistMode.TabIndex = 1;
@@ -271,7 +218,7 @@ namespace SteamTradeCardDropper
             this.radFastMode.AutoSize = true;
             this.radFastMode.Checked = true;
             this.radFastMode.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radFastMode.Location = new System.Drawing.Point(10, 21);
+            this.radFastMode.Location = new System.Drawing.Point(16, 22);
             this.radFastMode.Name = "radFastMode";
             this.radFastMode.Size = new System.Drawing.Size(167, 19);
             this.radFastMode.TabIndex = 0;
@@ -283,7 +230,7 @@ namespace SteamTradeCardDropper
             // 
             this.radOneThenMany.AutoSize = true;
             this.radOneThenMany.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radOneThenMany.Location = new System.Drawing.Point(10, 113);
+            this.radOneThenMany.Location = new System.Drawing.Point(16, 114);
             this.radOneThenMany.Name = "radOneThenMany";
             this.radOneThenMany.Size = new System.Drawing.Size(381, 19);
             this.radOneThenMany.TabIndex = 4;
@@ -294,7 +241,7 @@ namespace SteamTradeCardDropper
             // 
             this.radManyThenOne.AutoSize = true;
             this.radManyThenOne.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radManyThenOne.Location = new System.Drawing.Point(10, 90);
+            this.radManyThenOne.Location = new System.Drawing.Point(16, 91);
             this.radManyThenOne.Name = "radManyThenOne";
             this.radManyThenOne.Size = new System.Drawing.Size(350, 19);
             this.radManyThenOne.TabIndex = 3;
@@ -305,7 +252,7 @@ namespace SteamTradeCardDropper
             // 
             this.radOneGameOnly.AutoSize = true;
             this.radOneGameOnly.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radOneGameOnly.Location = new System.Drawing.Point(10, 67);
+            this.radOneGameOnly.Location = new System.Drawing.Point(16, 68);
             this.radOneGameOnly.Name = "radOneGameOnly";
             this.radOneGameOnly.Size = new System.Drawing.Size(217, 19);
             this.radOneGameOnly.TabIndex = 2;
@@ -320,9 +267,9 @@ namespace SteamTradeCardDropper
             this.grpPriority.Controls.Add(this.radIdleMostDrops);
             this.grpPriority.Controls.Add(this.radIdleDefault);
             this.grpPriority.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPriority.Location = new System.Drawing.Point(20, 396);
+            this.grpPriority.Location = new System.Drawing.Point(20, 360);
             this.grpPriority.Name = "grpPriority";
-            this.grpPriority.Size = new System.Drawing.Size(400, 96);
+            this.grpPriority.Size = new System.Drawing.Size(500, 96);
             this.grpPriority.TabIndex = 6;
             this.grpPriority.TabStop = false;
             this.grpPriority.Text = "Idling Order";
@@ -331,7 +278,7 @@ namespace SteamTradeCardDropper
             // 
             this.radIdleLeastDrops.AutoSize = true;
             this.radIdleLeastDrops.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radIdleLeastDrops.Location = new System.Drawing.Point(10, 67);
+            this.radIdleLeastDrops.Location = new System.Drawing.Point(16, 68);
             this.radIdleLeastDrops.Name = "radIdleLeastDrops";
             this.radIdleLeastDrops.Size = new System.Drawing.Size(342, 19);
             this.radIdleLeastDrops.TabIndex = 2;
@@ -342,7 +289,7 @@ namespace SteamTradeCardDropper
             // 
             this.radIdleMostDrops.AutoSize = true;
             this.radIdleMostDrops.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radIdleMostDrops.Location = new System.Drawing.Point(10, 44);
+            this.radIdleMostDrops.Location = new System.Drawing.Point(16, 45);
             this.radIdleMostDrops.Name = "radIdleMostDrops";
             this.radIdleMostDrops.Size = new System.Drawing.Size(346, 19);
             this.radIdleMostDrops.TabIndex = 1;
@@ -354,7 +301,7 @@ namespace SteamTradeCardDropper
             this.radIdleDefault.AutoSize = true;
             this.radIdleDefault.Checked = true;
             this.radIdleDefault.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radIdleDefault.Location = new System.Drawing.Point(10, 21);
+            this.radIdleDefault.Location = new System.Drawing.Point(16, 22);
             this.radIdleDefault.Name = "radIdleDefault";
             this.radIdleDefault.Size = new System.Drawing.Size(175, 19);
             this.radIdleDefault.TabIndex = 0;
@@ -367,7 +314,7 @@ namespace SteamTradeCardDropper
             this.linkLabelAppData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabelAppData.AutoSize = true;
             this.linkLabelAppData.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelAppData.Location = new System.Drawing.Point(20, 502);
+            this.linkLabelAppData.Location = new System.Drawing.Point(20, 474);
             this.linkLabelAppData.Name = "linkLabelAppData";
             this.linkLabelAppData.Size = new System.Drawing.Size(127, 15);
             this.linkLabelAppData.TabIndex = 7;
@@ -380,7 +327,7 @@ namespace SteamTradeCardDropper
             this.lnkGitHubWiki.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lnkGitHubWiki.AutoSize = true;
             this.lnkGitHubWiki.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkGitHubWiki.Location = new System.Drawing.Point(20, 522);
+            this.lnkGitHubWiki.Location = new System.Drawing.Point(20, 496);
             this.lnkGitHubWiki.Name = "lnkGitHubWiki";
             this.lnkGitHubWiki.Size = new System.Drawing.Size(117, 15);
             this.lnkGitHubWiki.TabIndex = 8;
@@ -392,11 +339,11 @@ namespace SteamTradeCardDropper
             // 
             this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdvanced.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdvanced.Location = new System.Drawing.Point(180, 506);
+            this.btnAdvanced.Location = new System.Drawing.Point(230, 478);
             this.btnAdvanced.Name = "btnAdvanced";
-            this.btnAdvanced.Size = new System.Drawing.Size(85, 32);
+            this.btnAdvanced.Size = new System.Drawing.Size(130, 34);
             this.btnAdvanced.TabIndex = 9;
-            this.btnAdvanced.Text = "Auth Data";
+            this.btnAdvanced.Text = "  Authentication";
             this.ttHints.SetToolTip(this.btnAdvanced, "Display Steam session authentication cookie settings");
             this.btnAdvanced.UseVisualStyleBackColor = true;
             this.btnAdvanced.Click += new System.EventHandler(this.btnAdvanced_Click);
@@ -406,9 +353,9 @@ namespace SteamTradeCardDropper
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(272, 506);
+            this.btnCancel.Location = new System.Drawing.Point(370, 478);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(70, 32);
+            this.btnCancel.Size = new System.Drawing.Size(75, 34);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -418,9 +365,9 @@ namespace SteamTradeCardDropper
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(348, 506);
+            this.btnOK.Location = new System.Drawing.Point(450, 478);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(72, 32);
+            this.btnOK.Size = new System.Drawing.Size(70, 34);
             this.btnOK.TabIndex = 11;
             this.btnOK.Text = "&Save";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -432,7 +379,7 @@ namespace SteamTradeCardDropper
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(440, 552);
+            this.ClientSize = new System.Drawing.Size(540, 526);
             this.Controls.Add(this.btnAdvanced);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -477,8 +424,6 @@ namespace SteamTradeCardDropper
         private System.Windows.Forms.CheckBox chkPreventSleep;
         private System.Windows.Forms.CheckBox chkShutdown;
         private System.Windows.Forms.CheckBox chkIdleOnlyPlayed;
-        private System.Windows.Forms.Label lblLanguage;
-        private System.Windows.Forms.ComboBox cboLanguage;
         private System.Windows.Forms.GroupBox grpIdlingQuantity;
         private System.Windows.Forms.RadioButton radFastMode;
         private System.Windows.Forms.RadioButton radWhitelistMode;

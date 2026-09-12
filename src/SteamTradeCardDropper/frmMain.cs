@@ -106,7 +106,7 @@ namespace SteamTradeCardDropper
                             totalBadgePages = ExtractTotalBadgePages(htmlDocument);
                         }
 
-                        lblDrops.Text = string.Format(localization.strings.reading_badge_page + " {0}/{1}, " + localization.strings.please_wait, currentBadgePage, totalBadgePages);
+                        lblDrops.Text = string.Format("Reading badge page {0}/{1}, please wait...", currentBadgePage, totalBadgePages);
                         htmlDocument = await GetBadgePageAsync(currentBadgePage);
                         ProcessBadgesOnPage(htmlDocument);
                     }
@@ -153,7 +153,7 @@ namespace SteamTradeCardDropper
         }
         public void SortBadges(string method)
         {
-            lblDrops.Text = localization.strings.sorting_results;
+            lblDrops.Text = "Sorting results...";
             switch (method)
             {
                 case "mostcards":
@@ -230,10 +230,10 @@ namespace SteamTradeCardDropper
                 TimeLeft = badge.RemainingCard == 1 ? 300 : 900;
             }
 
-            lblCurrentRemaining.Text = badge.RemainingCard == -1 ? "" : badge.RemainingCard + " " + localization.strings.card_drops_remaining;
+            lblCurrentRemaining.Text = badge.RemainingCard == -1 ? "" : badge.RemainingCard + " card drops remaining";
             pbIdle.Maximum = CardsRemaining > pbIdle.Maximum ? CardsRemaining : pbIdle.Maximum;
             pbIdle.Value = pbIdle.Maximum - CardsRemaining;
-            lblHoursPlayed.Text = badge.HoursPlayed + " " + localization.strings.hrs_on_record;
+            lblHoursPlayed.Text = badge.HoursPlayed + " hrs on record";
             UpdateStateInfo();
         }
 
@@ -374,7 +374,7 @@ namespace SteamTradeCardDropper
                 GamesState.Visible = false;
                 btnPause.Visible = false;
                 btnSkip.Visible = false;
-                lblCurrentStatus.Text = localization.strings.not_ingame;
+                lblCurrentStatus.Text = "Not in game";
                 lblHoursPlayed.Visible = false;
                 picIdleStatus.Visible = false;
                 if (pnlEmptyState != null) pnlEmptyState.Visible = true;
@@ -418,7 +418,7 @@ namespace SteamTradeCardDropper
                 if (CanIdleBadges.Any())
                 {
                     // Give the user notification that the next game will start soon
-                    lblCurrentStatus.Text = localization.strings.loading_next;
+                    lblCurrentStatus.Text = "Loading next game...";
 
                     // Make a short but random amount of time pass
                     var rand = new Random();
@@ -467,10 +467,10 @@ namespace SteamTradeCardDropper
             }
 
             // Update label controls
-            lblCurrentRemaining.Text = badge.RemainingCard == -1 ? "" : CurrentBadge.RemainingCard + " " + localization.strings.card_drops_remaining;
-            lblCurrentStatus.Text = localization.strings.currently_ingame;
+            lblCurrentRemaining.Text = badge.RemainingCard == -1 ? "" : CurrentBadge.RemainingCard + " card drops remaining";
+            lblCurrentStatus.Text = "Currently in game";
             lblHoursPlayed.Visible = !Settings.Default.IdlingModeWhitelist;
-            lblHoursPlayed.Text = CurrentBadge.HoursPlayed + " " + localization.strings.hrs_on_record;
+            lblHoursPlayed.Text = CurrentBadge.HoursPlayed + " hrs on record";
 
             // Set progress bar values and show the footer
             pbIdle.Maximum = CardsRemaining > pbIdle.Maximum ? CardsRemaining : pbIdle.Maximum;
@@ -497,8 +497,8 @@ namespace SteamTradeCardDropper
             UpdateIdleProcesses();
 
             // Update label controls
-            lblCurrentRemaining.Text = localization.strings.update_games_status;
-            lblCurrentStatus.Text = localization.strings.currently_ingame;
+            lblCurrentRemaining.Text = "Updating game status...";
+            lblCurrentStatus.Text = "Currently in game";
             lblCurrentStatus.Enabled = false;
             lblCurrentStatus.Visible = true;
             if (pnlEmptyState != null) pnlEmptyState.Visible = false;
@@ -546,7 +546,7 @@ namespace SteamTradeCardDropper
             
             StopIdle();
 
-            lblDrops.Text = localization.strings.loading_next;
+            lblDrops.Text = "Loading next game...";
             lblDrops.Visible = picReadingPage.Visible = true;
             lblIdle.Visible = false;
 
@@ -581,7 +581,7 @@ namespace SteamTradeCardDropper
         public void IdleComplete()
         {
             // Deactivate the timer control and inform the user that the program is finished
-            lblCurrentStatus.Text = localization.strings.idling_complete;
+            lblCurrentStatus.Text = "Idling complete!";
             lblCurrentStatus.Enabled = true;
 
             lblGameName.Visible = false;
@@ -622,10 +622,10 @@ namespace SteamTradeCardDropper
                 int numberOfCardsInIdle = CanIdleBadges.Count(b => b.InIdle);
 
                 lblIdle.Text = string.Format(
-                    "{0} " + localization.strings.games_left_to_idle
-                    + ", {1} " + localization.strings.idle_now
+                    "{0} games left to idle"
+                    + ", {1} currently idling"
                     + ".", (CardsRemaining > 0 ? GamesRemaining : numberOfCardsInIdle), numberOfCardsInIdle);
-                lblDrops.Text = CardsRemaining + " " + localization.strings.card_drops_remaining;
+                lblDrops.Text = CardsRemaining + " card drops remaining";
                 lblIdle.Visible = GamesRemaining != 0;
                 lblDrops.Visible = CardsRemaining > 0;
             }
@@ -671,8 +671,8 @@ namespace SteamTradeCardDropper
             GamesState.Columns[GamesState.Columns.IndexOf(Hours)].Width = Settings.Default.IdlingModeWhitelist ? 0 : 45;
 
             // Recolor the listview
-            GamesState.BackColor = IsDarkThemeActive ? Settings.Default.colorBgd : Settings.Default.colorBgdOriginal;
-            GamesState.ForeColor = IsDarkThemeActive ? Settings.Default.colorTxt : Settings.Default.colorTxtOriginal;
+            GamesState.BackColor = ThemeManager.CardBg;
+            GamesState.ForeColor = ThemeManager.TextPrimary;
         }
         #endregion
 
@@ -826,7 +826,7 @@ namespace SteamTradeCardDropper
         {
             picReadingPage.Visible = false;
             picIdleStatus.Visible = false;
-            lblDrops.Text = localization.strings.badge_didnt_load.Replace("__num__", "10");
+            lblDrops.Text = "Badge page didn't load. Retrying in __num__ seconds...".Replace("__num__", "10");
             lblIdle.Text = "";
             if (pnlEmptyState != null) pnlEmptyState.Visible = true;
             UpdateEmptyState();
@@ -853,123 +853,30 @@ namespace SteamTradeCardDropper
                 Settings.Default.Save();
             }
 
-            // Set the interface language from the settings
-            if (Settings.Default.language != "")
-            {
-                string language_string = "";
-                switch (Settings.Default.language)
-                {
-                    case "Bulgarian":
-                        language_string = "bg";
-                        break;
-                    case "Chinese (Simplified, China)":
-                        language_string = "zh-CN";
-                        break;
-                    case "Chinese (Traditional, China)":
-                        language_string = "zh-TW";
-                        break;
-                    case "Czech":
-                        language_string = "cs";
-                        break;
-                    case "Danish":
-                        language_string = "da";
-                        break;
-                    case "Dutch":
-                        language_string = "nl";
-                        break;
-                    case "English":
-                        language_string = "en";
-                        break;
-                    case "Finnish":
-                        language_string = "fi";
-                        break;
-                    case "French":
-                        language_string = "fr";
-                        break;
-                    case "German":
-                        language_string = "de";
-                        break;
-                    case "Greek":
-                        language_string = "el";
-                        break;
-                    case "Hungarian":
-                        language_string = "hu";
-                        break;
-                    case "Italian":
-                        language_string = "it";
-                        break;
-                    case "Japanese":
-                        language_string = "ja";
-                        break;
-                    case "Korean":
-                        language_string = "ko";
-                        break;
-                    case "Norwegian":
-                        language_string = "no";
-                        break;
-                    case "Polish":
-                        language_string = "pl";
-                        break;
-                    case "Portuguese":
-                        language_string = "pt-PT";
-                        break;
-                    case "Portuguese (Brazil)":
-                        language_string = "pt-BR";
-                        break;
-                    case "Romanian":
-                        language_string = "ro";
-                        break;
-                    case "Russian":
-                        language_string = "ru";
-                        break;
-                    case "Spanish":
-                        language_string = "es";
-                        break;
-                    case "Swedish":
-                        language_string = "sv";
-                        break;
-                    case "Thai":
-                        language_string = "th";
-                        break;
-                    case "Turkish":
-                        language_string = "tr";
-                        break;
-                    case "Ukrainian":
-                        language_string = "uk";
-                        break;
-                    case "Croatian":
-                        language_string = "hr";
-                        break;
-                    default:
-                        language_string = "en";
-                        break;
-                }
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(language_string);
-            }
 
-            // Localize form elements
-            fileToolStripMenuItem.Text = localization.strings.file;
-            gameToolStripMenuItem.Text = localization.strings.game;
-            helpToolStripMenuItem.Text = localization.strings.help;
-            settingsToolStripMenuItem.Text = localization.strings.settings;
-            blacklistToolStripMenuItem.Text = localization.strings.blacklist;
-            exitToolStripMenuItem.Text = localization.strings.exit;
-            pauseIdlingToolStripMenuItem.Text = localization.strings.pause_idling;
-            resumeIdlingToolStripMenuItem.Text = localization.strings.resume_idling;
-            skipGameToolStripMenuItem.Text = localization.strings.skip_current_game;
-            blacklistCurrentGameToolStripMenuItem.Text = localization.strings.blacklist_current_game;
-            statisticsToolStripMenuItem.Text = localization.strings.statistics;
-            changelogToolStripMenuItem.Text = localization.strings.release_notes;
-            aboutToolStripMenuItem.Text = localization.strings.about;
-            lnkSignIn.Text = "(" + localization.strings.sign_in + ")";
-            lnkResetCookies.Text = "(" + localization.strings.sign_out + ")";
-            // TODO: lnkLatestRelease = "(" + localization.strings.latest_release + ")";
-            toolStripStatusLabel1.Text = localization.strings.next_check;
-            toolStripStatusLabel1.ToolTipText = localization.strings.next_check;
 
-            lblSignedOnAs.Text = localization.strings.signed_in_as;
-            GamesState.Columns[0].Text = localization.strings.name;
-            GamesState.Columns[1].Text = localization.strings.hours;
+            // Set menu item text
+            fileToolStripMenuItem.Text = "File";
+            gameToolStripMenuItem.Text = "Game";
+            helpToolStripMenuItem.Text = "Help";
+            settingsToolStripMenuItem.Text = "Settings";
+            blacklistToolStripMenuItem.Text = "Blacklist";
+            exitToolStripMenuItem.Text = "Exit";
+            pauseIdlingToolStripMenuItem.Text = "Pause Idling";
+            resumeIdlingToolStripMenuItem.Text = "Resume Idling";
+            skipGameToolStripMenuItem.Text = "Skip Current Game";
+            blacklistCurrentGameToolStripMenuItem.Text = "Blacklist Current Game";
+            statisticsToolStripMenuItem.Text = "Statistics";
+            changelogToolStripMenuItem.Text = "Release Notes";
+            aboutToolStripMenuItem.Text = "About";
+            lnkSignIn.Text = "(Sign In)";
+            lnkResetCookies.Text = "(Sign Out)";
+            toolStripStatusLabel1.Text = "Next check";
+            toolStripStatusLabel1.ToolTipText = "Next check";
+
+            lblSignedOnAs.Text = "Signed in as";
+            GamesState.Columns[0].Text = "Name";
+            GamesState.Columns[1].Text = "Hours";
 
             // Set the form height
             SetFormHeight(1.625);
@@ -1089,7 +996,7 @@ namespace SteamTradeCardDropper
                 picReadingPage.Visible = true;
                 lblIdle.Visible = false;
                 lblDrops.Visible = true;
-                lblDrops.Text = localization.strings.reading_badge_page + ", " + localization.strings.please_wait;
+                lblDrops.Text = "Reading badge page, please wait...";
                 await LoadBadgesAsync();
             }
 
@@ -1105,7 +1012,7 @@ namespace SteamTradeCardDropper
             StopIdle();
 
             // Indicate to the user that idling has been paused
-            lblCurrentStatus.Text = localization.strings.idling_paused;
+            lblCurrentStatus.Text = "Idling paused";
 
             // Set the correct button visibility
             btnResume.Visible = true;
@@ -1279,17 +1186,17 @@ namespace SteamTradeCardDropper
 
             if (!IsSteamReady)
             {
-                lblEmptyTitle.Text = localization.strings.steam_notrunning;
+                lblEmptyTitle.Text = "Steam is not running";
                 lblEmptySubtitle.Text = "Please launch the Steam client on your computer to proceed.";
             }
             else if (!IsCookieReady)
             {
-                lblEmptyTitle.Text = localization.strings.idle_master_notconnected;
+                lblEmptyTitle.Text = "Not connected — please sign in";
                 lblEmptySubtitle.Text = "Click 'Sign In' above to authenticate your Steam session.";
             }
             else if (!CanIdleBadges.Any())
             {
-                lblEmptyTitle.Text = localization.strings.idling_complete;
+                lblEmptyTitle.Text = "Idling complete!";
                 lblEmptySubtitle.Text = "All eligible card drops have been gathered! No games left to idle.";
             }
             else
@@ -1340,7 +1247,7 @@ namespace SteamTradeCardDropper
         private void tmrBadgeReload_Tick(object sender, EventArgs e)
         {
             ReloadCount = ReloadCount + 1;
-            lblDrops.Text = localization.strings.badge_didnt_load.Replace("__num__", (10 - ReloadCount).ToString());
+            lblDrops.Text = "Badge page didn't load. Retrying in __num__ seconds...".Replace("__num__", (10 - ReloadCount).ToString());
 
             if (ReloadCount == 10)
             {
@@ -1374,7 +1281,7 @@ namespace SteamTradeCardDropper
             }
 
             lblDrops.Visible = true;
-            lblDrops.Text = localization.strings.reading_badge_page + ", " + localization.strings.please_wait;
+            lblDrops.Text = "Reading badge page, please wait...";
             lblIdle.Visible = false;
             picReadingPage.Visible = true;
 
@@ -1417,7 +1324,7 @@ namespace SteamTradeCardDropper
                 if (isMultipleIdle)
                 {
                     lblDrops.Visible = true;
-                    lblDrops.Text = localization.strings.reading_badge_page + ", " + localization.strings.please_wait;
+                    lblDrops.Text = "Reading badge page, please wait...";
                     lblIdle.Visible = false;
                     picReadingPage.Visible = true;
                     await LoadBadgesAsync();
@@ -1459,16 +1366,16 @@ namespace SteamTradeCardDropper
         private void tmrCheckCookieData_Tick(object sender, EventArgs e)
         {
             var isDark = IsDarkThemeActive;
-            var whiteIcons = isDark || Settings.Default.whiteIcons;
+            var whiteIcons = isDark;
             var imgFalse = whiteIcons ? Resources.imgFalse_w : Resources.imgFalse;
             var imgTrue = whiteIcons ? Resources.imgTrue_w : Resources.imgTrue;
             SetTheme();
 
             var connected = !string.IsNullOrWhiteSpace(Settings.Default.sessionid) && !string.IsNullOrWhiteSpace(Settings.Default.steamLoginSecure);
 
-            var colorGreen = isDark ? Settings.Default.colorSteamGreen : Color.Green;
+            var colorGreen = ThemeManager.IsDarkTheme ? Color.FromArgb(126, 200, 75) : Color.FromArgb(34, 139, 34);
 
-            lblCookieStatus.Text = connected ? localization.strings.idle_master_connected : localization.strings.idle_master_notconnected;
+            lblCookieStatus.Text = connected ? "Connected" : "Not connected";
             lblCookieStatus.ForeColor = connected ? colorGreen : this.ForeColor;
             picCookieStatus.Image = connected ? imgTrue : imgFalse;
             lnkSignIn.Visible = !connected;
@@ -1483,15 +1390,15 @@ namespace SteamTradeCardDropper
         private void tmrCheckSteam_Tick(object sender, EventArgs e)
         {
             var isDark = IsDarkThemeActive;
-            var whiteIcons = isDark || Settings.Default.whiteIcons;
-            var imgFalse = whiteIcons ? Resources.imgFalse_w : Resources.imgFalse;
-            var imgTrue = whiteIcons ? Resources.imgTrue_w : Resources.imgTrue;
+            var whiteIcons2 = isDark;
+            var imgFalse = whiteIcons2 ? Resources.imgFalse_w : Resources.imgFalse;
+            var imgTrue = whiteIcons2 ? Resources.imgTrue_w : Resources.imgTrue;
 
-            var colorGreen = isDark ? Settings.Default.colorSteamGreen : Color.Green;
+            var colorGreen2 = ThemeManager.IsDarkTheme ? Color.FromArgb(126, 200, 75) : Color.FromArgb(34, 139, 34);
 
             var isSteamRunning = SteamAPI.IsSteamRunning() || Settings.Default.ignoreclient;
-            lblSteamStatus.Text = isSteamRunning ? (Settings.Default.ignoreclient ? localization.strings.steam_ignored : localization.strings.steam_running) : localization.strings.steam_notrunning;
-            lblSteamStatus.ForeColor = isSteamRunning ? colorGreen : this.ForeColor;
+            lblSteamStatus.Text = isSteamRunning ? (Settings.Default.ignoreclient ? "Steam ignored" : "Steam running") : "Steam not running";
+            lblSteamStatus.ForeColor = isSteamRunning ? colorGreen2 : this.ForeColor;
             picSteamStatus.Image = isSteamRunning ? imgTrue : imgFalse;
             tmrCheckSteam.Interval = isSteamRunning ? 5000 : 500;
             skipGameToolStripMenuItem.Enabled = isSteamRunning;
@@ -1533,8 +1440,8 @@ namespace SteamTradeCardDropper
 
                 // Define colors
                 FlatStyle buttonStyle = isDark ? FlatStyle.Flat : FlatStyle.Standard;
-                Color colorBgd = isDark ? Settings.Default.colorBgd : Settings.Default.colorBgdOriginal;
-                Color colorTxt = isDark ? Settings.Default.colorTxt : Settings.Default.colorTxtOriginal;
+                Color colorBgd = ThemeManager.CardBg;
+                Color colorTxt = ThemeManager.TextPrimary;
                 Color sidebarBgd = isDark ? Color.FromArgb(20, 24, 30) : Color.FromArgb(241, 245, 249);
                 Color sidebarTxt = isDark ? Color.FromArgb(226, 232, 240) : Color.FromArgb(51, 65, 85);
                 Color sidebarHover = isDark ? Color.FromArgb(37, 44, 56) : Color.FromArgb(226, 232, 240);
@@ -1625,7 +1532,7 @@ namespace SteamTradeCardDropper
         private void ApplyIcons()
         {
             bool isDark = IsDarkThemeActive;
-            bool whiteIcons = isDark || Settings.Default.whiteIcons;
+            bool whiteIcons = isDark;
 
             if (IsCurrentIconsWhite != whiteIcons)
             {

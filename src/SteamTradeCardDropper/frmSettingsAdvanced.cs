@@ -42,15 +42,13 @@ namespace SteamTradeCardDropper
                 {
                     this.Icon = Resources.appIcon;
                 }
-                picIcon.Image = ThemeManager.IsDarkTheme ? Resources.imgLock_w : Resources.imgLock;
             }
             catch { }
 
-            // Localize Form
-            btnUpdate.Text = localization.strings.update;
-            this.Text = localization.strings.auth_data;
-            lblTitle.Text = localization.strings.auth_data;
-            ttHelp.SetToolTip(btnView, localization.strings.cookie_warning);
+            this.Text = "Authentication Data";
+            btnUpdate.Text = "&Save && Validate";
+            btnCancel.Text = "Cancel";
+            ttHelp.SetToolTip(btnView, "Reveals sensitive session cookie credentials.");
 
             // Apply theme
             ApplyTheme();
@@ -99,7 +97,7 @@ namespace SteamTradeCardDropper
             this.BackColor = ThemeManager.WindowBg;
             this.ForeColor = ThemeManager.TextPrimary;
 
-            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
+            ThemeManager.ApplyHeader(picIcon, lblTitle, lblSubtitle, pnlDivider, "lock", "Authentication Data", "Provide your personal Steam session cookies to synchronize badges.");
 
             lblSessionID.ForeColor = ThemeManager.TextPrimary;
             lblSteamLoginSecure.ForeColor = ThemeManager.TextPrimary;
@@ -154,7 +152,7 @@ namespace SteamTradeCardDropper
             }
 
             // Invalid cookie data, reset the form
-            btnUpdate.Text = localization.strings.update;
+            btnUpdate.Text = "&Save && Validate";
             txtSessionID.Text = "";
             txtSteamLoginSecure.Text = "";
             txtSteamParental.Text = "";
@@ -169,7 +167,7 @@ namespace SteamTradeCardDropper
 
             txtSessionID.Focus();
 
-            MessageBox.Show(localization.strings.validate_failed);
+            MessageBox.Show("Cookie validation failed. Please check your session credentials and try again.", "Authentication Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             btnUpdate.Enabled = true;
         }
@@ -181,7 +179,7 @@ namespace SteamTradeCardDropper
             txtSteamLoginSecure.Enabled = false;
             txtSteamParental.Enabled = false;
 
-            btnUpdate.Text = localization.strings.validating;
+            btnUpdate.Text = "Validating...";
 
             await CheckAndSave();
         }

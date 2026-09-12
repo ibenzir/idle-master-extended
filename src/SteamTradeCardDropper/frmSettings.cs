@@ -35,15 +35,6 @@ namespace SteamTradeCardDropper
                 Settings.Default.sort = "mostcards";
             }
 
-            if (cboLanguage.Text != "")
-            {
-                if (cboLanguage.Text != Settings.Default.language)
-                {
-                    MessageBox.Show(localization.strings.please_restart);
-                }
-                Settings.Default.language = cboLanguage.Text;
-            }
-
             Settings.Default.OneThenMany = Settings.Default.OnlyOneGameIdle 
                 = Settings.Default.fastMode = Settings.Default.IdlingModeWhitelist = false;
             
@@ -71,8 +62,6 @@ namespace SteamTradeCardDropper
             Settings.Default.ShutdownWindowsOnDone = chkShutdown.Checked;
             Settings.Default.IdleOnlyPlayed = chkIdleOnlyPlayed.Checked;
 
-            Settings.Default.customTheme = ThemeManager.IsDarkTheme;
-            Settings.Default.whiteIcons = ThemeManager.IsDarkTheme;
             Settings.Default.Save();
 
             Close();
@@ -83,28 +72,8 @@ namespace SteamTradeCardDropper
             try
             {
                 if (Resources.appIcon != null) this.Icon = Resources.appIcon;
-                picIcon.Image = ThemeManager.IsDarkTheme ? Resources.imgSettings_w : Resources.imgSettings;
             }
             catch { }
-
-            if (Settings.Default.language != "")
-            {
-                cboLanguage.SelectedItem = Settings.Default.language;
-            }
-            else
-            {
-                switch (Thread.CurrentThread.CurrentUICulture.EnglishName)
-                {
-                    case "Chinese (Simplified, China)":
-                    case "Chinese (Traditional, China)":
-                    case "Portuguese (Brazil)":
-                        cboLanguage.SelectedItem = Thread.CurrentThread.CurrentUICulture.EnglishName;
-                        break;
-                    default:
-                        cboLanguage.SelectedItem = Regex.Replace(Thread.CurrentThread.CurrentUICulture.EnglishName, @"\(.+\)", "").Trim();
-                        break;
-                }
-            }
 
             switch (Settings.Default.sort)
             {
@@ -118,34 +87,25 @@ namespace SteamTradeCardDropper
                     break;
             }
 
-            // Load translation
-            this.Text = localization.strings.idle_master_settings;
-            lblTitle.Text = localization.strings.idle_master_settings;
-            grpGeneral.Text = localization.strings.general;
-            grpIdlingQuantity.Text = localization.strings.idling_behavior;
-            grpPriority.Text = localization.strings.idling_order;
-            btnOK.Text = localization.strings.accept;
-            btnCancel.Text = localization.strings.cancel;
-            ttHints.SetToolTip(btnAdvanced, localization.strings.advanced_auth);
-            chkMinToTray.Text = localization.strings.minimize_to_tray;
-            ttHints.SetToolTip(chkMinToTray, localization.strings.minimize_to_tray);
-            chkIgnoreClientStatus.Text = localization.strings.ignore_client_status;
-            ttHints.SetToolTip(chkIgnoreClientStatus, localization.strings.ignore_client_status);
-            chkShowUsername.Text = localization.strings.show_username;
-            ttHints.SetToolTip(chkShowUsername, localization.strings.show_username);
-            radOneGameOnly.Text = localization.strings.idle_individual;
-            ttHints.SetToolTip(radOneGameOnly, localization.strings.idle_individual);
-            radManyThenOne.Text = localization.strings.idle_simultaneous;
-            ttHints.SetToolTip(radManyThenOne, localization.strings.idle_simultaneous);
-            radOneThenMany.Text = localization.strings.idle_onethenmany;
-            ttHints.SetToolTip(radOneThenMany, localization.strings.idle_onethenmany);
-            radIdleDefault.Text = localization.strings.order_default;
-            ttHints.SetToolTip(radIdleDefault, localization.strings.order_default);
-            radIdleMostDrops.Text = localization.strings.order_most;
-            ttHints.SetToolTip(radIdleMostDrops, localization.strings.order_most);
-            radIdleLeastDrops.Text = localization.strings.order_least;
-            ttHints.SetToolTip(radIdleLeastDrops, localization.strings.order_least);
-            lblLanguage.Text = localization.strings.interface_language;
+            this.Text = "Settings";
+            grpGeneral.Text = "General Options";
+            grpIdlingQuantity.Text = "Idling Behavior";
+            grpPriority.Text = "Idling Order";
+            btnOK.Text = "&Save";
+            btnCancel.Text = "&Cancel";
+            btnAdvanced.Text = "  Authentication";
+            ttHints.SetToolTip(btnAdvanced, "Display Steam session authentication cookie settings");
+            chkMinToTray.Text = "Minimize to system tray";
+            chkIgnoreClientStatus.Text = "Ignore Steam client status";
+            chkShowUsername.Text = "Show Steam username of signed on user";
+            radFastMode.Text = "Fast mode (Recommended)";
+            radWhitelistMode.Text = "Whitelist mode (File > Whitelist)";
+            radOneGameOnly.Text = "Idle each game individually (Slow)";
+            radManyThenOne.Text = "Idle games simultaneously up to 2 hours, then individually";
+            radOneThenMany.Text = "Idle games with more than 2 hours individually, then simultaneously";
+            radIdleDefault.Text = "Default (Alphabetical Order)";
+            radIdleMostDrops.Text = "Prioritize games with the highest number of available drops";
+            radIdleLeastDrops.Text = "Prioritize games with the lowest number of available drops";
 
             if (Settings.Default.fastMode)
             {
@@ -195,20 +155,17 @@ namespace SteamTradeCardDropper
                 chkIdleOnlyPlayed.Checked = true;
             }
 
-            runtimeCustomThemeSettings();
+            applyTheme();
         }
 
-        private void runtimeCustomThemeSettings()
+        private void applyTheme()
         {
             this.BackColor = ThemeManager.WindowBg;
             this.ForeColor = ThemeManager.TextPrimary;
 
-            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
+            ThemeManager.ApplyHeader(picIcon, lblTitle, lblSubtitle, pnlDivider, "settings", "Settings", "Customize idling behavior, queue priority, and automation.");
 
             grpGeneral.ForeColor = ThemeManager.TextPrimary;
-            grpIdlingQuantity.ForeColor = ThemeManager.TextPrimary;
-            grpPriority.ForeColor = ThemeManager.TextPrimary;
-
             chkMinToTray.ForeColor = ThemeManager.TextPrimary;
             chkIgnoreClientStatus.ForeColor = ThemeManager.TextPrimary;
             chkShowUsername.ForeColor = ThemeManager.TextPrimary;
@@ -216,28 +173,26 @@ namespace SteamTradeCardDropper
             chkShutdown.ForeColor = ThemeManager.TextPrimary;
             chkIdleOnlyPlayed.ForeColor = ThemeManager.TextPrimary;
 
+            grpIdlingQuantity.ForeColor = ThemeManager.TextPrimary;
             radFastMode.ForeColor = ThemeManager.TextPrimary;
             radWhitelistMode.ForeColor = ThemeManager.TextPrimary;
             radOneGameOnly.ForeColor = ThemeManager.TextPrimary;
             radManyThenOne.ForeColor = ThemeManager.TextPrimary;
             radOneThenMany.ForeColor = ThemeManager.TextPrimary;
 
+            grpPriority.ForeColor = ThemeManager.TextPrimary;
             radIdleDefault.ForeColor = ThemeManager.TextPrimary;
             radIdleMostDrops.ForeColor = ThemeManager.TextPrimary;
             radIdleLeastDrops.ForeColor = ThemeManager.TextPrimary;
-
-            lblLanguage.ForeColor = ThemeManager.TextSecondary;
-            cboLanguage.BackColor = ThemeManager.InputBg;
-            cboLanguage.ForeColor = ThemeManager.TextPrimary;
-            cboLanguage.FlatStyle = FlatStyle.Flat;
 
             linkLabelAppData.LinkColor = ThemeManager.LinkColor;
             lnkGitHubWiki.LinkColor = ThemeManager.LinkColor;
 
             ThemeManager.StyleSecondaryButton(btnAdvanced);
-            btnAdvanced.Image = ThemeManager.IsDarkTheme ? Resources.imgLock_w : Resources.imgLock;
-            btnAdvanced.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAdvanced.TextAlign = ContentAlignment.MiddleRight;
+            Color lockColor = ThemeManager.IsDarkTheme ? Color.FromArgb(220, 225, 235) : Color.FromArgb(30, 41, 59);
+            btnAdvanced.Image = ThemeManager.RenderIcon("lock", 16, lockColor);
+            btnAdvanced.ImageAlign = ContentAlignment.MiddleCenter;
+            btnAdvanced.TextAlign = ContentAlignment.MiddleCenter;
             btnAdvanced.TextImageRelation = TextImageRelation.ImageBeforeText;
 
             ThemeManager.StyleSecondaryButton(btnCancel);

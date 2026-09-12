@@ -42,7 +42,7 @@ namespace SteamTradeCardDropper
             this.BackColor = ThemeManager.WindowBg;
             this.ForeColor = ThemeManager.TextPrimary;
 
-            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
+            ThemeManager.ApplyHeader(picAppIcon, lblTitle, lblSubtitle, pnlDivider, "info", "About", "Steam Trade Card Dropper — Automated card idling tool");
             linkLabelVersion.LinkColor = ThemeManager.LinkColor;
             lblMaintainer.ForeColor = ThemeManager.TextPrimary;
             lnkWebsite.LinkColor = ThemeManager.LinkColor;

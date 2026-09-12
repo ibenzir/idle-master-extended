@@ -29,6 +29,7 @@
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <DoNotCopyLocalIfInGac>true</DoNotCopyLocalIfInGac>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -185,11 +186,6 @@
     <Compile Include="frmStatistics.Designer.cs">
       <DependentUpon>frmStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="localization\strings.hr.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>strings.hr.resx</DependentUpon>
-    </Compile>
     <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,11 +194,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="localization\strings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>strings.resx</DependentUpon>
-    </Compile>
+
     <Compile Include="Settings.cs" />
     <Compile Include="Statistics.cs" />
     <Compile Include="SteamProfile.cs" />
@@ -228,42 +220,12 @@
     <EmbeddedResource Include="frmStatistics.resx">
       <DependentUpon>frmStatistics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="localization\strings.hr.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>strings.hr.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="localization\strings.cs.resx" />
-    <EmbeddedResource Include="localization\strings.de.resx" />
-    <EmbeddedResource Include="localization\strings.el.resx" />
-    <EmbeddedResource Include="localization\strings.es.resx" />
-    <EmbeddedResource Include="localization\strings.fi.resx" />
-    <EmbeddedResource Include="localization\strings.fr.resx" />
-    <EmbeddedResource Include="localization\strings.hu.resx" />
-    <EmbeddedResource Include="localization\strings.it.resx" />
-    <EmbeddedResource Include="localization\strings.ja.resx" />
-    <EmbeddedResource Include="localization\strings.ko.resx" />
-    <EmbeddedResource Include="localization\strings.nl.resx" />
-    <EmbeddedResource Include="localization\strings.no.resx" />
-    <EmbeddedResource Include="localization\strings.pl.resx" />
-    <EmbeddedResource Include="localization\strings.pt-BR.resx" />
-    <EmbeddedResource Include="localization\strings.pt.resx" />
-    <EmbeddedResource Include="localization\strings.ro.resx" />
-    <EmbeddedResource Include="localization\strings.ru.resx" />
-    <EmbeddedResource Include="localization\strings.sv.resx" />
-    <EmbeddedResource Include="localization\strings.th.resx" />
-    <EmbeddedResource Include="localization\strings.tr.resx" />
-    <EmbeddedResource Include="localization\strings.uk.resx" />
-    <EmbeddedResource Include="localization\strings.zh-TW.resx" />
-    <EmbeddedResource Include="localization\strings.zh.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="localization\strings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>strings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -344,13 +306,7 @@
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <AlToolPath Condition="'$(AlToolPath)' == '' and Exists('$(MSBuildProjectDirectory)\..\..\buildtools\al.exe')">$(MSBuildProjectDirectory)\..\..\buildtools\</AlToolPath>
-    <PostBuildEvent>XCOPY /Y /D "$(MSBuildProjectDirectory)\..\..\dependencies\steam_api64.dll" "$(TargetDir)"
-
-RMDIR /S /Q "$(TargetDir)Languages"
-MKDIR "$(TargetDir)Languages"
-FOR /F %25%25X IN ('DIR /B /AD $(TargetDir)') DO IF /I NOT "%25%25X"=="Languages" MOVE /Y "$(TargetDir)%25%25X" "$(TargetDir)Languages"
-</PostBuildEvent>
+    <PostBuildEvent>XCOPY /Y /D "$(MSBuildProjectDirectory)\..\..\dependencies\steam_api64.dll" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
 
 </Project>

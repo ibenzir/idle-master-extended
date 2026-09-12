@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -208,6 +209,142 @@ namespace SteamTradeCardDropper
             {
                 pnlDivider.BackColor = DividerColor;
             }
+        }
+
+        public static void ApplyHeader(PictureBox pic, Label lblTitle, Label lblSub, Panel pnlDivider, string iconName, string title, string subtitle)
+        {
+            if (lblTitle != null)
+            {
+                lblTitle.Text = title;
+                lblTitle.ForeColor = TextPrimary;
+                lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+                lblTitle.AutoSize = true;
+            }
+            if (lblSub != null)
+            {
+                lblSub.Text = subtitle;
+                lblSub.ForeColor = TextSecondary;
+                lblSub.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular);
+                lblSub.AutoSize = true;
+            }
+            if (pnlDivider != null)
+            {
+                pnlDivider.BackColor = DividerColor;
+            }
+            if (pic != null && !string.IsNullOrEmpty(iconName))
+            {
+                Color iconColor = IsDarkTheme ? Color.White : Color.FromArgb(30, 41, 59);
+                int iconSize = pic.Width > 0 ? pic.Width : 36;
+                pic.Image = RenderIcon(iconName, iconSize, iconColor);
+                pic.SizeMode = PictureBoxSizeMode.CenterImage;
+            }
+        }
+
+        public static Bitmap RenderIcon(string iconName, int size, Color color)
+        {
+            if (size <= 0) size = 32;
+            Bitmap bmp = new Bitmap(size, size, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                float s = size;
+
+                using (SolidBrush brush = new SolidBrush(color))
+                using (Pen pen = new Pen(color, s * 0.12f))
+                {
+                    pen.StartCap = LineCap.Round;
+                    pen.EndCap = LineCap.Round;
+                    pen.LineJoin = LineJoin.Round;
+
+                    switch (iconName.ToLowerInvariant())
+                    {
+                        case "gear":
+                        case "settings":
+                            float cx = s / 2f, cy = s / 2f;
+                            using (Pen toothPen = new Pen(color, s * 0.16f))
+                            {
+                                toothPen.StartCap = LineCap.Round;
+                                toothPen.EndCap = LineCap.Round;
+                                for (int i = 0; i < 8; i++)
+                                {
+                                    double angle = i * Math.PI / 4.0;
+                                    float x1 = cx + (float)(Math.Cos(angle) * (s * 0.26f));
+                                    float y1 = cy + (float)(Math.Sin(angle) * (s * 0.26f));
+                                    float x2 = cx + (float)(Math.Cos(angle) * (s * 0.44f));
+                                    float y2 = cy + (float)(Math.Sin(angle) * (s * 0.44f));
+                                    g.DrawLine(toothPen, x1, y1, x2, y2);
+                                }
+                            }
+                            using (Pen ringPen = new Pen(color, s * 0.14f))
+                            {
+                                float ringR = s * 0.25f;
+                                g.DrawEllipse(ringPen, cx - ringR, cy - ringR, ringR * 2, ringR * 2);
+                            }
+                            break;
+
+                        case "check":
+                        case "whitelist":
+                            pen.Width = s * 0.16f;
+                            PointF[] checkPoints = new PointF[] {
+                                new PointF(s * 0.20f, s * 0.52f),
+                                new PointF(s * 0.42f, s * 0.74f),
+                                new PointF(s * 0.82f, s * 0.28f)
+                            };
+                            g.DrawLines(pen, checkPoints);
+                            break;
+
+                        case "ban":
+                        case "blacklist":
+                            pen.Width = s * 0.13f;
+                            float pad = s * 0.14f;
+                            g.DrawEllipse(pen, pad, pad, s - pad * 2, s - pad * 2);
+                            float slashOffset = (s - pad * 2) * 0.293f;
+                            g.DrawLine(pen, pad + slashOffset, pad + slashOffset, s - pad - slashOffset, s - pad - slashOffset);
+                            break;
+
+                        case "chart":
+                        case "statistics":
+                            float bw = s * 0.18f;
+                            float gap = s * 0.08f;
+                            float startX = (s - (bw * 3 + gap * 2)) / 2f;
+                            float bottomY = s * 0.82f;
+                            g.FillRectangle(brush, startX, s * 0.48f, bw, bottomY - s * 0.48f);
+                            g.FillRectangle(brush, startX + bw + gap, s * 0.22f, bw, bottomY - s * 0.22f);
+                            g.FillRectangle(brush, startX + (bw + gap) * 2, s * 0.36f, bw, bottomY - s * 0.36f);
+                            break;
+
+                        case "lock":
+                        case "auth":
+                            float bx = s * 0.24f, by = s * 0.44f, bw2 = s * 0.52f, bh = s * 0.44f;
+                            g.FillRectangle(brush, bx, by, bw2, bh);
+                            using (Pen shacklePen = new Pen(color, s * 0.12f))
+                            {
+                                shacklePen.StartCap = LineCap.Round;
+                                shacklePen.EndCap = LineCap.Round;
+                                float sw = s * 0.30f;
+                                float sx = (s - sw) / 2f;
+                                GraphicsPath path = new GraphicsPath();
+                                path.AddArc(sx, s * 0.16f, sw, sw, 180, 180);
+                                path.AddLine(sx + sw, s * 0.31f, sx + sw, by);
+                                path.StartFigure();
+                                path.AddLine(sx, s * 0.31f, sx, by);
+                                g.DrawPath(shacklePen, path);
+                            }
+                            break;
+
+                        case "info":
+                        case "about":
+                            pen.Width = s * 0.10f;
+                            float ipad = s * 0.12f;
+                            g.DrawEllipse(pen, ipad, ipad, s - ipad * 2, s - ipad * 2);
+                            g.FillEllipse(brush, s * 0.45f, s * 0.28f, s * 0.10f, s * 0.10f);
+                            g.DrawLine(pen, s * 0.50f, s * 0.44f, s * 0.50f, s * 0.72f);
+                            break;
+                    }
+                }
+            }
+            return bmp;
         }
     }
 }

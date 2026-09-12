@@ -51,8 +51,8 @@ namespace SteamTradeCardDropper
             // 
             this.picIcon.Location = new System.Drawing.Point(20, 16);
             this.picIcon.Name = "picIcon";
-            this.picIcon.Size = new System.Drawing.Size(42, 42);
-            this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picIcon.Size = new System.Drawing.Size(36, 36);
+            this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picIcon.TabIndex = 0;
             this.picIcon.TabStop = false;
             // 
@@ -60,7 +60,7 @@ namespace SteamTradeCardDropper
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(72, 14);
+            this.lblTitle.Location = new System.Drawing.Point(68, 14);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(215, 21);
             this.lblTitle.TabIndex = 1;
@@ -70,7 +70,7 @@ namespace SteamTradeCardDropper
             // 
             this.lblSubtitle.AutoSize = true;
             this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtitle.Location = new System.Drawing.Point(74, 38);
+            this.lblSubtitle.Location = new System.Drawing.Point(70, 38);
             this.lblSubtitle.Name = "lblSubtitle";
             this.lblSubtitle.Size = new System.Drawing.Size(342, 15);
             this.lblSubtitle.TabIndex = 2;
@@ -80,16 +80,16 @@ namespace SteamTradeCardDropper
             // 
             this.pnlDivider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDivider.Location = new System.Drawing.Point(20, 68);
+            this.pnlDivider.Location = new System.Drawing.Point(20, 64);
             this.pnlDivider.Name = "pnlDivider";
-            this.pnlDivider.Size = new System.Drawing.Size(490, 1);
+            this.pnlDivider.Size = new System.Drawing.Size(500, 1);
             this.pnlDivider.TabIndex = 3;
             // 
             // lblSessionID
             // 
             this.lblSessionID.AutoSize = true;
             this.lblSessionID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSessionID.Location = new System.Drawing.Point(20, 82);
+            this.lblSessionID.Location = new System.Drawing.Point(20, 78);
             this.lblSessionID.Name = "lblSessionID";
             this.lblSessionID.Size = new System.Drawing.Size(126, 15);
             this.lblSessionID.TabIndex = 4;
@@ -100,10 +100,10 @@ namespace SteamTradeCardDropper
             this.txtSessionID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSessionID.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSessionID.Location = new System.Drawing.Point(20, 102);
+            this.txtSessionID.Location = new System.Drawing.Point(20, 98);
             this.txtSessionID.Name = "txtSessionID";
             this.txtSessionID.PasswordChar = '*';
-            this.txtSessionID.Size = new System.Drawing.Size(490, 24);
+            this.txtSessionID.Size = new System.Drawing.Size(500, 24);
             this.txtSessionID.TabIndex = 5;
             this.txtSessionID.TextChanged += new System.EventHandler(this.txtSessionID_TextChanged);
             // 
@@ -111,7 +111,7 @@ namespace SteamTradeCardDropper
             // 
             this.lblSteamLoginSecure.AutoSize = true;
             this.lblSteamLoginSecure.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSteamLoginSecure.Location = new System.Drawing.Point(20, 138);
+            this.lblSteamLoginSecure.Location = new System.Drawing.Point(20, 134);
             this.lblSteamLoginSecure.Name = "lblSteamLoginSecure";
             this.lblSteamLoginSecure.Size = new System.Drawing.Size(201, 15);
             this.lblSteamLoginSecure.TabIndex = 6;
@@ -122,10 +122,10 @@ namespace SteamTradeCardDropper
             this.txtSteamLoginSecure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSteamLoginSecure.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSteamLoginSecure.Location = new System.Drawing.Point(20, 158);
+            this.txtSteamLoginSecure.Location = new System.Drawing.Point(20, 154);
             this.txtSteamLoginSecure.Name = "txtSteamLoginSecure";
             this.txtSteamLoginSecure.PasswordChar = '*';
-            this.txtSteamLoginSecure.Size = new System.Drawing.Size(490, 24);
+            this.txtSteamLoginSecure.Size = new System.Drawing.Size(500, 24);
             this.txtSteamLoginSecure.TabIndex = 7;
             this.txtSteamLoginSecure.TextChanged += new System.EventHandler(this.txtSteamLogin_TextChanged);
             // 
@@ -133,7 +133,7 @@ namespace SteamTradeCardDropper
             // 
             this.lblSteamParental.AutoSize = true;
             this.lblSteamParental.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSteamParental.Location = new System.Drawing.Point(20, 194);
+            this.lblSteamParental.Location = new System.Drawing.Point(20, 190);
             this.lblSteamParental.Name = "lblSteamParental";
             this.lblSteamParental.Size = new System.Drawing.Size(273, 15);
             this.lblSteamParental.TabIndex = 8;
@@ -144,17 +144,17 @@ namespace SteamTradeCardDropper
             this.txtSteamParental.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSteamParental.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSteamParental.Location = new System.Drawing.Point(20, 214);
+            this.txtSteamParental.Location = new System.Drawing.Point(20, 210);
             this.txtSteamParental.Name = "txtSteamParental";
             this.txtSteamParental.PasswordChar = '*';
-            this.txtSteamParental.Size = new System.Drawing.Size(490, 24);
+            this.txtSteamParental.Size = new System.Drawing.Size(500, 24);
             this.txtSteamParental.TabIndex = 9;
             this.txtSteamParental.TextChanged += new System.EventHandler(this.txtSteamParental_TextChanged);
             // 
             // btnView
             // 
             this.btnView.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(20, 252);
+            this.btnView.Location = new System.Drawing.Point(20, 248);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(120, 28);
             this.btnView.TabIndex = 10;
@@ -166,7 +166,7 @@ namespace SteamTradeCardDropper
             // 
             this.linkLabelWhatIsThis.AutoSize = true;
             this.linkLabelWhatIsThis.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelWhatIsThis.Location = new System.Drawing.Point(150, 259);
+            this.linkLabelWhatIsThis.Location = new System.Drawing.Point(150, 255);
             this.linkLabelWhatIsThis.Name = "linkLabelWhatIsThis";
             this.linkLabelWhatIsThis.Size = new System.Drawing.Size(157, 15);
             this.linkLabelWhatIsThis.TabIndex = 11;
@@ -179,7 +179,7 @@ namespace SteamTradeCardDropper
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(270, 300);
+            this.btnCancel.Location = new System.Drawing.Point(280, 304);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 32);
             this.btnCancel.TabIndex = 12;
@@ -191,7 +191,7 @@ namespace SteamTradeCardDropper
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(380, 300);
+            this.btnUpdate.Location = new System.Drawing.Point(390, 304);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(130, 32);
             this.btnUpdate.TabIndex = 13;
@@ -211,7 +211,7 @@ namespace SteamTradeCardDropper
             this.CancelButton = this.btnCancel;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 348);
+            this.ClientSize = new System.Drawing.Size(540, 354);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.linkLabelWhatIsThis);
@@ -233,7 +233,7 @@ namespace SteamTradeCardDropper
             this.Name = "frmSettingsAdvanced";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Steam Trade Card Dropper — Authentication Data";
+            this.Text = "Authentication Data";
             this.Load += new System.EventHandler(this.frmSettingsAdvanced_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.ResumeLayout(false);

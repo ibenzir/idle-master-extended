@@ -24,15 +24,13 @@ namespace SteamTradeCardDropper
             try
             {
                 if (Resources.appIcon != null) this.Icon = Resources.appIcon;
-                picIcon.Image = ThemeManager.IsDarkTheme ? Resources.imgBlacklist_w : Resources.imgBlacklist;
             }
             catch { }
 
-            // Localize form
-            btnAdd.Text = localization.strings.add;
-            btnSave.Text = localization.strings.save;
-            this.Text = localization.strings.manage_blacklist;
-            lblTitle.Text = localization.strings.manage_blacklist;
+            this.Text = "Blacklist Management";
+            btnAdd.Text = "&Add";
+            btnSave.Text = "&Save && Close";
+            btnRemove.Text = "Remove Selected";
 
             lstBlacklist.Items.AddRange(Settings.Default.blacklist.Cast<string>().ToArray());
 
@@ -44,7 +42,7 @@ namespace SteamTradeCardDropper
             this.BackColor = ThemeManager.WindowBg;
             this.ForeColor = ThemeManager.TextPrimary;
 
-            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
+            ThemeManager.ApplyHeader(picIcon, lblTitle, lblSubtitle, pnlDivider, "ban", "Blacklist Management", "Prevent specified games from ever being idled.");
 
             lblAppId.ForeColor = ThemeManager.TextPrimary;
             ThemeManager.StyleInput(txtAppid);

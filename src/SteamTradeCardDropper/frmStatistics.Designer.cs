@@ -50,8 +50,8 @@ namespace SteamTradeCardDropper
             // 
             this.picIcon.Location = new System.Drawing.Point(20, 16);
             this.picIcon.Name = "picIcon";
-            this.picIcon.Size = new System.Drawing.Size(42, 42);
-            this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picIcon.Size = new System.Drawing.Size(36, 36);
+            this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picIcon.TabIndex = 0;
             this.picIcon.TabStop = false;
             // 
@@ -59,17 +59,17 @@ namespace SteamTradeCardDropper
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(72, 14);
+            this.lblTitle.Location = new System.Drawing.Point(68, 14);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(127, 21);
+            this.lblTitle.Size = new System.Drawing.Size(79, 21);
             this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Idling Statistics";
+            this.lblTitle.Text = "Statistics";
             // 
             // lblSubtitle
             // 
             this.lblSubtitle.AutoSize = true;
             this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtitle.Location = new System.Drawing.Point(74, 38);
+            this.lblSubtitle.Location = new System.Drawing.Point(70, 38);
             this.lblSubtitle.Name = "lblSubtitle";
             this.lblSubtitle.Size = new System.Drawing.Size(263, 15);
             this.lblSubtitle.TabIndex = 2;
@@ -79,9 +79,9 @@ namespace SteamTradeCardDropper
             // 
             this.pnlDivider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDivider.Location = new System.Drawing.Point(20, 68);
+            this.pnlDivider.Location = new System.Drawing.Point(20, 64);
             this.pnlDivider.Name = "pnlDivider";
-            this.pnlDivider.Size = new System.Drawing.Size(380, 1);
+            this.pnlDivider.Size = new System.Drawing.Size(420, 1);
             this.pnlDivider.TabIndex = 3;
             // 
             // pnlSessionCard
@@ -91,9 +91,9 @@ namespace SteamTradeCardDropper
             this.pnlSessionCard.Controls.Add(this.lblSessionHeader);
             this.pnlSessionCard.Controls.Add(this.lblSessionCards);
             this.pnlSessionCard.Controls.Add(this.lblSessionTime);
-            this.pnlSessionCard.Location = new System.Drawing.Point(20, 80);
+            this.pnlSessionCard.Location = new System.Drawing.Point(20, 76);
             this.pnlSessionCard.Name = "pnlSessionCard";
-            this.pnlSessionCard.Size = new System.Drawing.Size(380, 82);
+            this.pnlSessionCard.Size = new System.Drawing.Size(420, 82);
             this.pnlSessionCard.TabIndex = 4;
             // 
             // lblSessionHeader
@@ -133,9 +133,9 @@ namespace SteamTradeCardDropper
             this.pnlTotalCard.Controls.Add(this.lblTotalHeader);
             this.pnlTotalCard.Controls.Add(this.lblTotalCards);
             this.pnlTotalCard.Controls.Add(this.lblTotalTime);
-            this.pnlTotalCard.Location = new System.Drawing.Point(20, 172);
+            this.pnlTotalCard.Location = new System.Drawing.Point(20, 168);
             this.pnlTotalCard.Name = "pnlTotalCard";
-            this.pnlTotalCard.Size = new System.Drawing.Size(380, 82);
+            this.pnlTotalCard.Size = new System.Drawing.Size(420, 82);
             this.pnlTotalCard.TabIndex = 5;
             // 
             // lblTotalHeader
@@ -172,7 +172,7 @@ namespace SteamTradeCardDropper
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(310, 266);
+            this.btnOK.Location = new System.Drawing.Point(350, 264);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(90, 32);
             this.btnOK.TabIndex = 6;
@@ -186,7 +186,7 @@ namespace SteamTradeCardDropper
             this.CancelButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 312);
+            this.ClientSize = new System.Drawing.Size(460, 312);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.pnlTotalCard);
             this.Controls.Add(this.pnlSessionCard);

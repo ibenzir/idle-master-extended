@@ -193,18 +193,6 @@ namespace SteamTradeCardDropper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string language {
-            get {
-                return ((string)(this["language"]));
-            }
-            set {
-                this["language"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool OneThenMany {
             get {
@@ -217,80 +205,9 @@ namespace SteamTradeCardDropper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool customTheme {
-            get {
-                return ((bool)(this["customTheme"]));
-            }
-            set {
-                this["customTheme"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("38, 38, 38")]
-        public global::System.Drawing.Color colorBgd {
-            get {
-                return ((global::System.Drawing.Color)(this["colorBgd"]));
-            }
-            set {
-                this["colorBgd"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("196, 196, 196")]
-        public global::System.Drawing.Color colorTxt {
-            get {
-                return ((global::System.Drawing.Color)(this["colorTxt"]));
-            }
-            set {
-                this["colorTxt"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool whiteIcons {
-            get {
-                return ((bool)(this["whiteIcons"]));
-            }
-            set {
-                this["whiteIcons"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Control")]
-        public global::System.Drawing.Color colorBgdOriginal {
-            get {
-                return ((global::System.Drawing.Color)(this["colorBgdOriginal"]));
-            }
-            set {
-                this["colorBgdOriginal"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ControlText")]
-        public global::System.Drawing.Color colorTxtOriginal {
-            get {
-                return ((global::System.Drawing.Color)(this["colorTxtOriginal"]));
-            }
-            set {
-                this["colorTxtOriginal"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool fastMode {
+
             get {
                 return ((bool)(this["fastMode"]));
             }
@@ -308,18 +225,6 @@ namespace SteamTradeCardDropper.Properties {
             }
             set {
                 this["steamLoginSecure"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("126, 166, 75")]
-        public global::System.Drawing.Color colorSteamGreen {
-            get {
-                return ((global::System.Drawing.Color)(this["colorSteamGreen"]));
-            }
-            set {
-                this["colorSteamGreen"] = value;
             }
         }
         

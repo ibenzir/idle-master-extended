@@ -21,16 +21,13 @@ namespace SteamTradeCardDropper
                 {
                     this.Icon = Properties.Resources.appIcon;
                 }
-                picIcon.Image = ThemeManager.IsDarkTheme ? Properties.Resources.imgStatistics_w : Properties.Resources.imgStatistics;
             }
             catch { }
 
-            // Localize Form
-            this.Text = localization.strings.statistics.Replace("&", "");
-            lblTitle.Text = localization.strings.statistics.Replace("&", "");
-            btnOK.Text = localization.strings.accept;
-            lblSessionHeader.Text = localization.strings.this_session;
-            lblTotalHeader.Text = localization.strings.total;
+            this.Text = "Statistics";
+            btnOK.Text = "&Close";
+            lblSessionHeader.Text = "Current Session";
+            lblTotalHeader.Text = "Lifetime Total";
 
             TimeSpan sessionMinutesIdled = TimeSpan.FromMinutes(statistics.getSessionMinutesIdled());
             TimeSpan totalMinutesIdled = TimeSpan.FromMinutes(Properties.Settings.Default.totalMinutesIdled);
@@ -80,7 +77,7 @@ namespace SteamTradeCardDropper
             this.BackColor = ThemeManager.WindowBg;
             this.ForeColor = ThemeManager.TextPrimary;
 
-            ThemeManager.StyleHeader(lblTitle, lblSubtitle, pnlDivider);
+            ThemeManager.ApplyHeader(picIcon, lblTitle, lblSubtitle, pnlDivider, "chart", "Statistics", "Overview of session and lifetime trading card progress");
 
             pnlSessionCard.BackColor = ThemeManager.CardBg;
             pnlTotalCard.BackColor = ThemeManager.CardBg;

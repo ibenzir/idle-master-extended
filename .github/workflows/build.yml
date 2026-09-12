@@ -27,9 +27,8 @@ jobs:
         name: SteamTradeCardDropper-Release
         path: |
           src/SteamTradeCardDropper/bin/Release/SteamTradeCardDropper.exe
+          src/SteamTradeCardDropper/bin/Release/SteamTradeCardDropper.exe.config
           src/SteamTradeCardDropper/bin/Release/steam_api64.dll
           src/SteamTradeCardDropper/bin/Release/Steamworks.NET.dll
           src/SteamTradeCardDropper/bin/Release/HtmlAgilityPack.dll
-          src/SteamTradeCardDropper/bin/Release/Languages/
         if-no-files-found: error
-
