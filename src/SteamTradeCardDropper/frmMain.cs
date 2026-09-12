@@ -73,14 +73,22 @@ namespace SteamTradeCardDropper
         private void SetFormHeight(double scaleMultiplier)
         {
             var graphics = CreateGraphics();
-            var calculated = (int)(graphics.DpiY * scaleMultiplier);
-            var minHeight = (int)(graphics.DpiY * 3.75);
-            Height = Math.Max(calculated, minHeight);
+            var minHeight = (int)(graphics.DpiY * 4.3);
+            Height = minHeight;
         }
 
         public frmMain()
         {
             InitializeComponent();
+            try
+            {
+                if (Properties.Resources.appIcon != null)
+                {
+                    this.Icon = Properties.Resources.appIcon;
+                    this.notifyIcon1.Icon = Properties.Resources.appIcon;
+                }
+            }
+            catch { }
             AllBadges = new List<Badge>();
         }
 
@@ -389,6 +397,8 @@ namespace SteamTradeCardDropper
                 lblCurrentStatus.Text = localization.strings.not_ingame;
                 lblHoursPlayed.Visible = false;
                 picIdleStatus.Visible = false;
+                if (pnlEmptyState != null) pnlEmptyState.Visible = true;
+                UpdateEmptyState();
 
                 // Stop the card drop check timer
                 DisableCardDropCheckTimer();
@@ -457,11 +467,13 @@ namespace SteamTradeCardDropper
 
             // Update game name
             lblCurrentStatus.Enabled = false;
+            lblCurrentStatus.Visible = true;
             lblGameName.Visible = true;
             lblGameName.Text = CurrentBadge.Name;
 
             GamesState.Visible = false;
             gameToolStripMenuItem.Enabled = true;
+            if (pnlEmptyState != null) pnlEmptyState.Visible = false;
 
             // Update game image
             try
@@ -508,6 +520,8 @@ namespace SteamTradeCardDropper
             lblCurrentRemaining.Text = localization.strings.update_games_status;
             lblCurrentStatus.Text = localization.strings.currently_ingame;
             lblCurrentStatus.Enabled = false;
+            lblCurrentStatus.Visible = true;
+            if (pnlEmptyState != null) pnlEmptyState.Visible = false;
 
             lblGameName.Visible = false;
             lblHoursPlayed.Visible = false;
@@ -593,6 +607,10 @@ namespace SteamTradeCardDropper
             lblGameName.Visible = false;
             btnPause.Visible = false;
             btnSkip.Visible = true;
+            picApp.Visible = false;
+            GamesState.Visible = false;
+            if (pnlEmptyState != null) pnlEmptyState.Visible = true;
+            UpdateEmptyState();
             // TODO: Refresh button?
 
             // Resize the form
@@ -815,6 +833,8 @@ namespace SteamTradeCardDropper
 
             // Set IsCookieReady to false
             IsCookieReady = false;
+            if (pnlEmptyState != null) pnlEmptyState.Visible = true;
+            UpdateEmptyState();
 
             // Re-enable tmrReadyToGo
             tmrReadyToGo.Enabled = true;
@@ -828,6 +848,8 @@ namespace SteamTradeCardDropper
             picIdleStatus.Visible = false;
             lblDrops.Text = localization.strings.badge_didnt_load.Replace("__num__", "10");
             lblIdle.Text = "";
+            if (pnlEmptyState != null) pnlEmptyState.Visible = true;
+            UpdateEmptyState();
 
             // Set the form height
             SetFormHeight(1.625);
@@ -967,8 +989,16 @@ namespace SteamTradeCardDropper
 
             try
             {
-                picSidebarLogo.Image = Icon.ExtractAssociatedIcon(Application.ExecutablePath).ToBitmap();
-                picSidebarLogo.SizeMode = PictureBoxSizeMode.Zoom;
+                if (Properties.Resources.appIcon != null)
+                {
+                    this.Icon = Properties.Resources.appIcon;
+                    this.notifyIcon1.Icon = Properties.Resources.appIcon;
+                }
+                picSidebarLogo.Image = null;
+                if (picEmptyIcon != null)
+                {
+                    picEmptyIcon.Image = null;
+                }
             }
             catch { }
 
@@ -1220,6 +1250,67 @@ namespace SteamTradeCardDropper
                 frm.ShowDialog(this);
             }
         }
+
+        private void Card_Paint(object sender, PaintEventArgs e)
+        {
+            var pnl = sender as Panel;
+            if (pnl == null) return;
+            Color borderColor = IsDarkThemeActive ? Color.FromArgb(42, 53, 72) : Color.FromArgb(226, 232, 240);
+            using (var pen = new Pen(borderColor, 1))
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, pnl.Width - 1, pnl.Height - 1);
+            }
+        }
+
+        private void picSidebarLogo_Paint(object sender, PaintEventArgs e)
+        {
+            if (Properties.Resources.appLogo != null)
+            {
+                e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                e.Graphics.DrawImage(Properties.Resources.appLogo, picSidebarLogo.ClientRectangle);
+            }
+        }
+
+        private void picEmptyIcon_Paint(object sender, PaintEventArgs e)
+        {
+            if (Properties.Resources.appLogo != null)
+            {
+                e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                e.Graphics.DrawImage(Properties.Resources.appLogo, picEmptyIcon.ClientRectangle);
+            }
+        }
+
+        private void UpdateEmptyState()
+        {
+            if (pnlEmptyState == null || lblEmptyTitle == null || lblEmptySubtitle == null) return;
+
+            if (!IsSteamReady)
+            {
+                lblEmptyTitle.Text = localization.strings.steam_notrunning;
+                lblEmptySubtitle.Text = "Please launch the Steam client on your computer to proceed.";
+            }
+            else if (!IsCookieReady)
+            {
+                lblEmptyTitle.Text = localization.strings.idle_master_notconnected;
+                lblEmptySubtitle.Text = "Click 'Sign In' above to authenticate your Steam session.";
+            }
+            else if (!CanIdleBadges.Any())
+            {
+                lblEmptyTitle.Text = localization.strings.idling_complete;
+                lblEmptySubtitle.Text = "All eligible card drops have been gathered! No games left to idle.";
+            }
+            else
+            {
+                lblEmptyTitle.Text = "Ready to Idle";
+                lblEmptySubtitle.Text = string.Format("{0} games ({1} card drops remaining) queued for card drops.", CanIdleBadges.Count(), CardsRemaining);
+            }
+        }
         #endregion
 
         #region LINKS
@@ -1396,6 +1487,10 @@ namespace SteamTradeCardDropper
             lnkSignIn.Visible = !connected;
             lnkResetCookies.Visible = connected;
             IsCookieReady = connected;
+            if (pnlEmptyState != null && pnlEmptyState.Visible)
+            {
+                UpdateEmptyState();
+            }
         }
 
         private void tmrCheckSteam_Tick(object sender, EventArgs e)
@@ -1415,6 +1510,10 @@ namespace SteamTradeCardDropper
             skipGameToolStripMenuItem.Enabled = isSteamRunning;
             pauseIdlingToolStripMenuItem.Enabled = isSteamRunning;
             IsSteamReady = isSteamRunning;
+            if (pnlEmptyState != null && pnlEmptyState.Visible)
+            {
+                UpdateEmptyState();
+            }
         }
 
         public void DisableCardDropCheckTimer()
@@ -1513,10 +1612,23 @@ namespace SteamTradeCardDropper
                 ssFooter.BackColor = isDark ? Color.FromArgb(20, 24, 30) : colorBgd;
                 ssFooter.ForeColor = colorTxt;
 
+                // Status and session cards styling
+                Color cardBgd = isDark ? Color.FromArgb(24, 30, 42) : Color.White;
+                Color cardBorder = isDark ? Color.FromArgb(42, 53, 72) : Color.FromArgb(226, 232, 240);
+                if (pnlStatusCard != null) pnlStatusCard.BackColor = cardBgd;
+                if (pnlSessionCard != null) pnlSessionCard.BackColor = cardBgd;
+                if (pnlEmptyState != null) pnlEmptyState.BackColor = cardBgd;
+                if (lblEmptyTitle != null) lblEmptyTitle.ForeColor = isDark ? Color.White : Color.FromArgb(15, 23, 42);
+                if (lblEmptySubtitle != null) lblEmptySubtitle.ForeColor = isDark ? Color.FromArgb(148, 163, 184) : Color.FromArgb(100, 116, 139);
+
                 // Buttons
-                btnPause.FlatStyle = btnResume.FlatStyle = btnSkip.FlatStyle = buttonStyle;
-                btnPause.BackColor = btnResume.BackColor = btnSkip.BackColor = isDark ? Color.FromArgb(37, 44, 56) : colorBgd;
+                btnPause.FlatStyle = btnResume.FlatStyle = btnSkip.FlatStyle = FlatStyle.Flat;
+                btnPause.BackColor = btnResume.BackColor = btnSkip.BackColor = isDark ? Color.FromArgb(37, 47, 66) : Color.FromArgb(241, 245, 249);
                 btnPause.ForeColor = btnResume.ForeColor = btnSkip.ForeColor = colorTxt;
+                btnPause.FlatAppearance.BorderColor = btnResume.FlatAppearance.BorderColor = btnSkip.FlatAppearance.BorderColor = cardBorder;
+
+                if (pnlStatusCard != null) pnlStatusCard.Invalidate();
+                if (pnlSessionCard != null) pnlSessionCard.Invalidate();
             }
         }
 
