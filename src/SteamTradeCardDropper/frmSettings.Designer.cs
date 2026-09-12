@@ -66,8 +66,8 @@ namespace SteamTradeCardDropper
             // 
             this.picIcon.Location = new System.Drawing.Point(20, 16);
             this.picIcon.Name = "picIcon";
-            this.picIcon.Size = new System.Drawing.Size(42, 42);
-            this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picIcon.Size = new System.Drawing.Size(36, 36);
+            this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picIcon.TabIndex = 0;
             this.picIcon.TabStop = false;
             // 
@@ -75,7 +75,7 @@ namespace SteamTradeCardDropper
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(72, 14);
+            this.lblTitle.Location = new System.Drawing.Point(68, 14);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(72, 21);
             this.lblTitle.TabIndex = 1;
@@ -85,7 +85,7 @@ namespace SteamTradeCardDropper
             // 
             this.lblSubtitle.AutoSize = true;
             this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtitle.Location = new System.Drawing.Point(74, 38);
+            this.lblSubtitle.Location = new System.Drawing.Point(70, 38);
             this.lblSubtitle.Name = "lblSubtitle";
             this.lblSubtitle.Size = new System.Drawing.Size(326, 15);
             this.lblSubtitle.TabIndex = 2;
@@ -339,9 +339,9 @@ namespace SteamTradeCardDropper
             // 
             this.btnAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdvanced.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdvanced.Location = new System.Drawing.Point(230, 478);
+            this.btnAdvanced.Location = new System.Drawing.Point(220, 478);
             this.btnAdvanced.Name = "btnAdvanced";
-            this.btnAdvanced.Size = new System.Drawing.Size(130, 34);
+            this.btnAdvanced.Size = new System.Drawing.Size(140, 34);
             this.btnAdvanced.TabIndex = 9;
             this.btnAdvanced.Text = "  Authentication";
             this.ttHints.SetToolTip(this.btnAdvanced, "Display Steam session authentication cookie settings");
