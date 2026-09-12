@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using IdleMasterExtended.Properties;
@@ -282,7 +282,7 @@ namespace IdleMasterExtended
 
         private void lnkGitHubWiki_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/JonasNilson/idle_master_extended/wiki");
+            Process.Start("https://github.com/ibenzir/idle-master-extended#readme");
         }
     }
 }

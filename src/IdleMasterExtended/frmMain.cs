@@ -420,7 +420,7 @@ namespace IdleMasterExtended
             // Update game image
             try
             {
-                picApp.Load("http://cdn.akamai.steamstatic.com/steam/apps/" + CurrentBadge.StringId + "/header_292x136.jpg");
+                picApp.Load("https://cdn.akamai.steamstatic.com/steam/apps/" + CurrentBadge.StringId + "/header_292x136.jpg");
                 picApp.Visible = true;
             }
             catch (Exception ex)
@@ -687,7 +687,7 @@ namespace IdleMasterExtended
             webClient.Headers.Add("user-agent", "Idle Master Extended application");
             webClient.Encoding = Encoding.UTF8;
 
-            string jsonResponse = webClient.DownloadString("https://api.github.com/repos/JonasNilson/idle_master_extended/releases/latest");
+            string jsonResponse = webClient.DownloadString("https://api.github.com/repos/ibenzir/idle-master-extended/releases/latest");
             string githubReleaseTagKey = "tag_name";
 
             if (jsonResponse.Contains(githubReleaseTagKey))
@@ -1092,7 +1092,7 @@ namespace IdleMasterExtended
         }
         private void changelogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/JonasNilson/idle_master_extended/releases");
+            Process.Start("https://github.com/ibenzir/idle-master-extended/releases");
         }
 
         private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1108,12 +1108,12 @@ namespace IdleMasterExtended
 
         private void donateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/JonasNilson/idle_master_extended/wiki/Donate");
+            Process.Start("https://ibenzir.me");
         }
 
         private void wikiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/JonasNilson/idle_master_extended/wiki");
+            Process.Start("https://github.com/ibenzir/idle-master-extended#readme");
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1172,7 +1172,7 @@ namespace IdleMasterExtended
 
         private void lblCurrentStatus_LinkClicked(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/JonasNilson/idle_master_extended/wiki/Idling-complete");
+            Process.Start("https://github.com/ibenzir/idle-master-extended#readme");
         }
 
         private void lblCurrentRemaining_Click(object sender, EventArgs e)
@@ -1196,7 +1196,7 @@ namespace IdleMasterExtended
 
         private void lnkLatestRelease_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/JonasNilson/idle_master_extended/releases");
+            Process.Start("https://github.com/ibenzir/idle-master-extended/releases");
         }
         #endregion
 
