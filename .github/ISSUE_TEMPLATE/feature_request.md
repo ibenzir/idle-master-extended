@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea or enhancement for Idle Master Extended
+about: Suggest an idea or enhancement for Steam Trade Card Dropper
 title: "[FEATURE] <Feature summary>"
 labels: enhancement
 assignees: ''

@@ -26,7 +26,7 @@ Example:
 
 
 ## Error logs ##
-(Look in the `Idle Master Extended` directory for `error.log`)
+(Look in the `Steam Trade Card Dropper` directory for `error.log`)
 
 
 ## Screenshots ##
