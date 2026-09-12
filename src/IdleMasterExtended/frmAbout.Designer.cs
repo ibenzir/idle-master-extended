@@ -104,7 +104,7 @@ namespace IdleMasterExtended
             this.lblMaintainer.Name = "lblMaintainer";
             this.lblMaintainer.Size = new System.Drawing.Size(196, 15);
             this.lblMaintainer.TabIndex = 5;
-            this.lblMaintainer.Text = "Maintained by BENZIR";
+            this.lblMaintainer.Text = "Maintained by benzir";
             // 
             // lnkWebsite
             // 
