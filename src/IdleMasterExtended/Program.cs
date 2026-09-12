@@ -35,7 +35,7 @@ namespace IdleMasterExtended
 
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new FormSteamIdle(appId));
+                    Application.Run(new FormCardDropper(appId));
                     return;
                 }
             }
