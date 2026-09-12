@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     partial class frmEula
     {
@@ -134,7 +134,7 @@ namespace IdleMasterExtended
             this.ShowIcon = false;
             this.ShowInTaskbar = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Idle Master Extended — Terms of Use";
+            this.Text = "Steam Trade Card Dropper — Terms of Use";
             this.Load += new System.EventHandler(this.frmEula_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.ResumeLayout(false);

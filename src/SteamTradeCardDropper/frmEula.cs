@@ -1,9 +1,9 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using IdleMasterExtended.Properties;
+using SteamTradeCardDropper.Properties;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     public partial class frmEula : Form
     {
@@ -69,20 +69,20 @@ namespace IdleMasterExtended
         private void LoadTermsText()
         {
             txtTerms.Text = 
-@"IDLE MASTER EXTENDED — TERMS OF USE & SAFETY NOTICE
+@"STEAM TRADE CARD DROPPER — TERMS OF USE & SAFETY NOTICE
 
 1. NON-AFFILIATION & TRADEMARKS
-Idle Master Extended is an independent open-source utility maintained for personal efficiency and interoperability.
+Steam Trade Card Dropper is an independent open-source utility maintained for personal efficiency and interoperability.
 Valve Corporation, Steam, and their respective logos and marks are trademarks and/or registered trademarks of Valve Corporation. This software is NOT affiliated with, authorized, maintained, sponsored, or endorsed by Valve Corporation.
 
 2. LOCAL EXECUTION & ZERO TELEMETRY
-Idle Master Extended operates 100% locally on your personal machine.
+Steam Trade Card Dropper operates 100% locally on your personal machine.
 • All web communications occur directly and securely between your computer and official Steam endpoints (https://steamcommunity.com) over encrypted HTTPS.
 • Under NO circumstances are your session cookies, login credentials, Steam ID, or inventory data logged remotely, forwarded, proxied, or transmitted to any third party.
 • The entire source code is fully open source and publicly auditable.
 
 3. ANTI-CHEAT & SAFE USAGE ADVISORY
-• Idle Master Extended coordinates with the running Steam desktop client via the official Steamworks API to notify Steam that an AppID is active. It does NOT inject code, hook memory, or modify game files.
+• Steam Trade Card Dropper coordinates with the running Steam desktop client via the official Steamworks API to notify Steam that an AppID is active. It does NOT inject code, hook memory, or modify game files.
 • SAFETY WARNING: NEVER idle VAC-secured games (e.g., Counter-Strike 2, Team Fortress 2, Rust, Dota 2) while actively connected to VAC-secured game servers.
 • Use the built-in Blacklist feature to exclude competitive or VAC-secured games.
 
