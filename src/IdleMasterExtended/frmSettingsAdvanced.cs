@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -163,7 +163,7 @@ namespace IdleMasterExtended
 
         private void linkLabelWhatIsThis_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/JonasNilson/idle_master_extended/wiki/Login-methods");
+            Process.Start("https://github.com/ibenzir/idle-master-extended#setup--authentication");
         }
     }
 }
