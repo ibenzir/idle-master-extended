@@ -439,5 +439,25 @@ namespace SteamTradeCardDropper.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap appLogo {
+            get {
+                object obj = ResourceManager.GetObject("appLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon.
+        /// </summary>
+        internal static System.Drawing.Icon appIcon {
+            get {
+                object obj = ResourceManager.GetObject("appIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
