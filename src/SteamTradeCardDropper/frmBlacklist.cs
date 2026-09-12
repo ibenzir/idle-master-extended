@@ -21,6 +21,8 @@ namespace SteamTradeCardDropper
 
         private void frmBlacklist_Load(object sender, EventArgs e)
         {
+            try { if (Resources.appIcon != null) this.Icon = Resources.appIcon; } catch { }
+
             // Localize form
             btnAdd.Text = localization.strings.add;
             btnSave.Text = localization.strings.save;
@@ -31,7 +33,7 @@ namespace SteamTradeCardDropper
 
             if (Settings.Default.customTheme)
             {
-                runtimeCustomThemeBlacklist(); // JN: Apply the dark theme
+                runtimeCustomThemeBlacklist();
             }
         }
 

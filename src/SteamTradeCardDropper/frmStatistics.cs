@@ -14,6 +14,8 @@ namespace SteamTradeCardDropper
 
         private void frmStatistics_Load(object sender, EventArgs e)
         {
+            try { if (Properties.Resources.appIcon != null) this.Icon = Properties.Resources.appIcon; } catch { }
+
             // Localize Form
             this.Text = localization.strings.statistics.Replace("&", "");
             btnOK.Text = localization.strings.accept;

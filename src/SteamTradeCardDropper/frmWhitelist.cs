@@ -24,6 +24,8 @@ namespace SteamTradeCardDropper
 
         private void frmWhitelist_Load(object sender, EventArgs e)
         {
+            try { if (Resources.appIcon != null) this.Icon = Resources.appIcon; } catch { }
+
             // Localize form
             btnAdd.Text = localization.strings.add;
             btnSave.Text = localization.strings.save;
