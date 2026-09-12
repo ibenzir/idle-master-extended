@@ -2,10 +2,10 @@ using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Windows.Forms;
-using IdleMasterExtended.Properties;
+using SteamTradeCardDropper.Properties;
 using Steamworks;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     static class Program
     {
