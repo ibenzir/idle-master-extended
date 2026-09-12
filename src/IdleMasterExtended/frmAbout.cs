@@ -57,7 +57,7 @@ namespace IdleMasterExtended
 
         private void linkLabelVersion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/JonasNilson/idle_master_extended/releases");
+            System.Diagnostics.Process.Start("https://github.com/ibenzir/idle-master-extended/releases");
         }
 
         private void lnkWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
