@@ -164,22 +164,21 @@ The compiled binaries and all dependencies will be output to:
 > Idle Master Extended is an independent, open-source utility and is **not** affiliated with, authorized, maintained, sponsored, or endorsed by **Valve Corporation**, **Steam**, or any of their affiliates. Valve, Steam, and their respective logos and marks are trademarks and/or registered trademarks of Valve Corporation.
 > 
 > **Limitation of Liability**:  
-> Use of this software is at your own sole risk and discretion. Interacting with Steam services via automated tools may be subject to the [Steam Subscriber Agreement (SSA)](https://store.steampowered.com/subscriber_agreement/). Under no circumstances shall the maintainer (**BENZIR**), upstream authors, or open-source contributors be held liable for any account restrictions, community bans, VAC flags, inventory loss, or damages resulting from the use of this software. For complete details, see [**LEGAL.md**](LEGAL.md).
+> Use of this software is at your own sole risk and discretion. Interacting with Steam services via automated tools may be subject to the [Steam Subscriber Agreement (SSA)](https://store.steampowered.com/subscriber_agreement/). Under no circumstances shall the developer (**BENZIR**) or open-source contributors be held liable for any account restrictions, community bans, VAC flags, inventory loss, or damages resulting from the use of this software. For complete details, see [**LEGAL.md**](LEGAL.md).
 
 ## 👤 Maintainer & Credentials
 
-- **Current Maintainer**: **Benzir Ahammed Shawon**
+- **Developer**: **Benzir Ahammed Shawon**
 - **Personal Website / Portfolio**: [https://ibenzir.me](https://ibenzir.me)
 
 ---
 
 ## 📜 Credits & License
 
-- **Idle Master** was originally created by **[jshackles](https://github.com/jshackles)**, based on code by **Stumpokapow**.
-- **Idle Master Extended** was formerly maintained by **[JonasNilson](https://github.com/JonasNilson)** (archived 2023).
 - Built with:
   - [Steamworks.NET](https://github.com/rlabrecque/Steamworks.NET) and [CSteamworks](https://github.com/rlabrecque/CSteamworks) by Riley Labrecque.
   - [HtmlAgilityPack](https://html-agility-pack.net/) for robust HTML parsing.
   - [Open Iconic](https://github.com/iconic/open-iconic) icon suite.
 
-This project is licensed under the **[GNU General Public License v2.0 (GPL-2.0)](LICENSE)**. All existing copyright notices, open-source licenses, and historical attributions are maintained in full accordance with the GNU General Public License.
+This project is licensed under the **[GNU General Public License v2.0 (GPL-2.0)](LICENSE)**.
+
