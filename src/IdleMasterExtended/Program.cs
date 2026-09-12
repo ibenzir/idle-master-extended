@@ -1,7 +1,9 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using IdleMasterExtended.Properties;
+using Steamworks;
 
 namespace IdleMasterExtended
 {
@@ -11,8 +13,33 @@ namespace IdleMasterExtended
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            // Check if launched in worker idling mode for a specific AppId
+            if (args != null && args.Length > 0)
+            {
+                long appId;
+                string arg = args[0].TrimStart('-', '/');
+                if (arg.StartsWith("idle=", StringComparison.OrdinalIgnoreCase))
+                {
+                    arg = arg.Substring(5);
+                }
+
+                if (long.TryParse(arg, out appId) && appId > 0)
+                {
+                    Environment.SetEnvironmentVariable("SteamAppId", appId.ToString());
+                    if (!SteamAPI.Init())
+                    {
+                        return;
+                    }
+
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new FormSteamIdle(appId));
+                    return;
+                }
+            }
+
             // Set the Browser emulation version for embedded browser control
             try
             {
@@ -30,6 +57,20 @@ namespace IdleMasterExtended
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // First-run EULA & Open Source Terms acceptance
+            if (!Settings.Default.AcceptedEula)
+            {
+                using (var eula = new frmEula())
+                {
+                    if (eula.ShowDialog() != DialogResult.OK)
+                    {
+                        return;
+                    }
+                    Settings.Default.AcceptedEula = true;
+                    Settings.Default.Save();
+                }
+            }
 
             Application.Run(new frmMain());
         }
