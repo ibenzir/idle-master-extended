@@ -3,9 +3,9 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IdleMasterExtended.Properties;
+using SteamTradeCardDropper.Properties;
 
-namespace IdleMasterExtended
+namespace SteamTradeCardDropper
 {
     public partial class frmSettingsAdvanced : Form
     {
