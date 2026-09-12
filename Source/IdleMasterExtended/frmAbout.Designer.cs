@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace IdleMasterExtended
@@ -36,13 +36,15 @@ namespace IdleMasterExtended
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.linkLabelVersion = new System.Windows.Forms.LinkLabel();
+            this.lblMaintainer = new System.Windows.Forms.Label();
+            this.lnkWebsite = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(192, 129);
+            this.btnOK.Location = new System.Drawing.Point(192, 178);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -61,15 +63,6 @@ namespace IdleMasterExtended
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 139);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "by jshackles + JonasNilson";
-            // 
             // linkLabelVersion
             // 
             this.linkLabelVersion.AutoSize = true;
@@ -81,14 +74,45 @@ namespace IdleMasterExtended
             this.linkLabelVersion.Text = "Idle Master Extended";
             this.linkLabelVersion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelVersion_LinkClicked);
             // 
+            // lblMaintainer
+            // 
+            this.lblMaintainer.AutoSize = true;
+            this.lblMaintainer.Location = new System.Drawing.Point(13, 142);
+            this.lblMaintainer.Name = "lblMaintainer";
+            this.lblMaintainer.Size = new System.Drawing.Size(185, 13);
+            this.lblMaintainer.TabIndex = 5;
+            this.lblMaintainer.Text = "Maintained by Benzir Ahammed Shawon";
+            // 
+            // lnkWebsite
+            // 
+            this.lnkWebsite.AutoSize = true;
+            this.lnkWebsite.Location = new System.Drawing.Point(13, 158);
+            this.lnkWebsite.Name = "lnkWebsite";
+            this.lnkWebsite.Size = new System.Drawing.Size(95, 13);
+            this.lnkWebsite.TabIndex = 6;
+            this.lnkWebsite.TabStop = true;
+            this.lnkWebsite.Text = "https://ibenzir.me";
+            this.lnkWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkWebsite_LinkClicked);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(215, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Originally by jshackles + JonasNilson (GPL-2.0)";
+            // 
             // frmAbout
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(272, 159);
-            this.Controls.Add(this.linkLabelVersion);
+            this.ClientSize = new System.Drawing.Size(280, 212);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.lnkWebsite);
+            this.Controls.Add(this.lblMaintainer);
+            this.Controls.Add(this.linkLabelVersion);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -110,5 +134,7 @@ namespace IdleMasterExtended
         private PictureBox pictureBox1;
         private Label label2;
         private LinkLabel linkLabelVersion;
+        private Label lblMaintainer;
+        private LinkLabel lnkWebsite;
     }
 }

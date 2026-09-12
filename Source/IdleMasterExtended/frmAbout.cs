@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Deployment.Application;
 using System.Reflection;
 using System.Text;
@@ -45,6 +45,7 @@ namespace IdleMasterExtended
                 btnOK.ForeColor = this.ForeColor;
 
                 linkLabelVersion.LinkColor = this.ForeColor;
+                lnkWebsite.LinkColor = this.ForeColor;
             }
         }
 
@@ -57,6 +58,11 @@ namespace IdleMasterExtended
         private void linkLabelVersion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/JonasNilson/idle_master_extended/releases");
+        }
+
+        private void lnkWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://ibenzir.me");
         }
     }
 }
