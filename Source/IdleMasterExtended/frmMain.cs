@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -637,8 +637,15 @@ namespace IdleMasterExtended
         #endregion
 
         #region MISC
-        private static void PreventSleep() => NativeMethods.SetThreadExecutionState(NativeMethods.ExecutionState.EsContinuous | NativeMethods.ExecutionState.EsSystemRequired);
-        private static void AllowSleep() => NativeMethods.SetThreadExecutionState(NativeMethods.ExecutionState.EsContinuous);
+        private static void PreventSleep()
+        {
+            NativeMethods.SetThreadExecutionState(NativeMethods.ExecutionState.EsContinuous | NativeMethods.ExecutionState.EsSystemRequired);
+        }
+
+        private static void AllowSleep()
+        {
+            NativeMethods.SetThreadExecutionState(NativeMethods.ExecutionState.EsContinuous);
+        }
 
         private static void CreateShutdownProcess(String parameters)
         {
@@ -701,9 +708,10 @@ namespace IdleMasterExtended
                     string versionNumber = tagElements[0].Substring(1);     // "X.Y.Z"
                     string[] versionElements = versionNumber.Split('.');    // [X, Y, Z]
 
-                    if (int.TryParse(versionElements[0], out int latestMajorVersion)
-                        && int.TryParse(versionElements[1], out int latestMinorVersion)
-                        && int.TryParse(versionElements[2], out int latestPatchVersion))
+                    int latestMajorVersion, latestMinorVersion, latestPatchVersion;
+                    if (int.TryParse(versionElements[0], out latestMajorVersion)
+                        && int.TryParse(versionElements[1], out latestMinorVersion)
+                        && int.TryParse(versionElements[2], out latestPatchVersion))
                     {
                         System.Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
                         if (latestMajorVersion > version.Major

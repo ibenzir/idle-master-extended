@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,7 +72,7 @@ namespace IdleMasterExtended
             // The 'notification_count' contains the Steam profile notifications count. Every logged in user should have it available.
             var notificationCountNode = document.DocumentNode.SelectSingleNode("//span[@class='notification_count']");
 
-            if (notificationCountNode is null || string.IsNullOrEmpty(notificationCountNode.InnerHtml))
+            if (notificationCountNode == null || string.IsNullOrEmpty(notificationCountNode.InnerHtml))
             {
                 // The user has no notification count available --> not logged in properly.
                 ClearCookies();

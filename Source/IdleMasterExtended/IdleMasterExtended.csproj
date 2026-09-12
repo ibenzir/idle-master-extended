@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -107,6 +107,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\Dependencies\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Steamworks.NET, Version=20.2.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -326,13 +329,10 @@
     <None Include="Resources\eye-2x.png" />
     <None Include="Resources\trash-2x.png" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack">
-      <Version>1.11.42</Version>
-    </PackageReference>
-  </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
+    <AlToolPath Condition="'$(AlToolPath)' == '' and Exists('$(MSBuildProjectDirectory)\..\..\buildtools\al.exe')">$(MSBuildProjectDirectory)\..\..\buildtools\</AlToolPath>
     <PostBuildEvent>XCOPY /Y /D "$(SolutionDir)..\steam-idle Source\steam-idle\bin\Release\steam-idle.exe" "$(TargetDir)"
 XCOPY /Y /D "$(SolutionDir)..\Dependencies\steam_api64.dll" "$(TargetDir)"
 
@@ -341,11 +341,5 @@ MKDIR "$(TargetDir)Languages"
 FOR /F %25%25X IN ('DIR /B /AD $(TargetDir)') DO IF /I NOT "%25%25X"=="Languages" MOVE /Y "$(TargetDir)%25%25X" "$(TargetDir)Languages"
 </PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
