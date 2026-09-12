@@ -163,7 +163,7 @@ namespace SteamTradeCardDropper
 
         private void linkLabelWhatIsThis_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/ibenzir/idle-master-extended#setup--authentication");
+            Process.Start("https://github.com/ibenzir/steam-trade-card-dropper#setup--authentication");
         }
     }
 }
